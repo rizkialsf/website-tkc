@@ -49,7 +49,6 @@ a {
   text-decoration: none;
 }
 
-/* Cegah teks meluber ke luar kotak di layar kecil */
 h1,
 h2,
 h3,
@@ -87,7 +86,6 @@ a {
 /* =========================================
    A.2. GLOBAL TYPOGRAPHY (FLUID SCALING)
 ========================================= */
-/* Setelan dasar font untuk kelancaran membaca */
 body {
   font-size: 16px;
   line-height: 1.6;
@@ -95,32 +93,38 @@ body {
 }
 
 h1 {
-  font-size: clamp(2.5rem, 3.5vw, 4rem); /* Maksimal 64px */
+  font-size: clamp(40px, 3.5vw, 64px);
+  /* font-size: clamp(2.5rem, 3.5vw, 4rem);  */
   color: var(--header-text-color);
 }
 
 h2 {
-  font-size: clamp(1.75rem, 2.5vw, 3rem); /* Maksimal 48px */
+  font-size: clamp(28px, 2.5vw, 48px);
+  /* font-size: clamp(1.75rem, 2.5vw, 3rem); */
   color: var(--header-text-color);
 }
 
 h3 {
-  font-size: clamp(1.25rem, 1.8vw, 2.25rem); /* Maksimal 36px */
+  font-size: clamp(20px, 1.8vw, 36px);
+  /* font-size: clamp(1.25rem, 1.8vw, 2.25rem);  */
   color: var(--header-text-color);
 }
 
 h4 {
-  font-size: clamp(1.125rem, 1.5vw, 1.75rem); /* Maksimal 28px */
+  font-size: clamp(18px, 1.5vw, 28px);
+  /* font-size: clamp(1.125rem, 1.5vw, 1.75rem); */
   color: var(--header-text-color);
 }
 
 h5 {
-  font-size: clamp(1rem, 1.2vw, 1.25rem); /* Maksimal 20px */
+  font-size: clamp(16px, 1.2vw, 20px);
+  /* font-size: clamp(1rem, 1.2vw, 1.25rem);  */
   color: var(--header-text-color);
 }
 
 h6 {
-  font-size: clamp(0.875rem, 1vw, 1rem); /* Maksimal 16px */
+  font-size: clamp(14px, 1vw, 16px);
+  /* font-size: clamp(0.875rem, 1vw, 1rem); */
   color: var(--header-text-color);
 }
 
@@ -380,10 +384,15 @@ h6 {
 
 .scroll-top-btn {
   position: fixed;
-  bottom: 115px;
-  right: 40px;
-  width: 60px;
-  height: 60px;
+  bottom: clamp(90px, 8vw, 115px);
+  /* bottom: 115px; */
+  right: clamp(20px, 3vw, 40px);
+  /* right: 40px; */
+
+  width: clamp(48px, 4vw, 60px);
+  /* width: 60px; */
+  height: clamp(48px, 4vw, 60px);
+  /* height: 60px; */
 
   display: flex;
   justify-content: center;
@@ -400,7 +409,8 @@ h6 {
   opacity: 0;
   visibility: hidden;
   transform: translateY(20px);
-  transition: 0.4s;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  /* transition: 0.4s; */
 }
 
 .scroll-top-btn.visible {
@@ -412,26 +422,33 @@ h6 {
 .scroll-top-btn:hover {
   background-color: var(--accent-color);
   transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(62, 177, 97, 0.4);
 }
 
 .arrow-up {
   display: inline-block;
-
   border: solid var(--white-text-color);
   border-width: 0 3px 3px 0;
 
-  padding: 6px;
-  margin-top: 6px;
+  padding: clamp(5px, 0.5vw, 6px);
+  /* padding: 6px; */
+  margin-top: clamp(4px, 0.4vw, 6px);
+  /* margin-top: 6px; */
 
   transform: rotate(-135deg);
 }
 
 .floating-email {
   position: fixed;
-  bottom: 40px;
-  right: 40px;
-  width: 60px;
-  height: 60px;
+  bottom: clamp(25px, 2.5vw, 40px);
+  /* bottom: 40px; */
+  right: clamp(20px, 3vw, 40px);
+  /* right: 40px; */
+
+  width: clamp(48px, 4vw, 60px);
+  /* width: 60px; */
+  height: clamp(48px, 4vw, 60px);
+  /* height: 60px; */
 
   display: flex;
   justify-content: center;
@@ -446,12 +463,14 @@ h6 {
 }
 
 .floating-email img {
-  width: 28px;
+  /* width: 28px; */
+  width: 50%;
+  height: auto;
 }
 
 .floating-email:hover {
   transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
 }
 
 /* =========================================
@@ -1427,26 +1446,27 @@ h6 {
 
 /* Contact Section */
 .contact-section {
-  padding-top: 60px;
-  padding-bottom: 100px;
-
+  padding: clamp(40px, 5vw, 60px) 10% clamp(70px, 8vw, 100px);
+  /* padding-top: 60px; */
+  /* padding-bottom: 100px; */
   background-color: var(--secondary-color);
 }
 
 .contact-header {
   text-align: center;
-  padding-bottom: 50px;
+  padding-bottom: clamp(30px, 4vw, 50px);
+  /* padding-bottom: 50px; */
 }
 
 .contact-header h2 {
+  font-size: clamp(28px, 3vw, 40px);
   font-weight: 600;
-
   color: var(--white-text-color);
 }
 
 .contact-header h4 {
+  font-size: clamp(16px, 2.5vw, 24px);
   font-weight: 500;
-
   color: var(--accent-color);
 }
 
@@ -1454,7 +1474,8 @@ h6 {
   display: flex;
   justify-content: center;
   align-items: stretch;
-  gap: 100px;
+  gap: clamp(40px, 5vw, 100px);
+  /* gap: 100px; */
 }
 
 .contact-left {
@@ -1473,20 +1494,20 @@ h6 {
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: clamp(25px, 3vw, 40px);
+  /* gap: 40px; */
 }
 
 .contact-block h3 {
   font-weight: 500;
   padding-bottom: 10px;
-
   color: var(--white-text-color);
 }
 
 .contact-block p {
-  font-size: 20px;
+  font-size: clamp(16px, 1.25vw, 20px);
+  /* font-size: 20px; */
   padding-bottom: 20px;
-
   color: var(--white-text-color);
 }
 
@@ -1525,7 +1546,9 @@ h6 {
 
 .contact-map {
   width: 100%;
-  height: 330px;
+
+  height: clamp(250px, 22vw, 330px);
+  /* height: 330px; */
   border: none;
   margin-bottom: 20px;
 }
@@ -1533,7 +1556,6 @@ h6 {
 .head-office-info h3 {
   font-weight: 500;
   margin-bottom: 10px;
-
   color: var(--white-text-color);
 }
 
@@ -1542,7 +1564,6 @@ h6 {
   display: flex;
   flex-direction: column;
   gap: 15px;
-
   margin-bottom: 25px;
 }
 
@@ -1563,7 +1584,8 @@ h6 {
 
 .head-office-location li span,
 .head-office-details li span {
-  font-size: 20px;
+  /* font-size: 20px; */
+  font-size: clamp(16px, 1.25vw, 20px);
   line-height: 1.5;
   text-transform: none;
 
@@ -1655,9 +1677,10 @@ h6 {
 } */
 
 .footer-section {
-  padding-top: 80px;
-  padding-bottom: 30px;
-  background-color: var(--accent-color); /* Warna hijau Anda */
+  padding: clamp(50px, 6vw, 80px) 10% clamp(20px, 3vw, 30px);
+  /* padding-top: 80px; */
+  /* padding-bottom: 30px; */
+  background-color: var(--accent-color);
   color: var(--white-text-color);
 }
 
@@ -1665,36 +1688,40 @@ h6 {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 80px; /* Jarak antara kiri dan kanan */
+  gap: clamp(30px, 5vw, 80px);
+  /* gap: 80px;  */
   width: 100%;
-  margin-bottom: 60px;
+  margin-bottom: clamp(40px, 5vw, 60px);
+  /* margin-bottom: 60px; */
 }
 
-/* --- KIRI: BRAND INFO --- */
 .footer-brand {
   flex: 1;
-  max-width: 350px; /* Batasi lebarnya agar tidak terlalu melar */
+  max-width: clamp(250px, 22vw, 350px);
+  /* max-width: 350px;  */
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
 
 .footer-logo img {
-  width: 180px;
+  width: clamp(140px, 12vw, 180px);
+  /* width: 180px; */
   object-fit: contain;
 }
 
 .footer-bio {
-  font-size: 15px;
+  font-size: clamp(14px, 1.1vw, 15px);
+  /* font-size: 15px; */
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.85); /* Sedikit transparan agar elegan */
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .social-media {
   display: flex;
   align-items: center;
   gap: 15px;
-  margin-left: 0; /* Hapus margin-left lama Anda */
+  margin-left: 0;
 }
 
 .social-media a {
@@ -1720,15 +1747,15 @@ h6 {
 }
 
 .social-media a:hover img {
-  filter: invert(0); /* Ikon jadi warna asli/hijau saat dihover */
+  filter: invert(0);
 }
 
-/* --- KANAN: LINKS WRAPPER --- */
 .footer-links-wrapper {
   flex: 2;
   display: flex;
   justify-content: space-between;
-  gap: 40px;
+  gap: clamp(15px, 2.5vw, 40px);
+  /* gap: 40px; */
 }
 
 .footer-col {
@@ -1744,7 +1771,6 @@ h6 {
   position: relative;
 }
 
-/* Garis aksen kecil di bawah judul kolom */
 .footer-col h3::after {
   content: "";
   position: absolute;
@@ -1763,18 +1789,18 @@ h6 {
 }
 
 .footer-col a {
-  font-size: 15px;
+  font-size: clamp(14px, 1vw, 15px);
+  /* font-size: 15px; */
   color: rgba(255, 255, 255, 0.75);
   transition: 0.3s;
 }
 
 .footer-col a:hover {
   color: var(--white-text-color);
-  text-decoration: none; /* Hilangkan underline */
-  padding-left: 5px; /* Efek bergeser sedikit saat di-hover */
+  text-decoration: none;
+  padding-left: 5px;
 }
 
-/* --- BAWAH: COPYRIGHT BAR --- */
 .footer-bottom {
   display: flex;
   flex-direction: column;
@@ -1782,7 +1808,7 @@ h6 {
 }
 
 .footer-bottom .custom-line {
-  background-color: rgba(255, 255, 255, 0.2); /* Garis transparan */
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .copyright-content {
@@ -1793,7 +1819,8 @@ h6 {
 
 .copyright-content p,
 .legal-links a {
-  font-size: 14px;
+  font-size: clamp(12px, 1vw, 14px);
+  /* font-size: 14px; */
   color: rgba(255, 255, 255, 0.6);
 }
 
