@@ -29,3 +29,5663 @@ h6 {
   font-size: clamp(12px, 1vw, 16px);
   color: var(--header-text-color);
 }
+
+sudah mantap nih mari kita review ulang seluruh kode kita, mohon saran dan kritik agar kodingan ini lebih efisien dan ringan
+
+
+
+html 
+
+
+
+<!doctype html>
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>PT. Tri Karya Cemerlang</title>
+
+
+
+    <link rel="shortcut icon" href="assets/logo/Main.png" type="image/x-icon" />
+
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+
+      rel="stylesheet"
+
+    />
+
+
+
+    <link rel="stylesheet" href="css/style.css" />
+
+  </head>
+
+  <body>
+
+    <div class="navbar">
+
+      <div class="logo">
+
+        <a href="#"
+
+          ><img src="assets/logo/Main-Logo-Block.png" alt="TKC Logo"
+
+        /></a>
+
+      </div>
+
+
+
+      <div class="hamburger">
+
+        <span></span>
+
+        <span></span>
+
+        <span></span>
+
+      </div>
+
+
+
+      <div class="main-nav-links">
+
+        <ul>
+
+          <li><a href="#">home</a></li>
+
+          <li class="dropdown-link">
+
+            <a href="#"
+
+              >about <img src="assets/icons/down-arrow.png" alt="down arrow"
+
+            /></a>
+
+            <div class="dropdown-menu menu-about">
+
+              <ul>
+
+                <li><a href="#">company profile</a></li>
+
+                <li><a href="#">vision & mission</a></li>
+
+                <li><a href="#">management & teams</a></li>
+
+              </ul>
+
+            </div>
+
+          </li>
+
+          <li class="dropdown-link">
+
+            <a href="#"
+
+              >services <img src="assets/icons/down-arrow.png" alt="down arrow"
+
+            /></a>
+
+            <div class="dropdown-menu menu-services">
+
+              <ul>
+
+                <li><a href="#">cleaning services</a></li>
+
+                <li><a href="#">security services</a></li>
+
+                <li>
+
+                  <a href="#">pest control services</a>
+
+                </li>
+
+                <li>
+
+                  <a href="#">landscaping services</a>
+
+                </li>
+
+                <li><a href="#">facility management</a></li>
+
+              </ul>
+
+            </div>
+
+          </li>
+
+          <li><a href="#">career</a></li>
+
+          <li><a href="#">products</a></li>
+
+          <li><a href="#">contact</a></li>
+
+        </ul>
+
+      </div>
+
+
+
+      <div class="side-nav-links">
+
+        <ul>
+
+          <li class="dropdown-link">
+
+            <a href="#"
+
+              >help <img src="assets/icons/down-arrow.png" alt="down arrow"
+
+            /></a>
+
+            <div class="dropdown-menu menu-help">
+
+              <ul>
+
+                <li><a href="#">FAQ's</a></li>
+
+                <li><a href="#">support ticket</a></li>
+
+                <li><a href="#">report an issue</a></li>
+
+                <li><a href="#">whatsApp chat</a></li>
+
+                <li><a href="#">terms of service</a></li>
+
+              </ul>
+
+            </div>
+
+          </li>
+
+          <li class="dropdown-link">
+
+            <a href="#"
+
+              ><img src="assets/icons/united-kingdom-flag.png" alt="English"
+
+            /></a>
+
+            <div class="dropdown-menu menu-lang">
+
+              <ul>
+
+                <li>
+
+                  <a href="#"
+
+                    ><img
+
+                      src="assets/icons/united-kingdom-flag.png"
+
+                      alt="English"
+
+                      class="dropdown-flag"
+
+                    />
+
+                    english</a
+
+                  >
+
+                </li>
+
+                <li>
+
+                  <a href="#"
+
+                    ><img
+
+                      src="assets/icons/indonesia-flag.png"
+
+                      alt="Indonesia"
+
+                      class="dropdown-flag"
+
+                    />
+
+                    indonesia</a
+
+                  >
+
+                </li>
+
+              </ul>
+
+            </div>
+
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+
+
+    <header class="hero-section">
+
+      <div class="hero-content">
+
+        <h1>your one stop facility services</h1>
+
+        <p>
+
+          reliable partner in providing professional and experienced outsourcing
+
+          workforce
+
+        </p>
+
+        <a href="#" class="btn">interesting with us ?</a>
+
+      </div>
+
+
+
+      <div class="scroll-down-container">
+
+        <span class="scroll-arrow"></span>
+
+        <span class="scroll-arrow"></span>
+
+        <span class="scroll-arrow"></span>
+
+      </div>
+
+    </header>
+
+
+
+    <main class="main-content">
+
+      <div class="first-section">
+
+        <div class="introduce-section fade-up" style="transition-delay: 1.3s">
+
+          <h2>introduce us, <span>tri karya cemerlang</span></h2>
+
+        </div>
+
+
+
+        <div class="about-section section-padding bg-primary">
+
+          <div class="about-content">
+
+            <div class="stats-grid">
+
+              <div class="stat-card fade-up" style="transition-delay: 1.5s">
+
+                <div class="icon-box">
+
+                  <img src="assets/about/Experiences.gif" alt="18 Years" />
+
+                </div>
+
+                <h3>18 Years Of Experiences</h3>
+
+                <p>
+
+                  Our company has consistently delivering exceptional quality
+
+                  services and innovative solutions for almost two decades.
+
+                </p>
+
+              </div>
+
+
+
+              <div class="stat-card fade-up" style="transition-delay: 1.7s">
+
+                <div class="icon-box">
+
+                  <img src="assets/about/Manpower.gif" alt="Manpower Supply" />
+
+                </div>
+
+                <h3>7700+ Manpower Supply</h3>
+
+                <p>
+
+                  We are committed to delivering the highest quality manpower
+
+                  for your business needs across various sectors.
+
+                </p>
+
+              </div>
+
+
+
+              <div class="stat-card fade-up" style="transition-delay: 1.9s">
+
+                <div class="icon-box">
+
+                  <img src="assets/about/Clients.gif" alt="Satisfied Clients" />
+
+                </div>
+
+                <h3>200+ Satisfied Clients</h3>
+
+                <p>
+
+                  More than 200 clients have entrusted their needs to us and
+
+                  satisfied with services and solutions we offered.
+
+                </p>
+
+              </div>
+
+
+
+              <div class="stat-card fade-up" style="transition-delay: 2.1s">
+
+                <div class="icon-box">
+
+                  <img src="assets/about/Office.gif" alt="Branch Offices" />
+
+                </div>
+
+                <h3>7 Branch Offices</h3>
+
+                <p>
+
+                  We are always ready and responsive to serve you with a wider
+
+                  reach and faster response in every region.
+
+                </p>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="industries-section section-padding bg-primary">
+
+          <div class="industries-content">
+
+            <div class="industries-left">
+
+              <div class="industries-text">
+
+                <h4 class="sub-heading">Industries We Support</h4>
+
+                <h2 class="main-heading">
+
+                  We Work With All Types Of Workplaces
+
+                </h2>
+
+                <p class="description">
+
+                  Intelligent, integrated facility services are designed to
+
+                  drive profitability, improve efficiency, and provide a
+
+                  competitive advantage—while allowing you to concentrate on
+
+                  your core business. We tailor our approach to meet your
+
+                  evolving needs and transformation. No matter the industry or
+
+                  location, we are committed to fostering your success.
+
+                </p>
+
+              </div>
+
+
+
+              <div class="carousel-container">
+
+                <button class="carousel-prev-btn prev-btn">
+
+                  <img src="assets/icons/right-arrow.png" alt="prev-btn" />
+
+                </button>
+
+
+
+                <div class="carousel-icons">
+
+                  <div class="carousel-icon-box" data-index="0">
+
+                    <img
+
+                      src="assets/industries/Icon/corporate.png"
+
+                      alt="Corporate"
+
+                    />
+
+                  </div>
+
+                  <div class="carousel-icon-box" data-index="1">
+
+                    <img
+
+                      src="assets/industries/Icon/healthcare.png"
+
+                      alt="Healthcare"
+
+                    />
+
+                  </div>
+
+                  <div class="carousel-icon-box active" data-index="2">
+
+                    <img
+
+                      src="assets/industries/Icon/education.png"
+
+                      alt="Education"
+
+                    />
+
+                  </div>
+
+                  <div class="carousel-icon-box" data-index="3">
+
+                    <img
+
+                      src="assets/industries/Icon/manufacture.png"
+
+                      alt="Manufacturing"
+
+                    />
+
+                  </div>
+
+                  <div class="carousel-icon-box" data-index="4">
+
+                    <img src="assets/industries/Icon/retail.png" alt="Retail" />
+
+                  </div>
+
+                </div>
+
+
+
+                <button class="carousel-next-btn next-btn">
+
+                  <img src="assets/icons/right-arrow.png" alt="next-btn" />
+
+                </button>
+
+              </div>
+
+
+
+              <div class="carousel-dots">
+
+                <span class="dot" data-index="0"></span>
+
+                <span class="dot" data-index="1"></span>
+
+                <span class="dot active" data-index="2"></span>
+
+                <span class="dot" data-index="3"></span>
+
+                <span class="dot" data-index="4"></span>
+
+              </div>
+
+            </div>
+
+
+
+            <div class="industries-right">
+
+              <div class="industries-image-wrapper">
+
+                <img
+
+                  src="assets/industries/office.webp"
+
+                  alt="Corporate Office"
+
+                />
+
+
+
+                <div class="industries-overlay"></div>
+
+
+
+                <div class="industries-image-text">
+
+                  <h3 id="industry-title">Corporate</h3>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="divider-wrapper">
+
+          <div class="custom-line"></div>
+
+        </div>
+
+
+
+        <div class="services-section section-padding bg-primary">
+
+          <div class="section-header">
+
+            <h2 class="main-heading">Our Excellence Services</h2>
+
+            <h4 class="sub-heading">
+
+              Support Your Business With Our Range Services
+
+            </h4>
+
+          </div>
+
+
+
+          <div class="services-content">
+
+            <div class="services-left">
+
+              <div class="services-accordion">
+
+                <div class="acc-item active" data-index="0">
+
+                  <img
+
+                    src="assets/services/cleaning-services.webp"
+
+                    alt="Cleaning Service"
+
+                    loading="lazy"
+
+                    decoding="async"
+
+                  />
+
+                </div>
+
+
+
+                <div class="acc-item" data-index="1">
+
+                  <img
+
+                    src="assets/services/security.webp"
+
+                    alt="Security Service"
+
+                    loading="lazy"
+
+                    decoding="async"
+
+                  />
+
+                </div>
+
+
+
+                <div class="acc-item" data-index="2">
+
+                  <img
+
+                    src="assets/services/pest.webp"
+
+                    alt="Pest Control"
+
+                    loading="lazy"
+
+                    decoding="async"
+
+                  />
+
+                </div>
+
+
+
+                <div class="acc-item" data-index="3">
+
+                  <img
+
+                    src="assets/services/rope.webp"
+
+                    alt="Rope Access"
+
+                    loading="lazy"
+
+                    decoding="async"
+
+                  />
+
+                </div>
+
+
+
+                <div class="acc-item" data-index="4">
+
+                  <img
+
+                    src="assets/services/mep.webp"
+
+                    alt="Facility Management"
+
+                    loading="lazy"
+
+                    decoding="async"
+
+                  />
+
+                </div>
+
+
+
+                <div class="acc-item" data-index="5">
+
+                  <img
+
+                    src="assets/services/receptionist.webp"
+
+                    alt="Receptionist"
+
+                    loading="lazy"
+
+                    decoding="async"
+
+                  />
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+
+            <div class="services-right">
+
+              <div class="services-text-info">
+
+                <h3 id="service-title">Cleaning Service</h3>
+
+                <p id="service-desc">
+
+                  Maintaining clean, hygienic spaces requires the highest
+
+                  standards. We are committed to supporting the health, safety,
+
+                  and well-being of your employees, guests, and clients. Through
+
+                  a partnership built on transparency, we address hygiene
+
+                  concerns with expertise, visible cleaning presence, and
+
+                  precise testing and monitoring—always aligned with your
+
+                  business objectives.
+
+                </p>
+
+                <a href="#" class="btn-dark">Read More</a>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <section class="intermezzo-section">
+
+        <div class="intermezzo-content">
+
+          <h2 class="intermezzo-description">
+
+            Looking To Expand Your Business Without Increasing Overhead
+
+            Costs?<br />
+
+            Our Outsourcing Services Provide The Perfect Solution.
+
+          </h2>
+
+          <a href="#" class="btn-intermezzo">
+
+            Chat Us Now
+
+            <img
+
+              src="assets/icons/right-arrow.png"
+
+              alt="Arrow Right"
+
+              class="btn-arrow"
+
+            />
+
+          </a>
+
+        </div>
+
+      </section>
+
+
+
+      <div class="second-section">
+
+        <div class="projects-section section-padding bg-primary">
+
+          <div class="section-header">
+
+            <h2 class="main-heading">Your Satisfaction Is Our Commitment</h2>
+
+            <h4 class="sub-heading">
+
+              Always Paying Attention To Every Detail Of Our Clients Needs
+
+            </h4>
+
+          </div>
+
+
+
+          <div class="projects-content">
+
+            <div class="projects-grid">
+
+              <div class="project-card">
+
+                <div class="project-image-wrapper">
+
+                  <img
+
+                    src="assets/projects/Holland Bakery.jpg"
+
+                    alt="Holland Bakery"
+
+                    loading="lazy"
+
+                    decoding="async"
+
+                  />
+
+
+
+                  <div class="project-overlay"></div>
+
+
+
+                  <div class="project-image-text">
+
+                    <h6 id="project-description">test</h6>
+
+                  </div>
+
+                </div>
+
+
+
+                <div class="project-info">
+
+                  <h3>Holland Bakery</h3>
+
+                  <div class="project-line"></div>
+
+                </div>
+
+              </div>
+
+
+
+              <div class="project-card">
+
+                <div class="project-image-wrapper">
+
+                  <img
+
+                    src="assets/projects/Menara Kuningan 2.jpg"
+
+                    alt="Menara Kuningan"
+
+                    loading="lazy"
+
+                    decoding="async"
+
+                  />
+
+
+
+                  <div class="project-overlay"></div>
+
+
+
+                  <div class="project-image-text">
+
+                    <h6 id="project-description">test</h6>
+
+                  </div>
+
+                </div>
+
+
+
+                <div class="project-info">
+
+                  <h3>Menara Kuningan</h3>
+
+                  <div class="project-line"></div>
+
+                </div>
+
+              </div>
+
+
+
+              <div class="project-card">
+
+                <div class="project-image-wrapper">
+
+                  <img
+
+                    src="assets/projects/Sari Roti.jpg"
+
+                    alt="Sari Roti"
+
+                    loading="lazy"
+
+                    decoding="async"
+
+                  />
+
+
+
+                  <div class="project-overlay"></div>
+
+
+
+                  <div class="project-image-text">
+
+                    <h6 id="project-description">test</h6>
+
+                  </div>
+
+                </div>
+
+
+
+                <div class="project-info">
+
+                  <h3>Sari Roti</h3>
+
+                  <div class="project-line"></div>
+
+                </div>
+
+              </div>
+
+
+
+              <div class="project-card">
+
+                <div class="project-image-wrapper">
+
+                  <img
+
+                    src="assets/projects/Mitra 10.jpg"
+
+                    alt="Mitra 10"
+
+                    loading="lazy"
+
+                    decoding="async"
+
+                  />
+
+
+
+                  <div class="project-overlay"></div>
+
+
+
+                  <div class="project-image-text">
+
+                    <h6 id="project-description">test</h6>
+
+                  </div>
+
+                </div>
+
+
+
+                <div class="project-info">
+
+                  <h3>Mitra 10</h3>
+
+                  <div class="project-line"></div>
+
+                </div>
+
+              </div>
+
+
+
+              <div class="project-card">
+
+                <div class="project-image-wrapper">
+
+                  <img
+
+                    src="assets/projects/Transmart 2.jpg"
+
+                    alt="Transmart"
+
+                    loading="lazy"
+
+                    decoding="async"
+
+                  />
+
+
+
+                  <div class="project-overlay"></div>
+
+
+
+                  <div class="project-image-text">
+
+                    <h6 id="project-description">test</h6>
+
+                  </div>
+
+                </div>
+
+
+
+                <div class="project-info">
+
+                  <h3>Transmart</h3>
+
+                  <div class="project-line"></div>
+
+                </div>
+
+              </div>
+
+
+
+              <div class="project-card">
+
+                <div class="project-image-wrapper">
+
+                  <img
+
+                    src="assets/projects/RDTX 1.jpg"
+
+                    alt="RDTX Group"
+
+                    loading="lazy"
+
+                    decoding="async"
+
+                  />
+
+
+
+                  <div class="project-overlay"></div>
+
+
+
+                  <div class="project-image-text">
+
+                    <h6 id="project-description">test</h6>
+
+                  </div>
+
+                </div>
+
+
+
+                <div class="project-info">
+
+                  <h3>RDTX Group</h3>
+
+                  <div class="project-line"></div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="clients-section">
+
+          <div class="section-header">
+
+            <h4 class="sub-heading">Over 200+ Clients Already Choose Us</h4>
+
+          </div>
+
+
+
+          <div class="clients-content">
+
+            <div class="clients-marquee-container" id="clientsMarquee"></div>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="coverage-section section-padding bg-primary">
+
+          <div class="section-header">
+
+            <h2 class="main-heading">Our Coverage Area</h2>
+
+            <h4 class="sub-heading">Bringing Our Services To You</h4>
+
+          </div>
+
+
+
+          <div class="coverage-map">
+
+            <img
+
+              src="assets/coverage/Map.png"
+
+              alt="Map of Indonesia Coverage Area"
+
+              loading="lazy"
+
+              decoding="async"
+
+            />
+
+          </div>
+
+        </div>
+
+
+
+        <section class="contact-section section-padding bg-secondary">
+
+          <div class="section-header">
+
+            <h2 class="main-heading">Contact Us</h2>
+
+            <h4 class="sub-heading">Get In Touch Now</h4>
+
+          </div>
+
+
+
+          <div class="contact-content">
+
+            <div class="contact-left">
+
+              <div class="contact-block">
+
+                <h3>Inquiries</h3>
+
+                <p>
+
+                  For Any Inquiries, Questions Or Commendations, Please Send
+
+                  Email :
+
+                  <span>
+
+                    <a href="mailto:trikaryacemerlangofficial@gmail.com"
+
+                      >marketing@tkc.co.id</a
+
+                    ></span
+
+                  >
+
+                  Or Click The Following Button
+
+                </p>
+
+                <a
+
+                  href="mailto:trikaryacemerlangofficial@gmail.com"
+
+                  class="btn-green"
+
+                  >Ask Us Anything</a
+
+                >
+
+              </div>
+
+
+
+              <div class="contact-block">
+
+                <h3>Employment</h3>
+
+                <p>
+
+                  To Apply For A Job With Tri Karya Cemerlang, Please Send A
+
+                  Cover Letter Together With Your C.V. To :
+
+                  <span>
+
+                    <a href="mailto:recruitment@tkc.co.id"
+
+                      >recruitment@tkc.co.id</a
+
+                    ></span
+
+                  >
+
+                  Or Click The Following Button
+
+                </p>
+
+                <a href="mailto:recruitment@tkc.co.id" class="btn-green"
+
+                  >Send Email</a
+
+                >
+
+              </div>
+
+            </div>
+
+
+
+            <div class="contact-divider"></div>
+
+
+
+            <div class="contact-right">
+
+              <iframe
+
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.7533587170574!2d106.84149417499103!3d-6.296108293692979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f246ffffff89%3A0xb8551ba99bfacea7!2sPT.%20Tri%20Karya%20Cemerlang!5e0!3m2!1sen!2sid!4v1773392679283!5m2!1sen!2sid"
+
+                class="contact-map"
+
+                allowfullscreen=""
+
+                loading="lazy"
+
+                referrerpolicy="no-referrer-when-downgrade"
+
+              >
+
+              </iframe>
+
+
+
+              <div class="head-office-info">
+
+                <h3>Head Office</h3>
+
+                <ul class="head-office-location">
+
+                  <li>
+
+                    <img src="assets/icons/pin.png" alt="Location" />
+
+                    <span
+
+                      >Jl. Poltangan Raya No.32, RT.3/RW.10, East Pejaten,<br />Pasar
+
+                      Minggu, South Jakarta City, Jakarta 12510</span
+
+                    >
+
+                  </li>
+
+                </ul>
+
+
+
+                <ul class="head-office-details">
+
+                  <li>
+
+                    <img src="assets/icons/email.png" alt="Email" />
+
+                    <span>marketing@tkc.co.id</span>
+
+                  </li>
+
+                  <li>
+
+                    <img src="assets/icons/web.png" alt="Website" />
+
+                    <span>www.tkc.co.id</span>
+
+                  </li>
+
+                  <li>
+
+                    <img src="assets/icons/phone.png" alt="Phone" />
+
+                    <span>+62 21 7800512<br />+62 21 7801057</span>
+
+                  </li>
+
+                </ul>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+
+      </div>
+
+    </main>
+
+
+
+    <footer class="footer-section">
+
+      <div class="footer-container">
+
+        <div class="footer-brand">
+
+          <a href="#" class="footer-logo">
+
+            <img src="assets/logo/Alt-Block.png" alt="Tri Karya Cemerlang" />
+
+          </a>
+
+          <p class="footer-bio">
+
+            Intelligent, integrated facility services designed to drive
+
+            profitability, improve efficiency, and provide a competitive
+
+            advantage.
+
+          </p>
+
+
+
+          <div class="social-media">
+
+            <a
+
+              href="https://www.facebook.com/pttrikaryacemerlang"
+
+              target="_blank"
+
+              ><img src="assets/icons/facebook.png" alt="Facebook"
+
+            /></a>
+
+            <a
+
+              href="https://www.instagram.com/pttrikaryacemerlang"
+
+              target="_blank"
+
+              ><img src="assets/icons/instagram.png" alt="Instagram"
+
+            /></a>
+
+          </div>
+
+        </div>
+
+
+
+        <div class="footer-links-wrapper">
+
+          <div class="footer-col">
+
+            <h3>About Us</h3>
+
+            <ul>
+
+              <li><a href="#">Company Profile</a></li>
+
+              <li><a href="#">Vision & Mission</a></li>
+
+              <li><a href="#">Management & Teams</a></li>
+
+            </ul>
+
+          </div>
+
+
+
+          <div class="footer-col">
+
+            <h3>Our Services</h3>
+
+            <ul>
+
+              <li><a href="#">Cleaning Services</a></li>
+
+              <li><a href="#">Security Services</a></li>
+
+              <li><a href="#">Rope Access</a></li>
+
+              <li><a href="#">Pest Control</a></li>
+
+              <li><a href="#">MEP</a></li>
+
+            </ul>
+
+          </div>
+
+
+
+          <div class="footer-col">
+
+            <h3>Our Products</h3>
+
+            <ul>
+
+              <li><a href="#">General Cleaning</a></li>
+
+              <li><a href="#">MEP AC</a></li>
+
+              <li><a href="#">MyTKC</a></li>
+
+              <li><a href="#">MyClient</a></li>
+
+            </ul>
+
+          </div>
+
+
+
+          <div class="footer-col">
+
+            <h3>Support</h3>
+
+            <ul>
+
+              <li><a href="#">Our Location</a></li>
+
+              <li><a href="#">Apply For Job</a></li>
+
+              <li><a href="#">General Cleaning</a></li>
+
+              <li><a href="#">MyClient</a></li>
+
+            </ul>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="footer-bottom">
+
+        <div class="custom-line"></div>
+
+        <div class="copyright-content">
+
+          <p>&copy; 2026 PT. Tri Karya Cemerlang. All Rights Reserved.</p>
+
+          <div class="legal-links">
+
+            <a href="#">Privacy Policy</a>
+
+            <a href="#">Terms & Conditions</a>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </footer>
+
+
+
+    <a href="mailto:trikaryacemerlangofficial@gmail.com" class="floating-email">
+
+      <img src="assets/icons/gmail.png" alt="Email Support" />
+
+    </a>
+
+
+
+    <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">
+
+      <span class="arrow-up"></span>
+
+    </button>
+
+
+
+    <script src="js/main.js"></script>
+
+  </body>
+
+</html>
+
+
+
+css
+
+
+
+/* =========================================
+
+   A.1. VARIABLES & BASE RESET (CLEANED)
+
+========================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+
+
+:root {
+
+  /* Color Tokens */
+
+  --primary-color: #f8f9fa;
+
+  --secondary-color: #323232;
+
+  --accent-color: #3eb161;
+
+  --button-color: #d9d9d9;
+
+  --white-color: #ffffff;
+
+
+
+  /* Text Color Tokens */
+
+  --primary-text-color: #3eb161;
+
+  --secondary-text-color: #242424;
+
+  --accent-text-color: #5f5f5f;
+
+  --header-text-color: #f2f2f2;
+
+  --test-color: #ebebeb;
+
+  --white-text-color: #ffffff;
+
+}
+
+
+
+/* Base Reset */
+
+* {
+
+  margin: 0;
+
+  padding: 0;
+
+  box-sizing: border-box;
+
+  font-family: "Poppins", sans-serif;
+
+}
+
+
+
+html,
+
+body {
+
+  overflow-x: hidden;
+
+  background-color: var(--secondary-color);
+
+}
+
+
+
+img {
+
+  display: block;
+
+  max-width: 100%;
+
+  height: auto;
+
+}
+
+
+
+li {
+
+  list-style: none;
+
+}
+
+
+
+a {
+
+  text-decoration: none;
+
+  text-transform: capitalize;
+
+  display: inline-block; /* Mengamankan area klik tombol */
+
+}
+
+
+
+/* Mencegah Teks Merusak Layout di Layar Super Sempit (HP Lipat) */
+
+h1,
+
+h2,
+
+h3,
+
+h4,
+
+h5,
+
+h6,
+
+p,
+
+a,
+
+span {
+
+  word-wrap: break-word;
+
+  overflow-wrap: break-word;
+
+}
+
+
+
+/* =========================================
+
+   A.2. GLOBAL TYPOGRAPHY (CALIBRATED FOR ALL SCREENS)
+
+========================================= */
+
+body {
+
+  font-size: 16px;
+
+  line-height: 1.6;
+
+  color: var(--secondary-text-color);
+
+}
+
+
+
+/* Hierarki Huruf Otomatis: Aman di HP Sempit, Megah di Desktop & TV */
+
+h1 {
+
+  font-size: clamp(30px, 4.5vw, 80px);
+
+  color: var(--header-text-color);
+
+}
+
+h2 {
+
+  font-size: clamp(24px, 3.5vw, 56px);
+
+  color: var(--header-text-color);
+
+}
+
+h3 {
+
+  font-size: clamp(20px, 2.5vw, 38px);
+
+  color: var(--header-text-color);
+
+}
+
+h4 {
+
+  font-size: clamp(16px, 1.8vw, 28px);
+
+  color: var(--header-text-color);
+
+}
+
+h5 {
+
+  font-size: clamp(14px, 1.3vw, 22px);
+
+  color: var(--header-text-color);
+
+}
+
+h6 {
+
+  font-size: clamp(12px, 1vw, 16px);
+
+  color: var(--header-text-color);
+
+}
+
+
+
+h1,
+
+h2,
+
+h3,
+
+h4,
+
+h5,
+
+h6 {
+
+  text-transform: capitalize;
+
+  font-weight: 600; /* Default weight untuk kestabilan visual */
+
+}
+
+
+
+.main-heading {
+
+  font-size: clamp(28px, 3vw, 36px);
+
+  /* margin-bottom: 20px; */
+
+  color: var(--accent-color);
+
+}
+
+
+
+.sub-heading {
+
+  font-weight: 500;
+
+  color: var(--secondary-text-color);
+
+}
+
+
+
+/* =========================================
+
+   A.3. GLOBAL UTILITY CLASSES (THE D.R.Y PRINCIPLE)
+
+   -----------------------------------------
+
+   Gunakan class-class ini di HTML untuk memangkas 
+
+   pengulangan kode di setiap seksi.
+
+========================================= */
+
+
+
+/* Jarak standar pembungkus seksi (Seksi Abu-abu / Konten Utama) */
+
+.section-padding {
+
+  padding: clamp(50px, 6vw, 80px) 10% clamp(70px, 8vw, 100px);
+
+}
+
+
+
+/* Pewarnaan Latar Belakang Seksi */
+
+.bg-primary {
+
+  background-color: var(--primary-color);
+
+}
+
+
+
+.bg-secondary {
+
+  background-color: var(--secondary-color);
+
+}
+
+
+
+/* Master Komponen Header Seksi (Menyatukan layout judul) */
+
+.section-header {
+
+  text-align: center;
+
+  margin-bottom: clamp(40px, 5vw, 80px);
+
+}
+
+
+
+.section-header h2 {
+
+  color: var(--secondary-text-color);
+
+}
+
+
+
+.section-header h4 {
+
+  font-weight: 500;
+
+  color: var(--accent-color);
+
+}
+
+
+
+/* Pembatas & Garis Global */
+
+.divider-wrapper {
+
+  width: 100%;
+
+  background-color: var(--primary-color);
+
+  padding: 0 10%;
+
+}
+
+
+
+.custom-line {
+
+  width: 100%;
+
+  height: 2px;
+
+  background-color: var(--accent-color);
+
+}
+
+
+
+/* Efek Fade In Global */
+
+.fade-up {
+
+  opacity: 0;
+
+  transform: translateY(50px);
+
+  transition:
+
+    opacity 0.8s ease-out,
+
+    transform 0.8s ease-out;
+
+}
+
+
+
+.fade-up.visible {
+
+  opacity: 1;
+
+  transform: translateY(0);
+
+}
+
+
+
+/* =========================================
+
+   B. NAVBAR & FLOATING BUTTONS (REFACTORED)
+
+========================================= */
+
+/* --- 1. NAVBAR MASTER CONTAINER --- */
+
+.navbar {
+
+  position: fixed;
+
+  top: 30px;
+
+  left: 5%;
+
+  right: 5%;
+
+
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+  padding: 15px 40px;
+
+  border-radius: 50px;
+
+
+
+  background-color: var(--secondary-color);
+
+  z-index: 9999;
+
+  transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+}
+
+
+
+.navbar.scrolled {
+
+  top: 0;
+
+  left: 0;
+
+  right: 0;
+
+
+
+  border-radius: 0;
+
+  padding: 15px 5%;
+
+
+
+  background-color: var(--primary-color);
+
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+
+}
+
+
+
+.navbar.hidden {
+
+  transform: translateY(-100%);
+
+  box-shadow: none;
+
+}
+
+
+
+.logo img {
+
+  height: 40px;
+
+}
+
+
+
+/* --- 2. NAV LINKS MASTER --- */
+
+.main-nav-links ul,
+
+.side-nav-links ul {
+
+  display: flex;
+
+  gap: 20px;
+
+  align-items: center;
+
+}
+
+
+
+.main-nav-links ul li a,
+
+.side-nav-links ul li a {
+
+  position: relative;
+
+  display: flex;
+
+  align-items: center;
+
+
+
+  font-size: 16px;
+
+  font-weight: 500;
+
+  padding: 8px 12px;
+
+  gap: 6px;
+
+  white-space: nowrap;
+
+
+
+  color: var(--white-text-color);
+
+  transition: color 0.3s ease-in-out;
+
+}
+
+
+
+.navbar.scrolled .main-nav-links li a,
+
+.navbar.scrolled .side-nav-links li a {
+
+  color: var(--secondary-text-color);
+
+  font-weight: 600;
+
+}
+
+
+
+.navbar.scrolled .main-nav-links li a:hover,
+
+.navbar.scrolled .side-nav-links li a:hover {
+
+  color: var(--accent-color);
+
+}
+
+
+
+/* Animasi Garis Bawah (Underline) */
+
+.main-nav-links li a::after,
+
+.side-nav-links li a::after {
+
+  content: "";
+
+  position: absolute;
+
+  bottom: 0;
+
+  left: 50%;
+
+  width: 0;
+
+  height: 2px;
+
+  background-color: var(--primary-color);
+
+  transform: translateX(-50%);
+
+  transition: width 0.3s;
+
+}
+
+
+
+.main-nav-links li a:hover::after,
+
+.side-nav-links li a:hover::after {
+
+  width: 80%;
+
+}
+
+
+
+.navbar.scrolled .dropdown-link > a::after {
+
+  display: none; /* Matikan garis bawah khusus menu dropdown saat scrolled */
+
+}
+
+
+
+/* Ikon Panah & Bendera di Navbar */
+
+.main-nav-links li a img[src$="down-arrow.png"],
+
+.side-nav-links li a img[src$="down-arrow.png"] {
+
+  filter: invert(1);
+
+  width: 14px;
+
+  transition: all 0.3s;
+
+}
+
+
+
+.navbar.scrolled .main-nav-links li a img[src$="down-arrow.png"],
+
+.navbar.scrolled .side-nav-links li a img[src$="down-arrow.png"] {
+
+  filter: invert(0);
+
+}
+
+
+
+.main-nav-links li a:hover img[src$="down-arrow.png"],
+
+.side-nav-links li a:hover img[src$="down-arrow.png"] {
+
+  transform: rotate(-90deg);
+
+}
+
+
+
+.side-nav-links img:not([src$="down-arrow.png"]),
+
+.dropdown-menu img.dropdown-flag {
+
+  width: 22px;
+
+  border-radius: 2px;
+
+}
+
+
+
+/* --- 3. DROPDOWN MENUS (CONSOLIDATED) --- */
+
+.dropdown-link {
+
+  position: relative;
+
+}
+
+
+
+/* Ini adalah Master Class penghemat kode kita */
+
+.dropdown-menu {
+
+  position: absolute;
+
+  top: 100%;
+
+  left: 0;
+
+  width: 220px;
+
+
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 12px;
+
+  margin-top: 25px;
+
+  padding: 10px 0;
+
+
+
+  background-color: rgba(50, 50, 50, 0.65);
+
+  backdrop-filter: blur(12px);
+
+  -webkit-backdrop-filter: blur(12px);
+
+
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  z-index: 100;
+
+  transform: translateY(15px);
+
+  transition: all 0.3s;
+
+}
+
+
+
+/* Setelan Khusus Posisi yang Berbeda */
+
+.menu-help {
+
+  left: -35px;
+
+}
+
+.menu-lang {
+
+  width: 160px;
+
+  right: -40px;
+
+  left: auto;
+
+}
+
+
+
+.dropdown-menu ul {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+
+}
+
+
+
+.dropdown-menu li {
+
+  width: 100%;
+
+}
+
+
+
+.dropdown-menu a {
+
+  display: flex;
+
+  align-items: center;
+
+  width: 100%;
+
+  padding: 12px 24px;
+
+
+
+  font-size: 14px;
+
+  font-weight: 500 !important;
+
+  gap: 10px;
+
+
+
+  color: var(--white-text-color) !important;
+
+  transition: 0.2s;
+
+}
+
+
+
+.dropdown-menu a::after {
+
+  display: none !important; /* Mencegah munculnya garis bawah di dalam dropdown */
+
+}
+
+
+
+.dropdown-menu a:hover {
+
+  background-color: var(--accent-color);
+
+}
+
+
+
+.dropdown-link:hover .dropdown-menu {
+
+  opacity: 1;
+
+  visibility: visible;
+
+  transform: translateY(0);
+
+}
+
+
+
+/* --- 4. HAMBURGER MENU --- */
+
+.hamburger {
+
+  display: none;
+
+  flex-direction: column;
+
+  gap: 6px;
+
+  cursor: pointer;
+
+  z-index: 100;
+
+}
+
+
+
+.hamburger span {
+
+  display: block;
+
+  width: 30px;
+
+  height: 3px;
+
+
+
+  border-radius: 3px;
+
+  background-color: var(--white-text-color);
+
+  transition: all 0.3s;
+
+}
+
+
+
+.navbar.scrolled .hamburger span {
+
+  background-color: var(--secondary-text-color);
+
+}
+
+
+
+/* --- 5. FLOATING BUTTONS (GROUPED) --- */
+
+/* Penggabungan mesin pembuat tombol bulat melayang */
+
+.scroll-top-btn,
+
+.floating-email {
+
+  position: fixed;
+
+  right: clamp(20px, 3vw, 40px);
+
+  width: clamp(48px, 4vw, 60px);
+
+  height: clamp(48px, 4vw, 60px);
+
+
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+
+
+  border: none;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  z-index: 9998;
+
+
+
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+}
+
+
+
+/* Setelan Spesifik Scroll To Top */
+
+.scroll-top-btn {
+
+  bottom: clamp(90px, 8vw, 115px);
+
+  background-color: var(--secondary-text-color);
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+
+
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform: translateY(20px);
+
+}
+
+
+
+.scroll-top-btn.visible {
+
+  opacity: 1;
+
+  visibility: visible;
+
+  transform: translateY(0);
+
+}
+
+
+
+.scroll-top-btn:hover {
+
+  background-color: var(--accent-color);
+
+  transform: translateY(-5px) scale(1.05);
+
+  box-shadow: 0 8px 25px rgba(62, 177, 97, 0.4);
+
+}
+
+
+
+.scroll-top-btn .arrow-up {
+
+  display: inline-block;
+
+  border: solid var(--white-text-color);
+
+  border-width: 0 3px 3px 0;
+
+
+
+  padding: clamp(5px, 0.5vw, 6px);
+
+  margin-top: clamp(4px, 0.4vw, 6px);
+
+  transform: rotate(-135deg);
+
+}
+
+
+
+/* Setelan Spesifik Email Floating */
+
+.floating-email {
+
+  bottom: clamp(25px, 2.5vw, 40px);
+
+  background-color: var(--white-text-color);
+
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+
+}
+
+
+
+.floating-email img {
+
+  width: 45%;
+
+  height: auto;
+
+}
+
+
+
+.floating-email:hover {
+
+  transform: translateY(-5px) scale(1.05);
+
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+
+}
+
+
+
+/* =========================================
+
+   C. MAIN CONTENT & HERO SECTION
+
+========================================= */
+
+.main-content {
+
+  padding-top: 60px;
+
+  min-height: 100vh;
+
+  position: relative;
+
+  z-index: 2;
+
+}
+
+
+
+/* --- 1. HERO SECTION --- */
+
+.hero-section {
+
+  display: flex;
+
+  flex-direction: column;
+
+  position: relative;
+
+  min-height: 100vh;
+
+
+
+  background-image: url("../assets/dashboard/bg-home.webp");
+
+  background-size: cover;
+
+  background-position: center;
+
+  padding: 0 5%;
+
+
+
+  z-index: 1;
+
+  will-change: opacity;
+
+  transform: translateZ(0); /* Hardware acceleration untuk performa scroll */
+
+}
+
+
+
+.hero-content {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  flex-grow: 1;
+
+  padding-left: 5%;
+
+}
+
+
+
+.hero-content h1 {
+
+  max-width: 800px;
+
+
+
+  /* Ukuran h1 otomatis mengikuti Global Typography (Aman di HP, Megah di TV) */
+
+  line-height: 1.1;
+
+  text-transform: uppercase;
+
+}
+
+
+
+.hero-content p {
+
+  max-width: 500px;
+
+  /* Minimal diturunkan ke 16px agar tidak berantakan di HP yang layarnya sempit */
+
+  font-size: clamp(16px, 2vw, 24px);
+
+  font-weight: 500;
+
+  line-height: 1.5;
+
+
+
+  margin-top: 20px;
+
+  color: var(--white-text-color);
+
+}
+
+
+
+/* Base Button (Hero) */
+
+.btn {
+
+  align-self: flex-start;
+
+  padding: 15px 35px;
+
+  margin-top: 35px;
+
+
+
+  border-radius: 50px;
+
+  border: 1.5px solid var(--white-text-color);
+
+
+
+  font-size: 16px;
+
+  font-weight: 600;
+
+  background: transparent;
+
+  color: var(--white-text-color);
+
+
+
+  transition: all 0.3s ease;
+
+}
+
+
+
+.btn:hover {
+
+  background-color: var(--accent-color);
+
+  border-color: var(--accent-color);
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+
+}
+
+
+
+/* Scroll Down Indicator */
+
+.scroll-down-container {
+
+  position: absolute;
+
+  bottom: 50px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 3px;
+
+
+
+  cursor: pointer;
+
+  opacity: 0.8;
+
+  z-index: 10;
+
+}
+
+
+
+.scroll-arrow {
+
+  width: 20px;
+
+  height: 20px;
+
+  border-bottom: 2px solid var(--white-text-color);
+
+  border-right: 2px solid var(--white-text-color);
+
+
+
+  transform: rotate(45deg);
+
+  animation: scroll-arrow-stagger 2s infinite;
+
+}
+
+
+
+.scroll-arrow:nth-child(2) {
+
+  animation-delay: -0.2s;
+
+}
+
+.scroll-arrow:nth-child(3) {
+
+  animation-delay: -0.4s;
+
+}
+
+
+
+@keyframes scroll-arrow-stagger {
+
+  0% {
+
+    opacity: 0;
+
+    transform: rotate(45deg) translate(-10px, -10px);
+
+  }
+
+  50% {
+
+    opacity: 1;
+
+  }
+
+  100% {
+
+    opacity: 0;
+
+    transform: rotate(45deg) translate(10px, 10px);
+
+  }
+
+}
+
+
+
+/* --- 2. INTERMEZZO SECTION --- */
+
+.intermezzo-section {
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  text-align: center;
+
+  width: 100%;
+
+
+
+  /* Padding Intermezzo sedikit lebih besar dari section biasa untuk memberi ruang napas ekstra */
+
+  padding: clamp(70px, 8vw, 100px) 10%;
+
+
+
+  background:
+
+    linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.9)),
+
+    url("../assets/intermezzo/office.webp") center 70% / cover;
+
+}
+
+
+
+.intermezzo-content {
+
+  max-width: 1000px;
+
+}
+
+
+
+.intermezzo-description {
+
+  /* Ukuran font mengandalkan Global Typography h2 */
+
+  font-size: clamp(16px, 2vw, 24px);
+
+  font-weight: 400; /* Dibuat lebih tipis dari default agar elegan */
+
+  line-height: 1.6;
+
+  margin-bottom: clamp(28px, 4vw, 40px);
+
+}
+
+
+
+/* Tombol Intermezzo dengan Ikon */
+
+.btn-intermezzo {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+
+
+  padding: 16px 30px 16px 40px;
+
+  border-radius: 50px;
+
+
+
+  font-size: clamp(16px, 1.2vw, 18px);
+
+  font-weight: 500;
+
+
+
+  background-color: var(--accent-color);
+
+  color: var(--white-text-color);
+
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+}
+
+
+
+.btn-intermezzo .btn-arrow {
+
+  width: clamp(18px, 1.5vw, 20px);
+
+  filter: invert(1);
+
+  transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+}
+
+
+
+.btn-intermezzo:hover {
+
+  background-color: #359d54;
+
+  transform: translateY(-4px);
+
+}
+
+
+
+.btn-intermezzo:hover .btn-arrow {
+
+  transform: rotate(405deg);
+
+}
+
+
+
+/* =========================================
+
+   C.2. ABOUT SECTION
+
+========================================= */
+
+.introduce-section {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: center;
+
+  text-align: center;
+
+}
+
+
+
+.introduce-section h2 {
+
+  padding: 60px 0 170px 0;
+
+  color: var(--white-text-color);
+
+}
+
+
+
+.introduce-section span {
+
+  color: var(--accent-color);
+
+}
+
+
+
+/* Padding dan Background sudah di-*handle* oleh class .section-padding & .bg-primary di HTML */
+
+.about-section {
+
+  display: flex;
+
+  flex-direction: column;
+
+  text-align: center;
+
+  border-radius: clamp(50px, 6vw, 90px) clamp(50px, 6vw, 90px) 0 0;
+
+  padding: 0 10%;
+
+}
+
+
+
+.stats-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  width: 100%;
+
+  gap: clamp(20px, 2.5vw, 50px);
+
+  margin: 0 auto;
+
+  transform: translateY(-60px);
+
+}
+
+
+
+.stat-card {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
+
+}
+
+
+
+.stat-card h3 {
+
+  /* Override ukuran khusus karena di dalam kotak kecil (tidak menggunakan global h3) */
+
+  font-size: clamp(16px, 1.4vw, 20px);
+
+  margin-bottom: 10px;
+
+  color: var(--secondary-text-color);
+
+}
+
+
+
+.stat-card p {
+
+  max-width: 340px;
+
+  font-size: clamp(14px, 1vw, 16px);
+
+  font-weight: 400;
+
+  line-height: 1.6;
+
+  text-align: justify;
+
+  padding-bottom: 30px;
+
+  color: var(--accent-text-color);
+
+}
+
+
+
+.icon-box {
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  width: clamp(120px, 9vw, 175px);
+
+  height: clamp(120px, 9vw, 175px);
+
+  border-radius: clamp(25px, 2vw, 45px);
+
+  margin-bottom: 20px;
+
+
+
+  background-color: var(--white-color);
+
+  box-shadow: 0 12px 12px -4px rgba(0, 0, 0, 0.25);
+
+  transition:
+
+    transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+
+    box-shadow 0.3s ease;
+
+}
+
+
+
+.icon-box:hover {
+
+  transform: translateY(-6px);
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+
+}
+
+
+
+.icon-box img {
+
+  width: 60%;
+
+  height: auto;
+
+}
+
+
+
+/* =========================================
+
+   C.3. INDUSTRIES SECTION
+
+========================================= */
+
+/* Padding dan Background sudah di-*handle* oleh HTML */
+
+.industries-section {
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  gap: 50px;
+
+}
+
+
+
+.industries-content {
+
+  display: flex;
+
+  width: 100%;
+
+  gap: clamp(40px, 5vw, 80px);
+
+}
+
+
+
+/* Kiri: Teks & Carousel Ikon */
+
+.industries-left {
+
+  flex: 1;
+
+  max-width: 55%;
+
+  display: flex;
+
+  flex-direction: column;
+
+  margin-top: 25px;
+
+}
+
+
+
+.industries-text .description {
+
+  font-size: clamp(14px, 1.1vw, 18px);
+
+  text-align: justify;
+
+  margin-top: 20px;
+
+  margin-bottom: clamp(40px, 5vw, 125px);
+
+  color: var(--accent-text-color);
+
+}
+
+
+
+/* Struktur Putaran Ikon (Carousel) */
+
+.carousel-container {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  width: 100%;
+
+  margin-bottom: 20px;
+
+  position: relative;
+
+}
+
+
+
+.carousel-prev-btn,
+
+.carousel-next-btn {
+
+  width: 30px;
+
+  height: 50px;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+
+
+  border: none;
+
+  border-radius: 15px 0 0 15px;
+
+  cursor: pointer;
+
+  background-color: var(--button-color);
+
+  color: var(--secondary-text-color);
+
+  transition: 0.3s;
+
+}
+
+
+
+.carousel-next-btn {
+
+  border-radius: 0 15px 15px 0;
+
+}
+
+
+
+.carousel-prev-btn img,
+
+.carousel-next-btn img {
+
+  width: 20px;
+
+  height: auto;
+
+  transition: 0.3s;
+
+}
+
+
+
+.carousel-prev-btn img {
+
+  rotate: 180deg;
+
+}
+
+
+
+.carousel-prev-btn:hover,
+
+.carousel-next-btn:hover {
+
+  background-color: var(--accent-color);
+
+}
+
+.carousel-prev-btn:hover img,
+
+.carousel-next-btn:hover img {
+
+  filter: invert(1);
+
+}
+
+
+
+.carousel-icons {
+
+  display: flex;
+
+  align-items: flex-end;
+
+  gap: clamp(10px, 1.5vw, 25px);
+
+  padding: 20px 10px;
+
+  width: max-content;
+
+}
+
+
+
+.carousel-icon-box {
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  width: clamp(75px, 6.5vw, 120px);
+
+  height: clamp(75px, 6.5vw, 120px);
+
+
+
+  border: 1px solid rgba(0, 0, 0, 0.15);
+
+  border-radius: clamp(15px, 2vw, 30px);
+
+  background-color: var(--white-color);
+
+  cursor: pointer;
+
+  transform-origin: center bottom;
+
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+}
+
+
+
+.carousel-icon-box img {
+
+  width: 75%;
+
+  transition: filter 0.3s ease;
+
+}
+
+
+
+.carousel-icon-box.active {
+
+  background-color: var(--accent-color);
+
+  border-color: var(--accent-color);
+
+  transform: scale(1.15);
+
+  box-shadow: 0 12px 24px rgba(62, 177, 97, 0.25);
+
+}
+
+
+
+.carousel-icon-box.active img {
+
+  filter: brightness(0) invert(1);
+
+  scale: 1.25;
+
+}
+
+
+
+.carousel-icon-box:hover:not(.active) {
+
+  border-color: var(--accent-color);
+
+  transform: scale(1.05);
+
+}
+
+
+
+.carousel-dots {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 100%;
+
+  gap: 8px;
+
+}
+
+
+
+.dot {
+
+  width: 10px;
+
+  height: 10px;
+
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  background-color: #e0e0e0;
+
+  transition: background-color 0.3s ease;
+
+}
+
+
+
+.dot.active {
+
+  background-color: var(--accent-color);
+
+}
+
+
+
+/* Kanan: Gambar Gedung Industri */
+
+.industries-right {
+
+  flex: 1;
+
+  display: flex;
+
+  justify-content: flex-end;
+
+  max-width: 45%;
+
+}
+
+
+
+.industries-image-wrapper {
+
+  position: relative;
+
+  width: 100%;
+
+  max-width: 650px;
+
+  aspect-ratio: 4/4.5;
+
+  border-radius: 30px;
+
+  overflow: hidden;
+
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
+
+}
+
+
+
+.industries-image-wrapper img {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  transition: opacity 0.3s;
+
+}
+
+
+
+.industries-overlay {
+
+  position: absolute;
+
+  bottom: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 70%;
+
+  background: linear-gradient(
+
+    to top,
+
+    rgba(0, 0, 0, 0.85) 0%,
+
+    rgba(0, 0, 0, 0) 100%
+
+  );
+
+  pointer-events: none;
+
+}
+
+
+
+.industries-image-text {
+
+  position: absolute;
+
+  bottom: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  padding: 0 0 25px 40px;
+
+  z-index: 2;
+
+  transition: opacity 0.3s;
+
+}
+
+
+
+.industries-image-text h3 {
+
+  color: var(--white-text-color);
+
+}
+
+
+
+/* =========================================
+
+   C.4. SERVICES SECTION
+
+========================================= */
+
+/* Padding, Background, dan Header (H2/H4) sudah dihapus dari CSS ini 
+
+   karena sudah sepenuhnya diambil alih oleh Utility Class dari HTML */
+
+.services-section {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+}
+
+
+
+.services-section .main-heading {
+
+  font-size: clamp(28px, 3vw, 40px);
+
+}
+
+
+
+.services-section .sub-heading {
+
+  font-size: clamp(16px, 2.5vw, 24px);
+
+}
+
+
+
+.services-content {
+
+  display: flex;
+
+  align-items: stretch;
+
+  justify-content: space-between;
+
+  width: 100%;
+
+  gap: clamp(30px, 5vw, 60px);
+
+}
+
+
+
+/* Kiri: Accordion Gambar */
+
+.services-left {
+
+  flex: 1.5;
+
+  max-width: 55%;
+
+}
+
+
+
+.services-accordion {
+
+  display: flex;
+
+  gap: clamp(10px, 1vw, 15px);
+
+  width: 100%;
+
+  height: clamp(380px, 28vw, 500px);
+
+}
+
+
+
+.acc-item {
+
+  position: relative;
+
+  flex: 1;
+
+  border-radius: clamp(14px, 1.2vw, 20px);
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  transition: flex 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+}
+
+
+
+.acc-item.active {
+
+  flex: 5;
+
+}
+
+
+
+.acc-item img {
+
+  width: 100%;
+
+  height: 100%;
+
+  object-fit: cover;
+
+  filter: brightness(0.5);
+
+  transition: filter 0.5s;
+
+}
+
+
+
+.acc-item.active img {
+
+  filter: brightness(1);
+
+}
+
+.acc-item:hover:not(.active) img {
+
+  filter: brightness(0.85);
+
+}
+
+
+
+/* Kanan: Teks Penjelasan Servis */
+
+.services-right {
+
+  display: flex;
+
+  flex: 1;
+
+  align-items: flex-start;
+
+  margin-top: 25px;
+
+  max-width: 45%;
+
+}
+
+
+
+.services-text-info {
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: center;
+
+  align-items: flex-start;
+
+  transition: opacity 0.4s ease-in-out;
+
+}
+
+
+
+.services-text-info h3 {
+
+  /* Mempertahankan fix 1440p (menghindari broken row) */
+
+  font-size: clamp(20px, 1.8vw, 32px);
+
+  margin-bottom: clamp(15px, 1.5vw, 20px);
+
+  color: var(--secondary-text-color);
+
+}
+
+
+
+.services-text-info p {
+
+  font-size: clamp(14px, 1.1vw, 18px);
+
+  line-height: 1.6;
+
+  text-align: justify;
+
+  margin-bottom: clamp(25px, 2.5vw, 40px);
+
+  color: var(--accent-text-color);
+
+}
+
+
+
+.btn-dark {
+
+  padding: 15px 35px;
+
+  border-radius: 30px;
+
+  font-weight: 500;
+
+  font-size: 15px;
+
+
+
+  background-color: var(--secondary-text-color);
+
+  color: var(--white-text-color);
+
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+  transition: all 0.3s ease;
+
+}
+
+
+
+.btn-dark:hover {
+
+  background-color: var(--accent-color);
+
+  transform: translateY(-3px);
+
+  box-shadow: 0 10px 20px rgba(62, 177, 97, 0.3);
+
+}
+
+
+
+/* =========================================
+
+   C.5. PROJECTS SECTION
+
+========================================= */
+
+/* Container & Header dikendalikan Utility Class */
+
+.projects-section {
+
+  display: flex;
+
+  flex-direction: column;
+
+}
+
+
+
+.projects-section .main-heading {
+
+  font-size: clamp(28px, 3vw, 40px);
+
+}
+
+
+
+.projects-section .sub-heading {
+
+  font-size: clamp(16px, 2.5vw, 24px);
+
+}
+
+
+
+.projects-grid {
+
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: clamp(40px, 4vw, 85px) clamp(40px, 5vw, 100px);
+
+}
+
+
+
+.project-card {
+
+  display: flex;
+
+  flex-direction: column;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+
+}
+
+
+
+.project-card:hover {
+
+  transform: translateY(-8px);
+
+}
+
+
+
+.project-image-wrapper {
+
+  position: relative;
+
+  width: 100%;
+
+  height: auto;
+
+  border-radius: 30px;
+
+  margin-bottom: 20px;
+
+  overflow: hidden;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+  transition: 0.3s;
+
+}
+
+
+
+.project-image-wrapper img {
+
+  width: 100%;
+
+  height: 100%;
+
+  aspect-ratio: 4/3;
+
+  object-fit: cover;
+
+}
+
+
+
+.project-card:hover .project-image-wrapper {
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+
+}
+
+
+
+.project-overlay {
+
+  position: absolute;
+
+  bottom: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  height: 70%;
+
+  background: linear-gradient(
+
+    to top,
+
+    rgba(0, 0, 0, 0.85) 20%,
+
+    rgba(0, 0, 0, 0) 100%
+
+  );
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  transition: 0.3s;
+
+}
+
+
+
+.project-card:hover .project-overlay {
+
+  opacity: 1;
+
+}
+
+
+
+.project-image-text {
+
+  position: absolute;
+
+  bottom: 0;
+
+  left: 0;
+
+  width: 100%;
+
+  padding: 0 0 20px 30px;
+
+  z-index: 2;
+
+  opacity: 0;
+
+  transform: translateY(8px); /* Efek sedikit naik */
+
+  transition:
+
+    opacity 0.3s ease,
+
+    transform 0.3s ease;
+
+}
+
+
+
+.project-card:hover .project-image-text {
+
+  opacity: 1;
+
+  transform: translateY(0);
+
+}
+
+
+
+/* .project-card img {
+
+  width: 100%;
+
+  height: auto;
+
+  aspect-ratio: 4/3;
+
+  object-fit: cover;
+
+  border-radius: 20px;
+
+  margin-bottom: 20px;
+
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+  transition: 0.3s;
+
+} */
+
+
+
+/* .project-card:hover img {
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+
+} */
+
+
+
+.project-info h3 {
+
+  /* Override font-size agar judul di dalam kartu tidak seraksasa Global Typography h3 */
+
+  font-size: clamp(16px, 1.25vw, 20px);
+
+  color: var(--secondary-text-color);
+
+  margin-bottom: 30px;
+
+}
+
+
+
+.project-line {
+
+  width: 100%;
+
+  height: 3px;
+
+  border-radius: 5px;
+
+  background-color: var(--accent-color);
+
+  transform-origin: left;
+
+  transition: 0.3s;
+
+}
+
+
+
+.project-card:hover .project-line {
+
+  transform: scaleX(1.05);
+
+}
+
+
+
+/* =========================================
+
+   C.6. CLIENTS SECTION
+
+========================================= */
+
+.clients-section {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  overflow: hidden;
+
+
+
+  background-color: var(--test-color);
+
+  box-shadow:
+
+    inset 0px 18px 20px -15px rgba(0, 0, 0, 0.2),
+
+    inset 0px -18px 20px -15px rgba(0, 0, 0, 0.2);
+
+
+
+  padding: clamp(30px, 4vw, 50px) 0;
+
+}
+
+
+
+.clients-section .sub-heading {
+
+  color: var(--secondary-text-color);
+
+  font-weight: 600;
+
+}
+
+
+
+.clients-section .section-header {
+
+  margin-bottom: 50px;
+
+}
+
+
+
+/* Jendela Sabuk */
+
+.clients-marquee-container {
+
+  width: 100vw;
+
+  max-width: 100%;
+
+  overflow-x: auto;
+
+  padding: 20px 0;
+
+  cursor: grab; /* Kursor berbentuk tangan terbuka */
+
+  /* Sembunyikan scrollbar bawaan browser */
+
+  -ms-overflow-style: none;
+
+  scrollbar-width: none;
+
+}
+
+
+
+.clients-marquee-container::-webkit-scrollbar {
+
+  display: none;
+
+}
+
+
+
+.clients-marquee-container.active {
+
+  cursor: grabbing; /* Kursor mengepal saat ditarik */
+
+}
+
+
+
+/* Sabuk panjang */
+
+.clients-marquee-track {
+
+  display: flex;
+
+  width: max-content;
+
+}
+
+
+
+/* Kelompok logo */
+
+.marquee-group {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: clamp(60px, 8vw, 120px);
+
+  /* WAJIB: Padding kanan = gap, agar sambungan antar grup mulus */
+
+  padding-right: clamp(60px, 8vw, 120px);
+
+}
+
+
+
+/* Kotak logo */
+
+.client-logo-box {
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  width: clamp(100px, 12vw, 160px);
+
+  height: 80px;
+
+  flex-shrink: 0;
+
+}
+
+
+
+.client-logo-box img {
+
+  max-width: 100%;
+
+  max-height: 100%;
+
+  object-fit: contain;
+
+  filter: grayscale(100%) opacity(0.6);
+
+  transition: all 0.3s ease;
+
+  user-select: none; /* Mencegah bayangan biru saat didrag */
+
+  -webkit-user-drag: none; /* Mencegah gambar terdownload/terseret browser */
+
+}
+
+
+
+.client-logo-box:hover img {
+
+  transform: scale(1.15);
+
+  filter: grayscale(0%) opacity(1);
+
+}
+
+
+
+/* =========================================
+
+   C.7. COVERAGE AREA SECTION
+
+========================================= */
+
+.coverage-section {
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+}
+
+
+
+.coverage-section .main-heading {
+
+  font-size: clamp(28px, 3vw, 40px);
+
+}
+
+
+
+.coverage-section .sub-heading {
+
+  font-size: clamp(16px, 2.5vw, 24px);
+
+}
+
+
+
+.coverage-map {
+
+  display: flex;
+
+  justify-content: center;
+
+  width: 100%;
+
+  max-width: 1520px;
+
+}
+
+
+
+.coverage-map img {
+
+  width: 100%;
+
+  height: auto;
+
+  object-fit: cover;
+
+  transition: 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+
+  filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.05));
+
+}
+
+
+
+.coverage-map img:hover {
+
+  transform: scale(1.02);
+
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.12));
+
+}
+
+
+
+/* =========================================
+
+   C.8. CONTACT SECTION
+
+========================================= */
+
+/* Trik CSS: Karena Contact bg-nya gelap (secondary), kita paksa judul H2-nya jadi putih */
+
+.contact-section .section-header h2 {
+
+  color: var(--white-text-color);
+
+}
+
+
+
+.contact-content {
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: stretch;
+
+  gap: clamp(40px, 5vw, 100px);
+
+}
+
+
+
+.contact-section .main-heading {
+
+  font-size: clamp(28px, 3vw, 40px);
+
+}
+
+
+
+.contact-section .sub-heading {
+
+  font-size: clamp(16px, 2.5vw, 24px);
+
+}
+
+
+
+.contact-left {
+
+  flex: 1;
+
+  max-width: 50%;
+
+}
+
+
+
+.contact-right {
+
+  flex: 1;
+
+  display: flex;
+
+  justify-content: flex-end;
+
+}
+
+
+
+.contact-left,
+
+.contact-right {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: clamp(25px, 3vw, 40px);
+
+}
+
+
+
+.contact-block h3 {
+
+  font-size: clamp(18px, 1.8vw, 24px);
+
+  padding-bottom: 10px;
+
+  color: var(--white-text-color);
+
+}
+
+
+
+.contact-block p {
+
+  font-size: clamp(14px, 1.25vw, 18px); /* Diturunkan sedikit agar aman di HP */
+
+  padding-bottom: 20px;
+
+  color: var(--white-text-color);
+
+}
+
+
+
+.contact-block span a {
+
+  text-transform: lowercase;
+
+  text-decoration: underline;
+
+}
+
+
+
+.contact-block a {
+
+  color: var(--white-text-color);
+
+}
+
+
+
+.btn-green {
+
+  display: inline-block;
+
+  padding: 20px 25px;
+
+  border-radius: 30px;
+
+  font-size: 16px;
+
+  font-weight: 500;
+
+
+
+  background-color: var(--accent-color);
+
+  color: var(--white-text-color);
+
+  transition: all 0.3s ease;
+
+}
+
+
+
+.btn-green:hover {
+
+  background-color: #359d54;
+
+  transform: translateY(-3px);
+
+}
+
+
+
+.contact-divider {
+
+  width: 2px;
+
+  background-color: var(--accent-color);
+
+  border-radius: 2px;
+
+}
+
+
+
+.contact-map {
+
+  width: 100%;
+
+  height: clamp(250px, 22vw, 330px);
+
+  border: none;
+
+  margin-bottom: 20px;
+
+}
+
+
+
+.head-office-info h3 {
+
+  font-size: clamp(18px, 1.8vw, 24px);
+
+  margin-bottom: 10px;
+
+  color: var(--white-text-color);
+
+}
+
+
+
+.head-office-location,
+
+.head-office-details {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 15px;
+
+  margin-bottom: 25px;
+
+}
+
+
+
+.head-office-location li,
+
+.head-office-details li {
+
+  display: flex;
+
+  align-items: flex-start;
+
+  gap: 20px;
+
+}
+
+
+
+.head-office-location li img,
+
+.head-office-details li img {
+
+  width: 28px;
+
+  flex-shrink: 0;
+
+  filter: invert(56%) sepia(50%) saturate(450%) hue-rotate(85deg)
+
+    brightness(95%) contrast(88%);
+
+}
+
+
+
+.head-office-location li span,
+
+.head-office-details li span {
+
+  font-size: clamp(14px, 1.25vw, 18px);
+
+  line-height: 1.5;
+
+  text-transform: none;
+
+  color: var(--white-text-color);
+
+}
+
+
+
+/* =========================================
+
+   C.9. FOOTER SECTION
+
+========================================= */
+
+.footer-section {
+
+  padding: clamp(50px, 6vw, 80px) 10% clamp(20px, 3vw, 30px);
+
+  background-color: var(--accent-color);
+
+  color: var(--white-text-color);
+
+}
+
+
+
+.footer-container {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: flex-start;
+
+  gap: clamp(30px, 5vw, 80px);
+
+  width: 100%;
+
+  margin-bottom: clamp(40px, 5vw, 60px);
+
+}
+
+
+
+.footer-brand {
+
+  flex: 1;
+
+  max-width: clamp(250px, 22vw, 350px);
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 25px;
+
+}
+
+
+
+.footer-logo img {
+
+  width: clamp(140px, 12vw, 180px);
+
+  object-fit: contain;
+
+}
+
+
+
+.footer-bio {
+
+  font-size: clamp(14px, 1.1vw, 15px);
+
+  line-height: 1.6;
+
+  color: rgba(255, 255, 255, 0.85);
+
+}
+
+
+
+.social-media {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 15px;
+
+}
+
+
+
+.social-media a {
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  width: 40px;
+
+  height: 40px;
+
+
+
+  border-radius: 50%;
+
+  background-color: rgba(255, 255, 255, 0.1);
+
+  transition: all 0.3s ease;
+
+}
+
+
+
+.social-media img {
+
+  width: 18px;
+
+  filter: invert(1);
+
+  transition: 0.3s;
+
+}
+
+
+
+.social-media a:hover {
+
+  background-color: var(--white-text-color);
+
+  transform: translateY(-3px);
+
+}
+
+
+
+.social-media a:hover img {
+
+  filter: invert(0);
+
+}
+
+
+
+.footer-links-wrapper {
+
+  flex: 2;
+
+  display: flex;
+
+  justify-content: space-between;
+
+  gap: clamp(15px, 2.5vw, 40px);
+
+}
+
+
+
+.footer-col {
+
+  display: flex;
+
+  flex-direction: column;
+
+}
+
+
+
+.footer-col h3 {
+
+  font-size: clamp(18px, 1.5vw, 22px);
+
+  font-weight: 600;
+
+  margin-bottom: 25px;
+
+  color: var(--white-text-color);
+
+  position: relative;
+
+}
+
+
+
+.footer-col h3::after {
+
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: -10px;
+
+  width: 30px;
+
+  height: 2px;
+
+  background-color: var(--primary-color);
+
+  border-radius: 2px;
+
+}
+
+
+
+.footer-col ul {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 15px;
+
+}
+
+
+
+.footer-col a {
+
+  font-size: clamp(14px, 1vw, 15px);
+
+  color: rgba(255, 255, 255, 0.75);
+
+  transition: 0.3s;
+
+  border-left: 0px solid transparent;
+
+}
+
+
+
+.footer-col a:hover {
+
+  color: var(--white-text-color);
+
+  transform: translateX(10px);
+
+}
+
+
+
+.footer-bottom {
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 20px;
+
+}
+
+
+
+.footer-bottom .custom-line {
+
+  background-color: rgba(255, 255, 255, 0.2);
+
+}
+
+
+
+.copyright-content {
+
+  display: flex;
+
+  justify-content: space-between;
+
+  align-items: center;
+
+}
+
+
+
+.copyright-content p,
+
+.legal-links a {
+
+  font-size: clamp(12px, 1vw, 14px);
+
+  color: rgba(255, 255, 255, 0.6);
+
+}
+
+
+
+.legal-links {
+
+  display: flex;
+
+  gap: 20px;
+
+}
+
+
+
+.legal-links a:hover {
+
+  color: var(--white-text-color);
+
+}
+
+
+
+/* =========================================
+
+   D. SMART TV & 4K DISPLAY OVERRIDE
+
+   Pelindung khusus agar layout tidak melar di layar raksasa
+
+========================================= */
+
+@media (min-width: 1921px) {
+
+  html {
+
+    font-size: 120%; /* Membesarkan skala dasar root */
+
+  }
+
+  .section-padding {
+
+    /* Mengunci padding maksimum agar konten tidak terlalu menyebar ke pinggir */
+
+    padding: 100px 15% 120px;
+
+  }
+
+}
+
+
+
+javascript
+
+
+
+// ==========================================
+
+// PT. TRI KARYA CEMERLANG - MAIN JS
+
+// Arsitektur: Modular & Single Entry Point
+
+// ==========================================
+
+
+
+// --- 0. SCROLL RESTORATION ---
+
+if ("scrollRestoration" in history) {
+
+  history.scrollRestoration = "manual";
+
+}
+
+window.scrollTo(0, 0);
+
+
+
+// ==========================================
+
+// MODUL 1: SCROLL EFFECTS & MAGNETIC SCROLL
+
+// ==========================================
+
+function initScrollEffects() {
+
+  const heroSection = document.querySelector(".hero-section");
+
+  let isAnimating = false;
+
+  const scrollDuration = 1500;
+
+
+
+  // A. Hero Fade Effect
+
+  window.addEventListener("scroll", () => {
+
+    if (!heroSection) return;
+
+    const scrollPos = window.scrollY;
+
+    const windowHeight = window.innerHeight;
+
+    let opacityValue = 1 - scrollPos / windowHeight;
+
+    heroSection.style.opacity = Math.max(0, opacityValue);
+
+  });
+
+
+
+  // B. Smooth Scroll Engine
+
+  function smoothScrollTo(targetPosition, duration, direction) {
+
+    const startPosition = window.scrollY;
+
+    const distance = targetPosition - startPosition;
+
+    let startTime = null;
+
+
+
+    function easeOutQuart(t, b, c, d) {
+
+      t /= d;
+
+      t--;
+
+      return -c * (t * t * t * t - 1) + b;
+
+    }
+
+
+
+    function easeInOutQuart(t, b, c, d) {
+
+      t /= d / 2;
+
+      if (t < 1) return (c / 2) * t * t * t * t + b;
+
+      t -= 2;
+
+      return (-c / 2) * (t * t * t * t - 2) + b;
+
+    }
+
+
+
+    function animation(currentTime) {
+
+      if (startTime === null) startTime = currentTime;
+
+      const timeElapsed = currentTime - startTime;
+
+      let run =
+
+        direction === "down"
+
+          ? easeOutQuart(timeElapsed, startPosition, distance, duration)
+
+          : easeInOutQuart(timeElapsed, startPosition, distance, duration);
+
+
+
+      window.scrollTo(0, run);
+
+      if (timeElapsed < duration) requestAnimationFrame(animation);
+
+      else window.scrollTo(0, targetPosition);
+
+    }
+
+    requestAnimationFrame(animation);
+
+  }
+
+
+
+  // C. Magnetic Wheel Event
+
+  window.addEventListener(
+
+    "wheel",
+
+    (e) => {
+
+      if (window.scrollY <= window.innerHeight + 10 && !isAnimating) {
+
+        if (e.deltaY > 0 && window.scrollY < window.innerHeight / 2) {
+
+          e.preventDefault();
+
+          isAnimating = true;
+
+          smoothScrollTo(window.innerHeight, scrollDuration, "down");
+
+          setTimeout(() => {
+
+            isAnimating = false;
+
+          }, scrollDuration + 50);
+
+        } else if (e.deltaY < 0 && window.scrollY > 0) {
+
+          e.preventDefault();
+
+          isAnimating = true;
+
+          smoothScrollTo(0, scrollDuration, "up");
+
+          setTimeout(() => {
+
+            isAnimating = false;
+
+          }, scrollDuration + 50);
+
+        }
+
+      }
+
+    },
+
+    { passive: false },
+
+  );
+
+}
+
+
+
+// ==========================================
+
+// MODUL 2: GLOBAL OBSERVER (FADE UP)
+
+// ==========================================
+
+function initFadeUp() {
+
+  const fadeElements = document.querySelectorAll(".fade-up");
+
+  const observer = new IntersectionObserver(
+
+    (entries) => {
+
+      entries.forEach((entry) => {
+
+        if (entry.isIntersecting) entry.target.classList.add("visible");
+
+      });
+
+    },
+
+    { threshold: 0.1 },
+
+  );
+
+
+
+  fadeElements.forEach((el) => observer.observe(el));
+
+}
+
+
+
+// ==========================================
+
+// MODUL 3: CAROUSEL INDUSTRIES
+
+// ==========================================
+
+function initIndustriesCarousel() {
+
+  const industriesData = [
+
+    {
+
+      icon: "assets/industries/Icon/education.png",
+
+      alt: "Education",
+
+      image: "assets/industries/university.webp",
+
+      title: "Education",
+
+    },
+
+    {
+
+      icon: "assets/industries/Icon/healthcare.png",
+
+      alt: "Healthcare",
+
+      image: "assets/industries/hospital.webp",
+
+      title: "Healthcare",
+
+    },
+
+    {
+
+      icon: "assets/industries/Icon/corporate.png",
+
+      alt: "Corporate",
+
+      image: "assets/industries/office.webp",
+
+      title: "Corporate",
+
+    },
+
+    {
+
+      icon: "assets/industries/Icon/manufacture.png",
+
+      alt: "Manufacturing",
+
+      image: "assets/industries/manufacture.webp",
+
+      title: "Manufacture",
+
+    },
+
+    {
+
+      icon: "assets/industries/Icon/retail.png",
+
+      alt: "Retail",
+
+      image: "assets/industries/retail.webp",
+
+      title: "Retail",
+
+    },
+
+  ];
+
+
+
+  const iconImages = document.querySelectorAll(".carousel-icon-box img");
+
+  const dots = document.querySelectorAll(".carousel-dots .dot");
+
+  const mainImage = document.querySelector(".industries-right img");
+
+  const titleElement = document.getElementById("industry-title");
+
+  const textWrapper = document.querySelector(".industries-image-text");
+
+  const prevBtn = document.querySelector(".carousel-prev-btn");
+
+  const nextBtn = document.querySelector(".carousel-next-btn");
+
+  const iconBoxes = document.querySelectorAll(".carousel-icon-box");
+
+
+
+  if (!mainImage || !titleElement) return; // Mencegah error jika elemen tidak ada di halaman
+
+
+
+  let currentIndex = 2; // Mulai dari 'Corporate'
+
+
+
+  function updateCarousel() {
+
+    iconImages.forEach((imgElement, domIndex) => {
+
+      let dataIndex =
+
+        (currentIndex - 2 + domIndex + industriesData.length) %
+
+        industriesData.length;
+
+      imgElement.src = industriesData[dataIndex].icon;
+
+      imgElement.alt = industriesData[dataIndex].alt;
+
+    });
+
+
+
+    dots.forEach((dot) => dot.classList.remove("active"));
+
+    if (dots[currentIndex]) dots[currentIndex].classList.add("active");
+
+
+
+    mainImage.style.opacity = 0;
+
+    textWrapper.style.opacity = 0;
+
+
+
+    setTimeout(() => {
+
+      mainImage.src = industriesData[currentIndex].image;
+
+      titleElement.textContent = industriesData[currentIndex].title;
+
+      mainImage.style.opacity = 1;
+
+      textWrapper.style.opacity = 1;
+
+    }, 300);
+
+  }
+
+
+
+  if (prevBtn)
+
+    prevBtn.addEventListener("click", () => {
+
+      currentIndex =
+
+        (currentIndex - 1 + industriesData.length) % industriesData.length;
+
+      updateCarousel();
+
+    });
+
+
+
+  if (nextBtn)
+
+    nextBtn.addEventListener("click", () => {
+
+      currentIndex = (currentIndex + 1) % industriesData.length;
+
+      updateCarousel();
+
+    });
+
+
+
+  dots.forEach((dot, index) =>
+
+    dot.addEventListener("click", () => {
+
+      currentIndex = index;
+
+      updateCarousel();
+
+    }),
+
+  );
+
+
+
+  iconBoxes.forEach((box, domIndex) =>
+
+    box.addEventListener("click", () => {
+
+      currentIndex =
+
+        (currentIndex - 2 + domIndex + industriesData.length) %
+
+        industriesData.length;
+
+      updateCarousel();
+
+    }),
+
+  );
+
+
+
+  updateCarousel();
+
+}
+
+
+
+// ==========================================
+
+// MODUL 4: SERVICES ACCORDION
+
+// ==========================================
+
+function initServicesAccordion() {
+
+  const servicesData = [
+
+    {
+
+      title: "Cleaning Services",
+
+      desc: "Maintaining clean, hygienic spaces requires the highest standards. We are committed to supporting the health, safety, and well-being of your employees, guests, and clients. Through a partnership built on transparency, we address hygiene concerns with expertise, visible cleaning presence, and precise testing and monitoring—always aligned with your business objectives.",
+
+    },
+
+    {
+
+      title: "Security Services",
+
+      desc: "Safeguarding your assets, people, and operations requires unwavering vigilance. We are committed to providing robust protection that ensures peace of mind for your workforce, visitors, and stakeholders. Through a partnership built on trust, we address security challenges with highly trained personnel, advanced monitoring technology, and proactive risk management—always tailored to protect your business objectives.",
+
+    },
+
+    {
+
+      title: "Pest Control Services",
+
+      desc: "Protecting your facility from pest-related risks requires a highly proactive approach. We are committed to preserving the integrity of your workspace and safeguarding the health of your employees, guests, and operations. Through a partnership built on reliability, we address pest challenges with certified expertise, safe and effective treatments, and continuous preventative monitoring—always aligned with your business objectives.",
+
+    },
+
+    {
+
+      title: "Rope Access Services",
+
+      desc: "Maintaining high-rise structures and hard-to-reach elevations requires uncompromising safety and precision. We are committed to delivering efficient vertical solutions that preserve the exterior integrity of your facility without disrupting daily operations. Through a partnership built on operational excellence, we address complex high-level challenges with certified rope access technicians, specialized equipment, and rigorous safety protocols—always aligned with your business objectives.",
+
+    },
+
+    {
+
+      title: "Facility Management",
+
+      desc: "Maintaining the seamless operation of your facility's core systems requires technical precision and proactive management. We are committed to optimizing building performance, minimizing operational downtime, and ensuring a safe, comfortable environment for your workforce and guests. Through a partnership built on technical excellence, we address complex engineering challenges with certified specialists, preventative maintenance strategies, and swift responsive solutions—always aligned with your business objectives.",
+
+    },
+
+    {
+
+      title: "Reception & Concierge Services",
+
+      desc: "Creating a positive first impression requires exceptional professionalism and seamless visitor management. We are committed to providing welcoming, efficient, and secure front-line support that reflects the high standards of your corporate identity. Through a partnership built on hospitality, we address front-of-house challenges with highly trained personnel, proactive communication, and administrative excellence—always aligned with your business objectives.",
+
+    },
+
+  ];
+
+
+
+  const accItems = document.querySelectorAll(".acc-item");
+
+  const serviceTitle = document.getElementById("service-title");
+
+  const serviceDesc = document.getElementById("service-desc");
+
+  const serviceInfoContainer = document.querySelector(".services-text-info");
+
+
+
+  if (accItems.length === 0) return;
+
+
+
+  accItems.forEach((item, index) => {
+
+    item.addEventListener("click", () => {
+
+      if (item.classList.contains("active")) return;
+
+
+
+      accItems.forEach((el) => el.classList.remove("active"));
+
+      item.classList.add("active");
+
+
+
+      serviceInfoContainer.style.opacity = 0;
+
+      setTimeout(() => {
+
+        if (serviceTitle) serviceTitle.textContent = servicesData[index].title;
+
+        if (serviceDesc) serviceDesc.textContent = servicesData[index].desc;
+
+        serviceInfoContainer.style.opacity = 1;
+
+      }, 400);
+
+    });
+
+  });
+
+}
+
+
+
+// ==========================================
+
+// MODUL 5: CLIENTS CAROUSEL
+
+// ==========================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+  const container = document.getElementById("clientsMarquee");
+
+  if (!container) return;
+
+
+
+  // 1. DATA MASTER LOGO
+
+  const clientLogos = [
+
+    {
+
+      src: "assets/clients/Daya Adicipta Motora.png",
+
+      alt: "Daya Adicipta Motora",
+
+    },
+
+    { src: "assets/clients/Honda.png", alt: "Honda" },
+
+    { src: "assets/clients/Hyundai.png", alt: "Hyundai" },
+
+    { src: "assets/clients/Lexus.png", alt: "Lexus" },
+
+    { src: "assets/clients/Mercedes-Benz.png", alt: "Mercedes-Benz" },
+
+    { src: "assets/clients/APL.png", alt: "Agung Podomoro Land" },
+
+    { src: "assets/clients/Grab.png", alt: "Grab" },
+
+    { src: "assets/clients/Jiva.png", alt: "Jiva" },
+
+    { src: "assets/clients/Kalla.png", alt: "Kalla" },
+
+    { src: "assets/clients/Mandiri.png", alt: "Mandiri" },
+
+    { src: "assets/clients/Pertamina.png", alt: "Pertamina" },
+
+    { src: "assets/clients/Sinarmas.png", alt: "Sinarmas" },
+
+    { src: "assets/clients/Arnott.png", alt: "Arnott" },
+
+    { src: "assets/clients/Cimory.png", alt: "Cimory" },
+
+    { src: "assets/clients/Mayora.png", alt: "Mayora" },
+
+    { src: "assets/clients/Mowilex.png", alt: "Mowilex" },
+
+    { src: "assets/clients/Nabati.png", alt: "Nabati" },
+
+    { src: "assets/clients/Sari Roti.png", alt: "Sari Roti" },
+
+    { src: "assets/clients/Eiger.png", alt: "Eiger" },
+
+    { src: "assets/clients/Grand Lucky.png", alt: "Grand Lucky" },
+
+    { src: "assets/clients/Hero.png", alt: "Hero" },
+
+    { src: "assets/clients/Holland Bakery.png", alt: "Holland Bakery" },
+
+    { src: "assets/clients/Indogrosir.png", alt: "Indogrosir" },
+
+    { src: "assets/clients/Kopi Kenangan.png", alt: "Kopi Kenangan" },
+
+    { src: "assets/clients/Lotte Mart.png", alt: "Lotte Mart" },
+
+    { src: "assets/clients/Mitra 10.png", alt: "Mitra 10" },
+
+    { src: "assets/clients/Superindo.png", alt: "Superindo" },
+
+    { src: "assets/clients/Eka Hospital.png", alt: "Eka Hospital" },
+
+    { src: "assets/clients/RS Griya Husada.png", alt: "RS Griya Husada" },
+
+    { src: "assets/clients/Sequislife.png", alt: "Sequislife" },
+
+    { src: "assets/clients/Watsons.png", alt: "Watsons" },
+
+    { src: "assets/clients/Ipeka Sekolah.png", alt: "Ipeka Sekolah" },
+
+    { src: "assets/clients/JW Mariott.png", alt: "JW Mariott" },
+
+    { src: "assets/clients/Lippo Plaza.png", alt: "Lippo Plaza" },
+
+    { src: "assets/clients/Swiss Belhotel.png", alt: "Swiss Belhotel" },
+
+    { src: "assets/clients/The Park.png", alt: "The Park" },
+
+    { src: "assets/clients/Trans Studio.png", alt: "Trans Studio" },
+
+    { src: "assets/clients/Sicepat.png", alt: "Sicepat" },
+
+  ];
+
+
+
+  // 2. BANGUN HTML SECARA OTOMATIS
+
+  const track = document.createElement("div");
+
+  track.className = "clients-marquee-track";
+
+
+
+  let groupHTML = '<div class="marquee-group">';
+
+  clientLogos.forEach((logo) => {
+
+    groupHTML += `<div class="client-logo-box"><img src="${logo.src}" alt="${logo.alt}" loading="lazy" /></div>`;
+
+  });
+
+  groupHTML += "</div>";
+
+
+
+  // Masukkan 2 grup berjejer agar rotasi tidak pernah terputus (infinite loop)
+
+  track.innerHTML = groupHTML + groupHTML;
+
+  container.innerHTML = "";
+
+  container.appendChild(track);
+
+
+
+  // 3. MESIN ANIMASI & DRAG KURSOR
+
+  let isDown = false;
+
+  let startX;
+
+  let scrollLeft;
+
+  let scrollSpeed = 1; // Kecepatan jalan otomatis
+
+  let reqId;
+
+
+
+  // Fungsi jalan otomatis
+
+  const autoScroll = () => {
+
+    if (!isDown) {
+
+      container.scrollLeft += scrollSpeed;
+
+      // Jika sudah jalan sejauh 1 grup, reset ke posisi 0 tanpa disadari mata
+
+      if (container.scrollLeft >= track.scrollWidth / 2) {
+
+        container.scrollLeft = 0;
+
+      }
+
+    }
+
+    reqId = requestAnimationFrame(autoScroll);
+
+  };
+
+
+
+  // Jalankan mesin
+
+  reqId = requestAnimationFrame(autoScroll);
+
+
+
+  // Logika Tarik (Drag)
+
+  container.addEventListener("mousedown", (e) => {
+
+    isDown = true;
+
+    container.classList.add("active");
+
+    startX = e.pageX - container.offsetLeft;
+
+    scrollLeft = container.scrollLeft;
+
+    cancelAnimationFrame(reqId); // Hentikan auto-scroll
+
+  });
+
+
+
+  container.addEventListener("mouseup", () => {
+
+    isDown = false;
+
+    container.classList.remove("active");
+
+    reqId = requestAnimationFrame(autoScroll); // Nyalakan lagi
+
+  });
+
+
+
+  container.addEventListener("mousemove", (e) => {
+
+    if (!isDown) return;
+
+    e.preventDefault();
+
+    const x = e.pageX - container.offsetLeft;
+
+    const walk = (x - startX) * 1; // Angka 2 adalah kecepatan geser kursor
+
+    container.scrollLeft = scrollLeft - walk;
+
+
+
+    // Loop infinite juga berlaku saat didrag manual
+
+    if (container.scrollLeft >= track.scrollWidth / 2) {
+
+      container.scrollLeft = 0;
+
+      startX = x;
+
+      scrollLeft = 0;
+
+    } else if (container.scrollLeft <= 0) {
+
+      container.scrollLeft = track.scrollWidth / 2;
+
+      startX = x;
+
+      scrollLeft = track.scrollWidth / 2;
+
+    }
+
+  });
+
+});
+
+
+
+// ==========================================
+
+// MODUL 6: NAVBAR, SCROLL TOP & HAMBURGER
+
+// ==========================================
+
+function initNavigation() {
+
+  const navbar = document.querySelector(".navbar");
+
+  const navLogoImg = document.querySelector(".logo img");
+
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+  const hamburger = document.querySelector(".hamburger");
+
+
+
+  const logoLight = "assets/logo/Main-Logo-Block.png";
+
+  const logoDark = "assets/logo/Main.png";
+
+  let lastScrollTop = 0;
+
+  const colorChangeThreshold = 100;
+
+
+
+  window.addEventListener("scroll", () => {
+
+    let currentScroll = window.scrollY || document.documentElement.scrollTop;
+
+    let windowHeight = window.innerHeight;
+
+
+
+    // A. Warna Navbar
+
+    if (currentScroll > colorChangeThreshold) {
+
+      if (navbar) navbar.classList.add("scrolled");
+
+      if (navLogoImg) navLogoImg.src = logoDark;
+
+    } else {
+
+      if (navbar) navbar.classList.remove("scrolled");
+
+      if (navLogoImg) navLogoImg.src = logoLight;
+
+    }
+
+
+
+    // B. Smart Hide Navbar
+
+    if (currentScroll > lastScrollTop && currentScroll > windowHeight + 400) {
+
+      if (navbar) navbar.classList.add("hidden");
+
+    } else if (currentScroll < lastScrollTop || currentScroll <= windowHeight) {
+
+      if (navbar) navbar.classList.remove("hidden");
+
+    }
+
+
+
+    // C. Scroll Top Button
+
+    if (scrollTopBtn) {
+
+      if (currentScroll > windowHeight / 2)
+
+        scrollTopBtn.classList.add("visible");
+
+      else scrollTopBtn.classList.remove("visible");
+
+    }
+
+
+
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+
+  });
+
+
+
+  if (scrollTopBtn) {
+
+    scrollTopBtn.addEventListener("click", () =>
+
+      window.scrollTo({ top: 0, behavior: "smooth" }),
+
+    );
+
+  }
+
+
+
+  if (hamburger && navbar) {
+
+    hamburger.addEventListener("click", () => {
+
+      navbar.classList.toggle("active");
+
+      hamburger.classList.toggle("is-active");
+
+    });
+
+  }
+
+
+
+  // Pancing event scroll sekali saat load
+
+  window.dispatchEvent(new Event("scroll"));
+
+}
+
+
+
+// ==========================================
+
+// 🚀 SINGLE ENTRY POINT (MASTER INITIALIZER)
+
+// ==========================================
+
+document.addEventListener("DOMContentLoaded", () => {
+
+  initScrollEffects();
+
+  initFadeUp();
+
+  initIndustriesCarousel();
+
+  initServicesAccordion();
+
+  initNavigation();
+
+});
+
+
+
+mohon cek dengan teliti sebelum lanjut ke mobile responsiveness

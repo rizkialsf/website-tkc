@@ -266,43 +266,126 @@ function initServicesAccordion() {
 // ==========================================
 // MODUL 5: CLIENTS CAROUSEL
 // ==========================================
-function initClientsCarousel() {
-  const track = document.querySelector(".clients-track");
-  if (!track) return;
+document.addEventListener("DOMContentLoaded", function () {
+  const container = document.getElementById("clientsMarquee");
+  if (!container) return;
 
-  const slides = Array.from(track.children);
-  const nextButton = document.querySelector(".next-client");
-  const prevButton = document.querySelector(".prev-client");
-  const dotsNav = document.querySelector(".clients-dots");
-  const dots = Array.from(dotsNav.children);
-  let currentIndex = 0;
+  // 1. DATA MASTER LOGO
+  const clientLogos = [
+    {
+      src: "assets/clients/Daya Adicipta Motora.png",
+      alt: "Daya Adicipta Motora",
+    },
+    { src: "assets/clients/Honda.png", alt: "Honda" },
+    { src: "assets/clients/Hyundai.png", alt: "Hyundai" },
+    { src: "assets/clients/Lexus.png", alt: "Lexus" },
+    { src: "assets/clients/Mercedes-Benz.png", alt: "Mercedes-Benz" },
+    { src: "assets/clients/APL.png", alt: "Agung Podomoro Land" },
+    { src: "assets/clients/Grab.png", alt: "Grab" },
+    { src: "assets/clients/Jiva.png", alt: "Jiva" },
+    { src: "assets/clients/Kalla.png", alt: "Kalla" },
+    { src: "assets/clients/Mandiri.png", alt: "Mandiri" },
+    { src: "assets/clients/Pertamina.png", alt: "Pertamina" },
+    { src: "assets/clients/Sinarmas.png", alt: "Sinarmas" },
+    { src: "assets/clients/Arnott.png", alt: "Arnott" },
+    { src: "assets/clients/Cimory.png", alt: "Cimory" },
+    { src: "assets/clients/Mayora.png", alt: "Mayora" },
+    { src: "assets/clients/Mowilex.png", alt: "Mowilex" },
+    { src: "assets/clients/Nabati.png", alt: "Nabati" },
+    { src: "assets/clients/Sari Roti.png", alt: "Sari Roti" },
+    { src: "assets/clients/Eiger.png", alt: "Eiger" },
+    { src: "assets/clients/Grand Lucky.png", alt: "Grand Lucky" },
+    { src: "assets/clients/Hero.png", alt: "Hero" },
+    { src: "assets/clients/Holland Bakery.png", alt: "Holland Bakery" },
+    { src: "assets/clients/Indogrosir.png", alt: "Indogrosir" },
+    { src: "assets/clients/Kopi Kenangan.png", alt: "Kopi Kenangan" },
+    { src: "assets/clients/Lotte Mart.png", alt: "Lotte Mart" },
+    { src: "assets/clients/Mitra 10.png", alt: "Mitra 10" },
+    { src: "assets/clients/Superindo.png", alt: "Superindo" },
+    { src: "assets/clients/Eka Hospital.png", alt: "Eka Hospital" },
+    { src: "assets/clients/RS Griya Husada.png", alt: "RS Griya Husada" },
+    { src: "assets/clients/Sequislife.png", alt: "Sequislife" },
+    { src: "assets/clients/Watsons.png", alt: "Watsons" },
+    { src: "assets/clients/Ipeka Sekolah.png", alt: "Ipeka Sekolah" },
+    { src: "assets/clients/JW Mariott.png", alt: "JW Mariott" },
+    { src: "assets/clients/Lippo Plaza.png", alt: "Lippo Plaza" },
+    { src: "assets/clients/Swiss Belhotel.png", alt: "Swiss Belhotel" },
+    { src: "assets/clients/The Park.png", alt: "The Park" },
+    { src: "assets/clients/Trans Studio.png", alt: "Trans Studio" },
+    { src: "assets/clients/Sicepat.png", alt: "Sicepat" },
+  ];
 
-  const moveToSlide = (index) => {
-    track.style.transform = `translateX(-${index * 100}%)`;
-    slides.forEach((slide) => slide.classList.remove("current-slide"));
-    if (slides[index]) slides[index].classList.add("current-slide");
-    dots.forEach((dot) => dot.classList.remove("active"));
-    if (dots[index]) dots[index].classList.add("active");
-    currentIndex = index;
+  // 2. BANGUN HTML SECARA OTOMATIS
+  const track = document.createElement("div");
+  track.className = "clients-marquee-track";
+
+  let groupHTML = '<div class="marquee-group">';
+  clientLogos.forEach((logo) => {
+    groupHTML += `<div class="client-logo-box"><img src="${logo.src}" alt="${logo.alt}" loading="lazy" /></div>`;
+  });
+  groupHTML += "</div>";
+
+  // Masukkan 2 grup berjejer agar rotasi tidak pernah terputus (infinite loop)
+  track.innerHTML = groupHTML + groupHTML;
+  container.innerHTML = "";
+  container.appendChild(track);
+
+  // 3. MESIN ANIMASI & DRAG KURSOR
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+  let scrollSpeed = 1; // Kecepatan jalan otomatis
+  let reqId;
+
+  // Fungsi jalan otomatis
+  const autoScroll = () => {
+    if (!isDown) {
+      container.scrollLeft += scrollSpeed;
+      // Jika sudah jalan sejauh 1 grup, reset ke posisi 0 tanpa disadari mata
+      if (container.scrollLeft >= track.scrollWidth / 2) {
+        container.scrollLeft = 0;
+      }
+    }
+    reqId = requestAnimationFrame(autoScroll);
   };
 
-  if (nextButton)
-    nextButton.addEventListener("click", () => {
-      let nextIndex = currentIndex + 1 >= slides.length ? 0 : currentIndex + 1;
-      moveToSlide(nextIndex);
-    });
+  // Jalankan mesin
+  reqId = requestAnimationFrame(autoScroll);
 
-  if (prevButton)
-    prevButton.addEventListener("click", () => {
-      let prevIndex =
-        currentIndex - 1 < 0 ? slides.length - 1 : currentIndex - 1;
-      moveToSlide(prevIndex);
-    });
+  // Logika Tarik (Drag)
+  container.addEventListener("mousedown", (e) => {
+    isDown = true;
+    container.classList.add("active");
+    startX = e.pageX - container.offsetLeft;
+    scrollLeft = container.scrollLeft;
+    cancelAnimationFrame(reqId); // Hentikan auto-scroll
+  });
 
-  dots.forEach((dot, index) =>
-    dot.addEventListener("click", () => moveToSlide(index)),
-  );
-}
+  container.addEventListener("mouseup", () => {
+    isDown = false;
+    container.classList.remove("active");
+    reqId = requestAnimationFrame(autoScroll); // Nyalakan lagi
+  });
+
+  container.addEventListener("mousemove", (e) => {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - container.offsetLeft;
+    const walk = (x - startX) * 1; // Angka 2 adalah kecepatan geser kursor
+    container.scrollLeft = scrollLeft - walk;
+
+    // Loop infinite juga berlaku saat didrag manual
+    if (container.scrollLeft >= track.scrollWidth / 2) {
+      container.scrollLeft = 0;
+      startX = x;
+      scrollLeft = 0;
+    } else if (container.scrollLeft <= 0) {
+      container.scrollLeft = track.scrollWidth / 2;
+      startX = x;
+      scrollLeft = track.scrollWidth / 2;
+    }
+  });
+});
 
 // ==========================================
 // MODUL 6: NAVBAR, SCROLL TOP & HAMBURGER
@@ -373,6 +456,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initFadeUp();
   initIndustriesCarousel();
   initServicesAccordion();
-  initClientsCarousel();
   initNavigation();
 });
