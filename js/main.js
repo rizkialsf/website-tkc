@@ -14,8 +14,9 @@ window.scrollTo(0, 0);
 // ==========================================
 function initScrollEffects() {
   const heroSection = document.querySelector(".hero-section");
+  const mainContent = document.querySelector(".main-content");
   let isAnimating = false;
-  const scrollDuration = 1500;
+  const scrollDuration = 1200;
 
   // A. Hero Fade Effect
   window.addEventListener("scroll", () => {
@@ -26,17 +27,11 @@ function initScrollEffects() {
     heroSection.style.opacity = Math.max(0, opacityValue);
   });
 
-  // B. Smooth Scroll Engine
-  function smoothScrollTo(targetPosition, duration, direction) {
+  // B. Mesin Animasi Kustom
+  function smoothScrollTo(targetPosition, duration) {
     const startPosition = window.scrollY;
     const distance = targetPosition - startPosition;
     let startTime = null;
-
-    function easeOutQuart(t, b, c, d) {
-      t /= d;
-      t--;
-      return -c * (t * t * t * t - 1) + b;
-    }
 
     function easeInOutQuart(t, b, c, d) {
       t /= d / 2;
@@ -48,42 +43,74 @@ function initScrollEffects() {
     function animation(currentTime) {
       if (startTime === null) startTime = currentTime;
       const timeElapsed = currentTime - startTime;
-      let run =
-        direction === "down"
-          ? easeOutQuart(timeElapsed, startPosition, distance, duration)
-          : easeInOutQuart(timeElapsed, startPosition, distance, duration);
+      let run = easeInOutQuart(timeElapsed, startPosition, distance, duration);
 
       window.scrollTo(0, run);
-      if (timeElapsed < duration) requestAnimationFrame(animation);
-      else window.scrollTo(0, targetPosition);
+
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animation);
+      } else {
+        window.scrollTo(0, targetPosition);
+
+        // Penyerap Kejut agar layar tidak meleset
+        setTimeout(() => {
+          isAnimating = false;
+        }, 200);
+      }
     }
     requestAnimationFrame(animation);
   }
 
-  // C. Magnetic Wheel Event
+  // Helper: Dapatkan titik Y absolut secara akurat
+  function getTargetY() {
+    return mainContent
+      ? mainContent.getBoundingClientRect().top + window.scrollY
+      : window.innerHeight;
+  }
+
+  // C. Wheel Event Manager
   window.addEventListener(
     "wheel",
     (e) => {
-      if (window.scrollY <= window.innerHeight + 10 && !isAnimating) {
-        if (e.deltaY > 0 && window.scrollY < window.innerHeight / 2) {
-          e.preventDefault();
-          isAnimating = true;
-          smoothScrollTo(window.innerHeight, scrollDuration, "down");
-          setTimeout(() => {
-            isAnimating = false;
-          }, scrollDuration + 50);
-        } else if (e.deltaY < 0 && window.scrollY > 0) {
-          e.preventDefault();
-          isAnimating = true;
-          smoothScrollTo(0, scrollDuration, "up");
-          setTimeout(() => {
-            isAnimating = false;
-          }, scrollDuration + 50);
-        }
+      const currentScroll = window.scrollY;
+      const targetDown = getTargetY();
+
+      if (isAnimating) {
+        e.preventDefault();
+        return;
+      }
+
+      // Scroll ke bawah
+      if (currentScroll < targetDown - 50 && e.deltaY > 10) {
+        e.preventDefault();
+        isAnimating = true;
+        smoothScrollTo(targetDown, scrollDuration);
+      }
+
+      // Scroll kembali ke atas
+      else if (
+        currentScroll >= targetDown - 10 &&
+        currentScroll <= targetDown + 10 &&
+        e.deltaY < -10
+      ) {
+        e.preventDefault();
+        isAnimating = true;
+        smoothScrollTo(0, scrollDuration);
       }
     },
     { passive: false },
   );
+
+  // D. Tanda Panah Bawah
+  const scrollDownBtn = document.querySelector(".scroll-down-container");
+  if (scrollDownBtn) {
+    scrollDownBtn.addEventListener("click", () => {
+      if (!isAnimating) {
+        isAnimating = true;
+        smoothScrollTo(getTargetY(), scrollDuration);
+      }
+    });
+  }
 }
 
 // ==========================================
@@ -91,15 +118,32 @@ function initScrollEffects() {
 // ==========================================
 function initFadeUp() {
   const fadeElements = document.querySelectorAll(".fade-up");
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) entry.target.classList.add("visible");
-      });
-    },
-    { threshold: 0.1 },
-  );
 
+  // Konfigurasi area pantau
+  const observerOptions = {
+    root: null,
+    // rootMargin "-100px" menciptakan garis imajiner 100px dari bawah layar.
+    // Elemen harus melewati garis ini baru animasi "fade-up" akan terpicu.
+    rootMargin: "0px 0px -60px 0px",
+    threshold: 0,
+  };
+
+  const observer = new IntersectionObserver((entries, observerInstance) => {
+    entries.forEach((entry) => {
+      // Jika elemen sudah melewati garis imajiner 100px dari bawah layar
+      if (entry.isIntersecting) {
+        // Nyalakan animasi
+        entry.target.classList.add("visible");
+
+        // KUNCI OPTIMASI: Lepaskan elemen ini dari radar pantauan browser.
+        // Karena elemen hanya perlu muncul satu kali, kita matikan observer-nya
+        // untuk menghemat resource CPU/GPU dan mempercepat kinerja halaman.
+        observerInstance.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Daftarkan semua elemen yang punya class .fade-up ke dalam radar
   fadeElements.forEach((el) => observer.observe(el));
 }
 
@@ -239,6 +283,7 @@ function initServicesAccordion() {
     },
   ];
 
+  const servicesSection = document.querySelector(".services-section");
   const accItems = document.querySelectorAll(".acc-item");
   const serviceTitle = document.getElementById("service-title");
   const serviceDesc = document.getElementById("service-desc");
@@ -246,21 +291,100 @@ function initServicesAccordion() {
 
   if (accItems.length === 0) return;
 
-  accItems.forEach((item, index) => {
-    item.addEventListener("click", () => {
-      if (item.classList.contains("active")) return;
+  let currentIndex = 0;
+  let autoPlayTimer = null;
+  let progress = 0;
+  const duration = 10000; // 10 Detik
+  const tick = 10;
 
-      accItems.forEach((el) => el.classList.remove("active"));
-      item.classList.add("active");
+  function activateItem(index) {
+    if (currentIndex === index && progress > 0 && progress < duration) return;
 
+    accItems.forEach((el) => {
+      el.classList.remove("active");
+      const fill = el.querySelector(".acc-progress-fill");
+      if (fill) fill.style.width = "0%";
+    });
+
+    accItems[index].classList.add("active");
+    currentIndex = index;
+    progress = 0; // Reset waktu ke 0 setiap ganti item
+
+    if (serviceInfoContainer) {
       serviceInfoContainer.style.opacity = 0;
       setTimeout(() => {
         if (serviceTitle) serviceTitle.textContent = servicesData[index].title;
         if (serviceDesc) serviceDesc.textContent = servicesData[index].desc;
         serviceInfoContainer.style.opacity = 1;
       }, 400);
+    }
+  }
+
+  // Fungsi menyalakan loading
+  function startAutoPlay() {
+    if (autoPlayTimer) clearInterval(autoPlayTimer); // Proteksi timer ganda
+
+    autoPlayTimer = setInterval(() => {
+      progress += tick;
+      let percentage = (progress / duration) * 100;
+
+      const activeItem = accItems[currentIndex];
+      if (activeItem) {
+        const fill = activeItem.querySelector(".acc-progress-fill");
+        if (fill) fill.style.width = `${percentage}%`;
+      }
+
+      if (progress >= duration) {
+        let nextIndex = (currentIndex + 1) % accItems.length;
+        activateItem(nextIndex);
+      }
+    }, tick);
+  }
+
+  // Fungsi membekukan loading (Pause)
+  function pauseAutoPlay() {
+    if (autoPlayTimer) {
+      clearInterval(autoPlayTimer);
+      autoPlayTimer = null;
+    }
+  }
+
+  // KUNCI SOLUSI: Pasang mata-mata khusus untuk area Service
+  if (servicesSection) {
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          // loading HANYA jalan ketika section masuk layar monitor
+          if (entry.isIntersecting) {
+            startAutoPlay();
+          } else {
+            // Otomatis PAUSE (membeku) jika user scroll menjauh
+            pauseAutoPlay();
+          }
+        });
+      },
+      {
+        root: null,
+        // Pemicu aktif saat minimal 15% dari total tinggi seksi Service sudah nampil di monitor
+        threshold: 0.85,
+      },
+    );
+
+    sectionObserver.observe(servicesSection);
+  }
+
+  // Klik Manual
+  accItems.forEach((item, index) => {
+    item.addEventListener("click", () => {
+      activateItem(index);
+      // Jika diklik manual, langsung paksa start ulang (asalkan sedang tertampil)
+      startAutoPlay();
     });
   });
+
+  // Setelan Awal: Siapkan item pertama, tapi biarkan membeku sampai tertangkap radar monitor
+  activateItem(0);
+  pauseAutoPlay();
 }
 
 // ==========================================
@@ -334,16 +458,23 @@ document.addEventListener("DOMContentLoaded", function () {
   let isDown = false;
   let startX;
   let scrollLeft;
-  let scrollSpeed = 1; // Kecepatan jalan otomatis
   let reqId;
 
-  // Fungsi jalan otomatis
-  const autoScroll = () => {
+  // Manajemen Waktu Asli
+  let lastTime = 0;
+  const pixelsPerSecond = 45; // Kecepatan piksel per detik. Angka ini memastikan kecepatan sama di monitor 60Hz maupun 144Hz.
+
+  const autoScroll = (timestamp) => {
+    if (!lastTime) lastTime = timestamp;
+    const deltaTime = timestamp - lastTime;
+    lastTime = timestamp;
+
     if (!isDown) {
-      container.scrollLeft += scrollSpeed;
-      // Jika sudah jalan sejauh 1 grup, reset ke posisi 0 tanpa disadari mata
+      container.scrollLeft += (pixelsPerSecond * deltaTime) / 1000;
+
       if (container.scrollLeft >= track.scrollWidth / 2) {
-        container.scrollLeft = 0;
+        // Mengurangi koordinat tanpa reset paksa ke 0 agar transisi loop absolut halus
+        container.scrollLeft -= track.scrollWidth / 2;
       }
     }
     reqId = requestAnimationFrame(autoScroll);
@@ -388,7 +519,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // ==========================================
-// MODUL 6: NAVBAR, SCROLL TOP & HAMBURGER
+// MODUL 6: NAVBAR, SCROLL TOP & HAMBURGER (OPTIMIZED)
 // ==========================================
 function initNavigation() {
   const navbar = document.querySelector(".navbar");
@@ -400,35 +531,50 @@ function initNavigation() {
   const logoDark = "assets/logo/Main.png";
   let lastScrollTop = 0;
   const colorChangeThreshold = 100;
+  let ticking = false;
 
   window.addEventListener("scroll", () => {
     let currentScroll = window.scrollY || document.documentElement.scrollTop;
     let windowHeight = window.innerHeight;
 
-    // A. Warna Navbar
-    if (currentScroll > colorChangeThreshold) {
-      if (navbar) navbar.classList.add("scrolled");
-      if (navLogoImg) navLogoImg.src = logoDark;
-    } else {
-      if (navbar) navbar.classList.remove("scrolled");
-      if (navLogoImg) navLogoImg.src = logoLight;
-    }
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        // A. Warna Navbar
+        if (currentScroll > colorChangeThreshold) {
+          if (navbar) navbar.classList.add("scrolled");
+          if (navLogoImg) navLogoImg.src = logoDark;
+        } else {
+          if (navbar) navbar.classList.remove("scrolled");
+          if (navLogoImg) navLogoImg.src = logoLight;
+        }
 
-    // B. Smart Hide Navbar
-    if (currentScroll > lastScrollTop && currentScroll > windowHeight + 400) {
-      if (navbar) navbar.classList.add("hidden");
-    } else if (currentScroll < lastScrollTop || currentScroll <= windowHeight) {
-      if (navbar) navbar.classList.remove("hidden");
-    }
+        // B. Smart Hide Navbar
+        if (
+          currentScroll > lastScrollTop &&
+          currentScroll > windowHeight + 400
+        ) {
+          if (navbar && !navbar.classList.contains("active")) {
+            navbar.classList.add("hidden");
+          }
+        } else if (
+          currentScroll < lastScrollTop ||
+          currentScroll <= windowHeight
+        ) {
+          if (navbar) navbar.classList.remove("hidden");
+        }
 
-    // C. Scroll Top Button
-    if (scrollTopBtn) {
-      if (currentScroll > windowHeight / 2)
-        scrollTopBtn.classList.add("visible");
-      else scrollTopBtn.classList.remove("visible");
-    }
+        // C. Scroll Top Button
+        if (scrollTopBtn) {
+          if (currentScroll > windowHeight / 2)
+            scrollTopBtn.classList.add("visible");
+          else scrollTopBtn.classList.remove("visible");
+        }
 
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+        ticking = false;
+      });
+      ticking = true;
+    }
   });
 
   if (scrollTopBtn) {
@@ -444,8 +590,72 @@ function initNavigation() {
     });
   }
 
-  // Pancing event scroll sekali saat load
   window.dispatchEvent(new Event("scroll"));
+}
+
+// ==========================================
+// MODUL 7: DROPDOWN INTERACTION MANAGER (FIXED)
+// ==========================================
+function initDropdowns() {
+  const dropdownLinks = document.querySelectorAll(".dropdown-link");
+
+  if (dropdownLinks.length === 0) return;
+
+  dropdownLinks.forEach((link) => {
+    const anchor = link.querySelector("a");
+
+    // 1. Event saat menu diklik
+    anchor.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      const isAlreadyActive = link.classList.contains("is-clicked");
+
+      // Reset semua menu lain terlebih dahulu
+      dropdownLinks.forEach((otherLink) => {
+        otherLink.classList.remove("is-clicked");
+
+        // Hapus sisa fokus keyboard/klik dari menu lain agar CSS :focus-within mati
+        const otherAnchor = otherLink.querySelector("a");
+        if (otherAnchor) otherAnchor.blur();
+      });
+
+      // Buka/Tutup menu yang sedang diklik
+      if (!isAlreadyActive) {
+        link.classList.add("is-clicked");
+      } else {
+        link.classList.remove("is-clicked");
+        anchor.blur(); // Lepas fokus jika user sengaja klik lagi untuk menutup
+      }
+    });
+
+    // 2. Event saat kursor hover ke menu baru
+    link.addEventListener("mouseenter", () => {
+      dropdownLinks.forEach((otherLink) => {
+        if (otherLink !== link) {
+          otherLink.classList.remove("is-clicked");
+
+          // INI SOLUSINYA: Paksa lepas fokus dari menu yang tertinggal
+          const otherAnchor = otherLink.querySelector("a");
+          if (otherAnchor) otherAnchor.blur();
+        }
+      });
+    });
+  });
+
+  // 3. Klik di sembarang tempat (luar navbar) akan menutup semua dropdown
+  document.addEventListener("click", (e) => {
+    const isClickInsideNavbar =
+      e.target.closest(".main-nav-links") ||
+      e.target.closest(".side-nav-links");
+
+    if (!isClickInsideNavbar) {
+      dropdownLinks.forEach((link) => {
+        link.classList.remove("is-clicked");
+        const anchor = link.querySelector("a");
+        if (anchor) anchor.blur(); // Bersihkan sisa fokus
+      });
+    }
+  });
 }
 
 // ==========================================
@@ -457,4 +667,5 @@ document.addEventListener("DOMContentLoaded", () => {
   initIndustriesCarousel();
   initServicesAccordion();
   initNavigation();
+  initDropdowns();
 });

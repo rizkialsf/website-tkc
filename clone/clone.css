@@ -16,6 +16,7 @@
   --secondary-text-color: #242424;
   --accent-text-color: #5f5f5f;
   --header-text-color: #f2f2f2;
+  --test-color: #ebebeb;
   --white-text-color: #ffffff;
 }
 
@@ -195,7 +196,7 @@ h6 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 40px;
+  padding: 15px clamp(15px, 2.5vw, 40px);
   border-radius: 50px;
 
   background-color: var(--secondary-color);
@@ -221,14 +222,14 @@ h6 {
 }
 
 .logo img {
-  height: 40px;
+  height: clamp(16px, 2.5vw, 40px);
 }
 
 /* --- 2. NAV LINKS MASTER --- */
 .main-nav-links ul,
 .side-nav-links ul {
   display: flex;
-  gap: 20px;
+  gap: clamp(8px, 1vw, 20px); /* masih masalah di 1024px */
   align-items: center;
 }
 
@@ -238,7 +239,7 @@ h6 {
   display: flex;
   align-items: center;
 
-  font-size: 16px;
+  font-size: clamp(12px, 1.2vw, 16px);
   font-weight: 500;
   padding: 8px 12px;
   gap: 6px;
@@ -376,7 +377,9 @@ h6 {
   background-color: var(--accent-color);
 }
 
-.dropdown-link:hover .dropdown-menu {
+.dropdown-link:hover .dropdown-menu,
+.dropdown-link:focus-within .dropdown-menu,
+.dropdown-link.is-clicked .dropdown-menu {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
@@ -444,9 +447,8 @@ h6 {
 }
 
 .scroll-top-btn:hover {
-  background-color: var(--accent-color);
   transform: translateY(-5px) scale(1.05);
-  box-shadow: 0 8px 25px rgba(62, 177, 97, 0.4);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
 }
 
 .scroll-top-btn .arrow-up {
@@ -525,6 +527,7 @@ h6 {
   font-size: clamp(16px, 2vw, 24px);
   font-weight: 500;
   line-height: 1.5;
+  text-transform: capitalize;
 
   margin-top: 20px;
   color: var(--white-text-color);
@@ -1017,8 +1020,55 @@ h6 {
 .acc-item.active img {
   filter: brightness(1);
 }
+
+.acc-item:not(.active)::after {
+  content: ">";
+  position: absolute;
+  top: 95%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 30px;
+  font-weight: 300;
+  pointer-events: none; /* Agar tidak mengganggu klik */
+  transition: opacity 0.3s ease;
+  z-index: 2;
+}
+
+/* Saat di-hover, ikon + makin terang */
+.acc-item:hover:not(.active)::after {
+  color: rgba(255, 255, 255, 1);
+}
+
 .acc-item:hover:not(.active) img {
   filter: brightness(0.85);
+}
+
+/* --- BAR WAKTU --- */
+.acc-progress-track {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+  width: calc(100% - 30px);
+  height: 5px; /* Ketebalan bar */
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 5;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Munculkan bar hanya di gambar yang terbuka (aktif) */
+.acc-item.active .acc-progress-track {
+  opacity: 1;
+}
+
+.acc-progress-fill {
+  height: 100%;
+  width: 0%; /* Diatur oleh JS otomatis */
+  background-color: var(--accent-color);
+  border-radius: 10px; /* Selaraskan dengan lintasan */
 }
 
 /* Kanan: Teks Penjelasan Servis */
@@ -1105,7 +1155,68 @@ h6 {
   transform: translateY(-8px);
 }
 
-.project-card img {
+.project-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  border-radius: 30px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: 0.3s;
+}
+
+.project-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 4/3;
+  object-fit: cover;
+}
+
+.project-card:hover .project-image-wrapper {
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+}
+
+.project-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 70%;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.85) 20%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-image-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 0 20px 30px;
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(8px); /* Efek sedikit naik */
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.project-card:hover .project-image-text {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* .project-card img {
   width: 100%;
   height: auto;
   aspect-ratio: 4/3;
@@ -1114,11 +1225,11 @@ h6 {
   margin-bottom: 20px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   transition: 0.3s;
-}
+} */
 
-.project-card:hover img {
+/* .project-card:hover img {
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-}
+} */
 
 .project-info h3 {
   /* Override font-size agar judul di dalam kartu tidak seraksasa Global Typography h3 */
@@ -1147,108 +1258,83 @@ h6 {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+  overflow: hidden;
 
-.clients-section .main-heading {
-  font-size: clamp(28px, 3vw, 40px);
+  background-color: var(--test-color);
+  box-shadow:
+    inset 0px 18px 20px -15px rgba(0, 0, 0, 0.2),
+    inset 0px -18px 20px -15px rgba(0, 0, 0, 0.2);
+
+  padding: clamp(30px, 4vw, 50px) 0;
 }
 
 .clients-section .sub-heading {
-  font-size: clamp(16px, 2.5vw, 24px);
+  color: var(--secondary-text-color);
+  font-weight: 600;
 }
 
-.clients-carousel-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  gap: clamp(10px, 1.5vw, 20px);
+.clients-section .section-header {
   margin-bottom: 50px;
 }
 
-.clients-track-container {
-  flex: 1;
-  overflow: hidden;
+/* Jendela Sabuk */
+.clients-marquee-container {
+  width: 100vw;
+  max-width: 100%;
+  overflow-x: auto;
+  padding: 20px 0;
+  cursor: grab; /* Kursor berbentuk tangan terbuka */
+  /* Sembunyikan scrollbar bawaan browser */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.clients-track {
+.clients-marquee-container::-webkit-scrollbar {
+  display: none;
+}
+
+.clients-marquee-container.active {
+  cursor: grabbing; /* Kursor mengepal saat ditarik */
+}
+
+/* Sabuk panjang */
+.clients-marquee-track {
   display: flex;
-  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+  width: max-content;
 }
 
-.clients-slide {
-  min-width: 100%;
-}
-
-.clients-grid {
-  display: grid;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+/* Kelompok logo */
+.marquee-group {
+  display: flex;
   align-items: center;
-  justify-items: center;
-  gap: clamp(15px, 2vw, 30px) clamp(10px, 1.5vw, 20px);
-  padding: 0 20px;
+  gap: clamp(60px, 8vw, 120px);
+  /* WAJIB: Padding kanan = gap, agar sambungan antar grup mulus */
+  padding-right: clamp(60px, 8vw, 120px);
 }
 
-.clients-grid img {
-  width: 100%;
-  max-width: clamp(80px, 8vw, 150px);
-  object-fit: contain;
-  cursor: pointer;
-  filter: grayscale(100%) opacity(0.7);
-  transition: 0.3s;
-}
-
-.clients-grid img:hover {
-  transform: scale(1.1);
-  filter: grayscale(0%) opacity(1);
-}
-
-/* Tombol Carousel Panah Kiri-Kanan */
-.clients-prev-btn,
-.clients-next-btn {
+/* Kotak logo */
+.client-logo-box {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: clamp(40px, 4vw, 55px);
-  height: clamp(40px, 4vw, 55px);
-
-  border: 2px solid #e0e0e0;
-  border-radius: 50%;
-  background-color: var(--primary-color);
-  cursor: pointer;
-  transition: all 0.3s ease;
+  width: clamp(100px, 12vw, 160px);
+  height: 80px;
   flex-shrink: 0;
 }
 
-.clients-prev-btn img,
-.clients-next-btn img {
-  width: clamp(12px, 1.2vw, 16px);
-  opacity: 0.5;
+.client-logo-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  filter: grayscale(100%) opacity(0.6);
   transition: all 0.3s ease;
+  user-select: none; /* Mencegah bayangan biru saat didrag */
+  -webkit-user-drag: none; /* Mencegah gambar terdownload/terseret browser */
 }
 
-.clients-prev-btn img {
-  rotate: 180deg;
-}
-
-.clients-prev-btn:hover,
-.clients-next-btn:hover {
-  border-color: var(--accent-color);
-  background-color: var(--accent-color);
-  box-shadow: 0 5px 15px rgba(62, 177, 97, 0.3);
-}
-
-.clients-prev-btn:hover img,
-.clients-next-btn:hover img {
-  filter: brightness(0) invert(1);
-  opacity: 1;
-}
-
-.clients-dots {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
+.client-logo-box:hover img {
+  transform: scale(1.15);
+  filter: grayscale(0%) opacity(1);
 }
 
 /* =========================================
@@ -1528,11 +1614,12 @@ h6 {
   font-size: clamp(14px, 1vw, 15px);
   color: rgba(255, 255, 255, 0.75);
   transition: 0.3s;
+  border-left: 0px solid transparent;
 }
 
 .footer-col a:hover {
   color: var(--white-text-color);
-  padding-left: 5px;
+  transform: translateX(10px);
 }
 
 .footer-bottom {
