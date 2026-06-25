@@ -19,7 +19,9 @@
   <body>
     <div class="navbar">
       <div class="logo">
-        <a href=""
+        <a
+          href="javascript:void(0);"
+          onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
           ><img src="assets/logo/Main-Logo-Block.png" alt="TKC Logo"
         /></a>
       </div>
@@ -32,7 +34,13 @@
 
       <div class="main-nav-links">
         <ul>
-          <li><a href="">home</a></li>
+          <li>
+            <a
+              href="javascript:void(0);"
+              onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+              >home</a
+            >
+          </li>
           <li class="dropdown-link">
             <a href="javascript:void(0);"
               >about <img src="assets/icons/down-arrow.png" alt="down arrow"
@@ -65,7 +73,17 @@
           </li>
           <li><a href="#">career</a></li>
           <li><a href="#">products</a></li>
-          <li><a href="#">contact</a></li>
+          <li>
+            <a
+              href="javascript:void(0);"
+              onclick="
+                document
+                  .querySelector('.contact-section')
+                  .scrollIntoView({ behavior: 'smooth' })
+              "
+              >contact</a
+            >
+          </li>
         </ul>
       </div>
 
@@ -195,7 +213,10 @@
         </div>
 
         <div class="industries-section section-padding bg-primary">
-          <div class="industries-content fade-up">
+          <div
+            class="industries-content fade-up"
+            style="transition-delay: 2.3s"
+          >
             <div class="industries-left">
               <div class="industries-text">
                 <h4 class="sub-heading">Industries We Support</h4>

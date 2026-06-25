@@ -68,7 +68,7 @@ function initScrollEffects() {
       : window.innerHeight;
   }
 
-  // C. Wheel Event Manager
+  // C. Wheel Event Manager (DIBUAT SEARAH / ONE-WAY)
   window.addEventListener(
     "wheel",
     (e) => {
@@ -80,23 +80,15 @@ function initScrollEffects() {
         return;
       }
 
-      // Scroll ke bawah
+      // HANYA mencegat jika posisi user masih di atas (Hero) dan sengaja scroll ke bawah
       if (currentScroll < targetDown - 50 && e.deltaY > 10) {
         e.preventDefault();
         isAnimating = true;
         smoothScrollTo(targetDown, scrollDuration);
       }
 
-      // Scroll kembali ke atas
-      else if (
-        currentScroll >= targetDown - 10 &&
-        currentScroll <= targetDown + 10 &&
-        e.deltaY < -10
-      ) {
-        e.preventDefault();
-        isAnimating = true;
-        smoothScrollTo(0, scrollDuration);
-      }
+      // Catatan: Logika "else if" untuk mencegat scroll ke atas telah DIHAPUS.
+      // Dengan begini, browser akan mengambil alih scroll ke atas secara natural.
     },
     { passive: false },
   );
@@ -112,7 +104,6 @@ function initScrollEffects() {
     });
   }
 }
-
 // ==========================================
 // MODUL 2: GLOBAL OBSERVER (FADE UP)
 // ==========================================
@@ -390,7 +381,7 @@ function initServicesAccordion() {
 // ==========================================
 // MODUL 5: CLIENTS CAROUSEL
 // ==========================================
-document.addEventListener("DOMContentLoaded", function () {
+function initClientsCarousel() {
   const container = document.getElementById("clientsMarquee");
   if (!container) return;
 
@@ -449,20 +440,19 @@ document.addEventListener("DOMContentLoaded", function () {
   });
   groupHTML += "</div>";
 
-  // Masukkan 2 grup berjejer agar rotasi tidak pernah terputus (infinite loop)
   track.innerHTML = groupHTML + groupHTML;
   container.innerHTML = "";
   container.appendChild(track);
 
-  // 3. MESIN ANIMASI & DRAG KURSOR
+  // 3. MESIN ANIMASI & DRAG KURSOR (EXTENDED BOUNDARY)
   let isDown = false;
   let startX;
   let scrollLeft;
   let reqId;
 
-  // Manajemen Waktu Asli
+  const clientsSection = document.querySelector(".clients-section");
   let lastTime = 0;
-  const pixelsPerSecond = 45; // Kecepatan piksel per detik. Angka ini memastikan kecepatan sama di monitor 60Hz maupun 144Hz.
+  const pixelsPerSecond = 45;
 
   const autoScroll = (timestamp) => {
     if (!lastTime) lastTime = timestamp;
@@ -473,50 +463,60 @@ document.addEventListener("DOMContentLoaded", function () {
       container.scrollLeft += (pixelsPerSecond * deltaTime) / 1000;
 
       if (container.scrollLeft >= track.scrollWidth / 2) {
-        // Mengurangi koordinat tanpa reset paksa ke 0 agar transisi loop absolut halus
         container.scrollLeft -= track.scrollWidth / 2;
       }
     }
     reqId = requestAnimationFrame(autoScroll);
   };
 
-  // Jalankan mesin
   reqId = requestAnimationFrame(autoScroll);
 
-  // Logika Tarik (Drag)
+  // Mousedown pada Logo
   container.addEventListener("mousedown", (e) => {
     isDown = true;
-    container.classList.add("active");
+    if (clientsSection) clientsSection.classList.add("is-dragging");
+
     startX = e.pageX - container.offsetLeft;
     scrollLeft = container.scrollLeft;
-    cancelAnimationFrame(reqId); // Hentikan auto-scroll
+    cancelAnimationFrame(reqId);
   });
 
-  container.addEventListener("mouseup", () => {
-    isDown = false;
-    container.classList.remove("active");
-    reqId = requestAnimationFrame(autoScroll); // Nyalakan lagi
-  });
+  // Sensor lepas & keluar dipasang pada area abu-abu (Section Utama)
+  if (clientsSection) {
+    clientsSection.addEventListener("mouseup", () => {
+      if (!isDown) return;
+      isDown = false;
+      clientsSection.classList.remove("is-dragging");
+      reqId = requestAnimationFrame(autoScroll);
+    });
 
-  container.addEventListener("mousemove", (e) => {
-    if (!isDown) return;
-    e.preventDefault();
-    const x = e.pageX - container.offsetLeft;
-    const walk = (x - startX) * 1; // Angka 2 adalah kecepatan geser kursor
-    container.scrollLeft = scrollLeft - walk;
+    clientsSection.addEventListener("mouseleave", () => {
+      if (!isDown) return;
+      isDown = false;
+      clientsSection.classList.remove("is-dragging");
+      reqId = requestAnimationFrame(autoScroll);
+    });
 
-    // Loop infinite juga berlaku saat didrag manual
-    if (container.scrollLeft >= track.scrollWidth / 2) {
-      container.scrollLeft = 0;
-      startX = x;
-      scrollLeft = 0;
-    } else if (container.scrollLeft <= 0) {
-      container.scrollLeft = track.scrollWidth / 2;
-      startX = x;
-      scrollLeft = track.scrollWidth / 2;
-    }
-  });
-});
+    clientsSection.addEventListener("mousemove", (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+
+      const x = e.pageX - container.offsetLeft;
+      const walk = (x - startX) * 1;
+      container.scrollLeft = scrollLeft - walk;
+
+      if (container.scrollLeft >= track.scrollWidth / 2) {
+        container.scrollLeft = 0;
+        startX = x;
+        scrollLeft = 0;
+      } else if (container.scrollLeft <= 0) {
+        container.scrollLeft = track.scrollWidth / 2;
+        startX = x;
+        scrollLeft = track.scrollWidth / 2;
+      }
+    });
+  }
+}
 
 // ==========================================
 // MODUL 6: NAVBAR, SCROLL TOP & HAMBURGER (OPTIMIZED)
@@ -549,10 +549,7 @@ function initNavigation() {
         }
 
         // B. Smart Hide Navbar
-        if (
-          currentScroll > lastScrollTop &&
-          currentScroll > windowHeight + 400
-        ) {
+        if (currentScroll > lastScrollTop && currentScroll > windowHeight) {
           if (navbar && !navbar.classList.contains("active")) {
             navbar.classList.add("hidden");
           }
@@ -613,8 +610,6 @@ function initDropdowns() {
       // Reset semua menu lain terlebih dahulu
       dropdownLinks.forEach((otherLink) => {
         otherLink.classList.remove("is-clicked");
-
-        // Hapus sisa fokus keyboard/klik dari menu lain agar CSS :focus-within mati
         const otherAnchor = otherLink.querySelector("a");
         if (otherAnchor) otherAnchor.blur();
       });
@@ -624,7 +619,7 @@ function initDropdowns() {
         link.classList.add("is-clicked");
       } else {
         link.classList.remove("is-clicked");
-        anchor.blur(); // Lepas fokus jika user sengaja klik lagi untuk menutup
+        anchor.blur();
       }
     });
 
@@ -633,8 +628,6 @@ function initDropdowns() {
       dropdownLinks.forEach((otherLink) => {
         if (otherLink !== link) {
           otherLink.classList.remove("is-clicked");
-
-          // INI SOLUSINYA: Paksa lepas fokus dari menu yang tertinggal
           const otherAnchor = otherLink.querySelector("a");
           if (otherAnchor) otherAnchor.blur();
         }
@@ -652,7 +645,68 @@ function initDropdowns() {
       dropdownLinks.forEach((link) => {
         link.classList.remove("is-clicked");
         const anchor = link.querySelector("a");
-        if (anchor) anchor.blur(); // Bersihkan sisa fokus
+        if (anchor) anchor.blur();
+      });
+    }
+  });
+
+  // 4. KUNCI SOLUSI: Tutup dropdown otomatis saat layar di-scroll
+  window.addEventListener(
+    "scroll",
+    () => {
+      dropdownLinks.forEach((link) => {
+        // Cek apakah ada dropdown yang sedang terbuka karena diklik
+        if (
+          link.classList.contains("is-clicked") ||
+          link.matches(":focus-within")
+        ) {
+          link.classList.remove("is-clicked");
+          const anchor = link.querySelector("a");
+          if (anchor) anchor.blur(); // Bersihkan sisa fokus agar animasi panah & garis mereset
+        }
+      });
+    },
+    { passive: true },
+  ); // passive: true memastikan scroll tetap mulus tanpa terbebani JS
+
+  // ========================================================
+  // 5. TAMBAHAN BARU: Tutup pakai tombol ESC (Anti CSS Hover)
+  // ========================================================
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      // 5a. KUNCI SOLUSI: Buang fokus dari elemen APA PUN yang sedang disorot (Home, Contact, dll)
+      if (document.activeElement) {
+        document.activeElement.blur();
+      }
+
+      // 5b. Tutup semua dropdown dan paksa CSS :hover takluk
+      dropdownLinks.forEach((link) => {
+        link.classList.remove("is-clicked");
+
+        const menu = link.querySelector(".dropdown-menu");
+        if (menu) {
+          menu.style.display = "none";
+
+          // Kembalikan style normal saat mouse bergerak menjauh
+          link.addEventListener(
+            "mouseleave",
+            () => {
+              menu.style.display = "";
+            },
+            { once: true },
+          );
+
+          // Kembalikan style normal saat user lanjut menekan Tab ke menu lain
+          link.addEventListener(
+            "focusout",
+            () => {
+              setTimeout(() => {
+                menu.style.display = "";
+              }, 100);
+            },
+            { once: true },
+          );
+        }
       });
     }
   });
@@ -666,6 +720,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initFadeUp();
   initIndustriesCarousel();
   initServicesAccordion();
+  initClientsCarousel();
   initNavigation();
   initDropdowns();
 });
