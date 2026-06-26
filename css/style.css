@@ -1624,5 +1624,38 @@ h6 {
 }
 
 /* =========================================
-   D. MEDIA QUERIES (RESPONSIVE DESIGN)
+   D. MEDIA QUERIES (DESKTOP-FIRST APPROACH)
 ========================================= */
+/* 1. LAPTOP JADUL / MACBOOK 13 INCH (Maksimal 1366px) */
+@media (max-width: 1366px) {
+  .section-padding {
+    padding-top: clamp(60px, 5vw, 80px);
+    padding-bottom: clamp(60px, 5vw, 80px);
+  }
+
+  :root {
+    --h1-size: 3.5rem;
+    --h2-size: 2.2rem;
+  }
+
+  .projects-grid {
+    gap: 30px;
+  }
+
+  .container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+/* 2. TABLET LANSKAP & LAYAR KOTAK JADUL (Maksimal 1024px) */
+@media (max-width: 1024px) {
+}
+
+/* 3. TABLET POTRET & SMARTPHONE LAYAR BESAR (Maksimal 768px) */
+@media (max-width: 768px) {
+}
+
+/* 4. SMARTPHONE STANDAR & KECIL (Maksimal 480px) */
+@media (max-width: 480px) {
+}
