@@ -70,7 +70,7 @@ body {
 }
 
 h1 {
-  font-size: 5rem;
+  font-size: 4.75rem;
   color: var(--header-text-color);
 }
 h2 {
@@ -506,7 +506,7 @@ h6 {
 }
 
 .hero-content p {
-  font-size: 1.55rem;
+  font-size: 1.375rem;
   font-weight: 500;
   line-height: 1.5;
   text-transform: capitalize;
@@ -607,7 +607,7 @@ h6 {
 }
 
 .intermezzo-description {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 400;
   line-height: 1.6;
   margin-bottom: 2.5rem;
@@ -621,7 +621,7 @@ h6 {
   padding: 1rem 1.875rem 1rem 2.5rem;
   border-radius: 3.125rem;
 
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 500;
 
   background-color: var(--accent-color);
@@ -656,6 +656,7 @@ h6 {
 }
 
 .introduce-section h2 {
+  font-size: 3rem;
   padding: 3.75rem 0 10.625rem 0;
   color: var(--white-text-color);
 }
@@ -926,6 +927,7 @@ h6 {
 }
 
 .industries-image-text h3 {
+  font-size: 1.75rem;
   color: var(--white-text-color);
 }
 
@@ -1347,22 +1349,15 @@ h6 {
 .contact-left {
   flex: 1;
   max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
 }
 
 .contact-right {
   flex: 1;
   display: flex;
-  justify-content: flex-end;
-}
-
-.contact-left,
-.contact-right {
-  display: flex;
   flex-direction: column;
-}
-
-.contact-left {
-  gap: 80px;
 }
 
 .contact-block h3 {
@@ -1409,15 +1404,19 @@ h6 {
   border-radius: 0.625rem;
 }
 
-.contact-right {
-  gap: 40px;
-}
-
 .contact-map {
   width: 100%;
   height: 330px;
   border: none;
-  margin-bottom: 1.25rem;
+}
+
+.head-office-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin-top: 1.5rem;
+  gap: 10px;
 }
 
 .head-office-info h3 {
@@ -1431,7 +1430,6 @@ h6 {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-bottom: 1.5rem;
 }
 
 .head-office-location li,
@@ -1451,7 +1449,7 @@ h6 {
 
 .head-office-location li span,
 .head-office-details li span {
-  font-size: clamp(14px, 1.25vw, 18px);
+  font-size: 1.125rem;
   line-height: 1.5;
   text-transform: none;
   color: var(--white-text-color);
@@ -1461,7 +1459,7 @@ h6 {
    C.9. FOOTER SECTION
 ========================================= */
 .footer-section {
-  padding: clamp(50px, 6vw, 80px) 10% clamp(20px, 3vw, 30px);
+  padding: 5rem 10% 1.875rem;
   background-color: var(--accent-color);
   color: var(--white-text-color);
 }
@@ -1470,27 +1468,29 @@ h6 {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: clamp(30px, 5vw, 80px);
+  gap: 80px;
   width: 100%;
-  margin-bottom: clamp(40px, 5vw, 60px);
+  margin-bottom: 3.75rem;
 }
 
 .footer-brand {
   flex: 1;
-  max-width: clamp(250px, 22vw, 350px);
+  max-width: 350px;
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
 
 .footer-logo img {
-  width: clamp(140px, 12vw, 180px);
+  width: 180px;
   object-fit: contain;
 }
 
 .footer-bio {
-  font-size: clamp(14px, 1.1vw, 15px);
+  max-width: 300px;
+  font-size: 0.875rem;
   line-height: 1.6;
+  text-align: justify;
   color: rgba(255, 255, 255, 0.85);
 }
 
@@ -1531,7 +1531,7 @@ h6 {
   flex: 2;
   display: flex;
   justify-content: space-between;
-  gap: clamp(15px, 2.5vw, 40px);
+  gap: 40px;
 }
 
 .footer-col {
@@ -1540,9 +1540,9 @@ h6 {
 }
 
 .footer-col h3 {
-  font-size: clamp(18px, 1.5vw, 22px);
+  font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 25px;
+  margin-bottom: 1.5rem;
   color: var(--white-text-color);
   position: relative;
 }
@@ -1552,21 +1552,21 @@ h6 {
   position: absolute;
   left: 0;
   bottom: -10px;
-  width: 30px;
+  width: 40px;
   height: 2px;
   background-color: var(--primary-color);
-  border-radius: 2px;
+  border-radius: 0.5rem;
 }
 
 .footer-col ul {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
 }
 
 .footer-col a {
   position: relative;
-  font-size: clamp(14px, 1vw, 15px);
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.75);
   transition: all 0.3s ease;
 }
@@ -1610,7 +1610,7 @@ h6 {
 
 .copyright-content p,
 .legal-links a {
-  font-size: clamp(12px, 1vw, 14px);
+  font-size: 0.875rem;
   color: rgba(255, 255, 255, 0.6);
 }
 
