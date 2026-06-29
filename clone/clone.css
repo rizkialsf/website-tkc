@@ -4,14 +4,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
 
 :root {
-  /* Color Tokens */
   --primary-color: #f8f9fa;
   --secondary-color: #323232;
   --accent-color: #3eb161;
   --button-color: #d9d9d9;
   --white-color: #ffffff;
 
-  /* Text Color Tokens */
   --primary-text-color: #3eb161;
   --secondary-text-color: #242424;
   --accent-text-color: #5f5f5f;
@@ -20,7 +18,6 @@
   --white-text-color: #ffffff;
 }
 
-/* Base Reset */
 * {
   margin: 0;
   padding: 0;
@@ -47,10 +44,9 @@ li {
 a {
   text-decoration: none;
   text-transform: capitalize;
-  display: inline-block; /* Mengamankan area klik tombol */
+  display: inline-block;
 }
 
-/* Mencegah Teks Merusak Layout di Layar Super Sempit (HP Lipat) */
 h1,
 h2,
 h3,
@@ -73,29 +69,28 @@ body {
   color: var(--secondary-text-color);
 }
 
-/* Hierarki Huruf Otomatis: Aman di HP Sempit, Megah di Desktop & TV */
 h1 {
-  font-size: clamp(30px, 4.5vw, 80px);
+  font-size: 4.75rem;
   color: var(--header-text-color);
 }
 h2 {
-  font-size: clamp(24px, 3.5vw, 56px);
+  font-size: 3.5rem;
   color: var(--header-text-color);
 }
 h3 {
-  font-size: clamp(20px, 2.5vw, 38px);
+  font-size: 2.375rem;
   color: var(--header-text-color);
 }
 h4 {
-  font-size: clamp(16px, 1.8vw, 28px);
+  font-size: 1.75rem;
   color: var(--header-text-color);
 }
 h5 {
-  font-size: clamp(14px, 1.3vw, 22px);
+  font-size: 1.375rem;
   color: var(--header-text-color);
 }
 h6 {
-  font-size: clamp(12px, 1vw, 16px);
+  font-size: 1rem;
   color: var(--header-text-color);
 }
 
@@ -106,12 +101,11 @@ h4,
 h5,
 h6 {
   text-transform: capitalize;
-  font-weight: 600; /* Default weight untuk kestabilan visual */
+  font-weight: 600;
 }
 
 .main-heading {
-  font-size: clamp(28px, 3vw, 36px);
-  /* margin-bottom: 20px; */
+  font-size: 2.25rem;
   color: var(--accent-color);
 }
 
@@ -122,17 +116,12 @@ h6 {
 
 /* =========================================
    A.3. GLOBAL UTILITY CLASSES (THE D.R.Y PRINCIPLE)
-   -----------------------------------------
-   Gunakan class-class ini di HTML untuk memangkas 
-   pengulangan kode di setiap seksi.
 ========================================= */
 
-/* Jarak standar pembungkus seksi (Seksi Abu-abu / Konten Utama) */
 .section-padding {
-  padding: clamp(50px, 6vw, 80px) 10% clamp(70px, 8vw, 100px);
+  padding: 5rem 10%;
 }
 
-/* Pewarnaan Latar Belakang Seksi */
 .bg-primary {
   background-color: var(--primary-color);
 }
@@ -141,10 +130,9 @@ h6 {
   background-color: var(--secondary-color);
 }
 
-/* Master Komponen Header Seksi (Menyatukan layout judul) */
 .section-header {
   text-align: center;
-  margin-bottom: clamp(40px, 5vw, 80px);
+  margin-bottom: 5rem;
 }
 
 .section-header h2 {
@@ -156,7 +144,6 @@ h6 {
   color: var(--accent-color);
 }
 
-/* Pembatas & Garis Global */
 .divider-wrapper {
   width: 100%;
   background-color: var(--primary-color);
@@ -169,7 +156,6 @@ h6 {
   background-color: var(--accent-color);
 }
 
-/* Efek Fade In Global */
 .fade-up {
   opacity: 0;
   transform: translateY(50px);
@@ -196,8 +182,8 @@ h6 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px clamp(15px, 2.5vw, 40px);
-  border-radius: 50px;
+  padding: 0.9375rem 2.5rem;
+  border-radius: 3.125rem;
 
   background-color: var(--secondary-color);
   z-index: 9999;
@@ -210,7 +196,7 @@ h6 {
   right: 0;
 
   border-radius: 0;
-  padding: 15px 5%;
+  padding: 0.9375rem 5%;
 
   background-color: var(--primary-color);
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
@@ -222,14 +208,14 @@ h6 {
 }
 
 .logo img {
-  height: clamp(16px, 2.5vw, 40px);
+  height: 40px;
 }
 
 /* --- 2. NAV LINKS MASTER --- */
 .main-nav-links ul,
 .side-nav-links ul {
   display: flex;
-  gap: clamp(8px, 1vw, 20px); /* masih masalah di 1024px */
+  gap: 20px;
   align-items: center;
 }
 
@@ -239,9 +225,9 @@ h6 {
   display: flex;
   align-items: center;
 
-  font-size: clamp(12px, 1.2vw, 16px);
+  font-size: 1rem;
   font-weight: 500;
-  padding: 8px 12px;
+  padding: 0.5rem 0.75rem;
   gap: 6px;
   white-space: nowrap;
 
@@ -260,7 +246,6 @@ h6 {
   color: var(--accent-color);
 }
 
-/* Animasi Garis Bawah (Underline) */
 .main-nav-links li a::after,
 .side-nav-links li a::after {
   content: "";
@@ -275,15 +260,16 @@ h6 {
 }
 
 .main-nav-links li a:hover::after,
-.side-nav-links li a:hover::after {
+.side-nav-links li a:hover::after,
+.dropdown-link.is-clicked > a::after,
+.dropdown-link:focus-within > a::after {
   width: 80%;
 }
 
 .navbar.scrolled .dropdown-link > a::after {
-  display: none; /* Matikan garis bawah khusus menu dropdown saat scrolled */
+  display: none;
 }
 
-/* Ikon Panah & Bendera di Navbar */
 .main-nav-links li a img[src$="down-arrow.png"],
 .side-nav-links li a img[src$="down-arrow.png"] {
   filter: invert(1);
@@ -297,7 +283,9 @@ h6 {
 }
 
 .main-nav-links li a:hover img[src$="down-arrow.png"],
-.side-nav-links li a:hover img[src$="down-arrow.png"] {
+.side-nav-links li a:hover img[src$="down-arrow.png"],
+.dropdown-link.is-clicked > a img[src$="down-arrow.png"],
+.dropdown-link:focus-within > a img[src$="down-arrow.png"] {
   transform: rotate(-90deg);
 }
 
@@ -312,17 +300,17 @@ h6 {
   position: relative;
 }
 
-/* Ini adalah Master Class penghemat kode kita */
 .dropdown-menu {
   position: absolute;
   top: 100%;
   left: 0;
-  width: 220px;
+  width: max-content;
+  min-width: 10rem;
 
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-  margin-top: 25px;
-  padding: 10px 0;
+  border-radius: 0.75rem;
+  margin-top: 1.5625rem;
+  padding: 0.625rem 0;
 
   background-color: rgba(50, 50, 50, 0.65);
   backdrop-filter: blur(12px);
@@ -335,12 +323,10 @@ h6 {
   transition: all 0.3s;
 }
 
-/* Setelan Khusus Posisi yang Berbeda */
 .menu-help {
   left: -35px;
 }
 .menu-lang {
-  width: 160px;
   right: -40px;
   left: auto;
 }
@@ -359,18 +345,19 @@ h6 {
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 12px 24px;
+  padding: 0.75rem 3.5rem 0.75rem 1.5rem !important;
 
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 500 !important;
   gap: 10px;
+  white-space: nowrap;
 
   color: var(--white-text-color) !important;
   transition: 0.2s;
 }
 
 .dropdown-menu a::after {
-  display: none !important; /* Mencegah munculnya garis bawah di dalam dropdown */
+  display: none !important;
 }
 
 .dropdown-menu a:hover {
@@ -385,8 +372,8 @@ h6 {
   transform: translateY(0);
 }
 
-/* --- 4. HAMBURGER MENU --- */
 .hamburger {
+  /* untouch */
   display: none;
   flex-direction: column;
   gap: 6px;
@@ -395,6 +382,7 @@ h6 {
 }
 
 .hamburger span {
+  /* untouch */
   display: block;
   width: 30px;
   height: 3px;
@@ -405,17 +393,17 @@ h6 {
 }
 
 .navbar.scrolled .hamburger span {
+  /* untouch */
   background-color: var(--secondary-text-color);
 }
 
 /* --- 5. FLOATING BUTTONS (GROUPED) --- */
-/* Penggabungan mesin pembuat tombol bulat melayang */
 .scroll-top-btn,
 .floating-email {
   position: fixed;
-  right: clamp(20px, 3vw, 40px);
-  width: clamp(48px, 4vw, 60px);
-  height: clamp(48px, 4vw, 60px);
+  right: 40px;
+  width: 3.75rem;
+  height: 3.75rem;
 
   display: flex;
   justify-content: center;
@@ -429,9 +417,8 @@ h6 {
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* Setelan Spesifik Scroll To Top */
 .scroll-top-btn {
-  bottom: clamp(90px, 8vw, 115px);
+  bottom: 115px;
   background-color: var(--secondary-text-color);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 
@@ -456,14 +443,13 @@ h6 {
   border: solid var(--white-text-color);
   border-width: 0 3px 3px 0;
 
-  padding: clamp(5px, 0.5vw, 6px);
-  margin-top: clamp(4px, 0.4vw, 6px);
+  padding: 0.375rem;
+  margin-top: 0.375rem;
   transform: rotate(-135deg);
 }
 
-/* Setelan Spesifik Email Floating */
 .floating-email {
-  bottom: clamp(25px, 2.5vw, 40px);
+  bottom: 40px;
   background-color: var(--white-text-color);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
 }
@@ -482,7 +468,7 @@ h6 {
    C. MAIN CONTENT & HERO SECTION
 ========================================= */
 .main-content {
-  padding-top: 60px;
+  padding-top: 3.75rem;
   min-height: 100vh;
   position: relative;
   z-index: 2;
@@ -502,7 +488,7 @@ h6 {
 
   z-index: 1;
   will-change: opacity;
-  transform: translateZ(0); /* Hardware acceleration untuk performa scroll */
+  transform: translateZ(0);
 }
 
 .hero-content {
@@ -514,35 +500,31 @@ h6 {
 }
 
 .hero-content h1 {
-  max-width: 800px;
-
-  /* Ukuran h1 otomatis mengikuti Global Typography (Aman di HP, Megah di TV) */
+  max-width: 50rem;
   line-height: 1.1;
   text-transform: uppercase;
 }
 
 .hero-content p {
-  max-width: 500px;
-  /* Minimal diturunkan ke 16px agar tidak berantakan di HP yang layarnya sempit */
-  font-size: clamp(16px, 2vw, 24px);
+  font-size: 1.375rem;
   font-weight: 500;
   line-height: 1.5;
   text-transform: capitalize;
 
-  margin-top: 20px;
+  margin-top: 1.25rem;
   color: var(--white-text-color);
 }
 
 /* Base Button (Hero) */
 .btn {
   align-self: flex-start;
-  padding: 15px 35px;
-  margin-top: 35px;
+  padding: 0.9375rem 2.1875rem;
+  margin-top: 2.1875rem;
 
-  border-radius: 50px;
+  border-radius: 3.125rem;
   border: 1.5px solid var(--white-text-color);
 
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
   background: transparent;
   color: var(--white-text-color);
@@ -613,36 +595,33 @@ h6 {
   text-align: center;
   width: 100%;
 
-  /* Padding Intermezzo sedikit lebih besar dari section biasa untuk memberi ruang napas ekstra */
-  padding: clamp(70px, 8vw, 100px) 10%;
+  padding: 5rem 10%;
 
   background:
-    linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.9)),
+    linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.9)),
     url("../assets/intermezzo/office.webp") center 70% / cover;
 }
 
 .intermezzo-content {
-  max-width: 1000px;
+  max-width: 62.5rem;
 }
 
 .intermezzo-description {
-  /* Ukuran font mengandalkan Global Typography h2 */
-  font-size: clamp(16px, 2vw, 24px);
-  font-weight: 400; /* Dibuat lebih tipis dari default agar elegan */
+  font-size: 1.5rem;
+  font-weight: 400;
   line-height: 1.6;
-  margin-bottom: clamp(28px, 4vw, 40px);
+  margin-bottom: 2.5rem;
 }
 
-/* Tombol Intermezzo dengan Ikon */
 .btn-intermezzo {
   display: inline-flex;
   align-items: center;
   gap: 12px;
 
-  padding: 16px 30px 16px 40px;
-  border-radius: 50px;
+  padding: 1rem 1.875rem 1rem 2.5rem;
+  border-radius: 3.125rem;
 
-  font-size: clamp(16px, 1.2vw, 18px);
+  font-size: 1rem;
   font-weight: 500;
 
   background-color: var(--accent-color);
@@ -651,7 +630,7 @@ h6 {
 }
 
 .btn-intermezzo .btn-arrow {
-  width: clamp(18px, 1.5vw, 20px);
+  width: 20px;
   filter: invert(1);
   transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
@@ -677,7 +656,8 @@ h6 {
 }
 
 .introduce-section h2 {
-  padding: 60px 0 170px 0;
+  font-size: 3rem;
+  padding: 3.75rem 0 10.625rem 0;
   color: var(--white-text-color);
 }
 
@@ -685,12 +665,11 @@ h6 {
   color: var(--accent-color);
 }
 
-/* Padding dan Background sudah di-*handle* oleh class .section-padding & .bg-primary di HTML */
 .about-section {
   display: flex;
   flex-direction: column;
   text-align: center;
-  border-radius: clamp(50px, 6vw, 90px) clamp(50px, 6vw, 90px) 0 0;
+  border-radius: 5.625rem 5.625rem 0 0;
   padding: 0 10%;
 }
 
@@ -698,7 +677,7 @@ h6 {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   width: 100%;
-  gap: clamp(20px, 2.5vw, 50px);
+  gap: 50px;
   margin: 0 auto;
   transform: translateY(-60px);
 }
@@ -711,19 +690,18 @@ h6 {
 }
 
 .stat-card h3 {
-  /* Override ukuran khusus karena di dalam kotak kecil (tidak menggunakan global h3) */
-  font-size: clamp(16px, 1.4vw, 20px);
-  margin-bottom: 10px;
+  font-size: 1.25rem;
+  margin-bottom: 0.625rem;
   color: var(--secondary-text-color);
 }
 
 .stat-card p {
-  max-width: 340px;
-  font-size: clamp(14px, 1vw, 16px);
+  max-width: 21.25rem;
+  font-size: 1rem;
   font-weight: 400;
   line-height: 1.6;
   text-align: justify;
-  padding-bottom: 30px;
+  padding-bottom: 1.875rem;
   color: var(--accent-text-color);
 }
 
@@ -731,10 +709,10 @@ h6 {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: clamp(120px, 9vw, 175px);
-  height: clamp(120px, 9vw, 175px);
-  border-radius: clamp(25px, 2vw, 45px);
-  margin-bottom: 20px;
+  width: 175px;
+  height: 175px;
+  border-radius: 2.8125rem;
+  margin-bottom: 1.25rem;
 
   background-color: var(--white-color);
   box-shadow: 0 12px 12px -4px rgba(0, 0, 0, 0.25);
@@ -749,14 +727,13 @@ h6 {
 }
 
 .icon-box img {
-  width: 60%;
+  width: 55%;
   height: auto;
 }
 
 /* =========================================
    C.3. INDUSTRIES SECTION
 ========================================= */
-/* Padding dan Background sudah di-*handle* oleh HTML */
 .industries-section {
   display: flex;
   justify-content: center;
@@ -767,33 +744,31 @@ h6 {
 .industries-content {
   display: flex;
   width: 100%;
-  gap: clamp(40px, 5vw, 80px);
+  gap: 80px;
 }
 
-/* Kiri: Teks & Carousel Ikon */
 .industries-left {
   flex: 1;
   max-width: 55%;
   display: flex;
   flex-direction: column;
-  margin-top: 25px;
+  margin-top: 2rem;
 }
 
 .industries-text .description {
-  font-size: clamp(14px, 1.1vw, 18px);
+  font-size: 1.25rem;
   text-align: justify;
   margin-top: 20px;
-  margin-bottom: clamp(40px, 5vw, 125px);
+  margin-bottom: 9.375rem;
   color: var(--accent-text-color);
 }
 
-/* Struktur Putaran Ikon (Carousel) */
 .carousel-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
   position: relative;
 }
 
@@ -806,7 +781,7 @@ h6 {
   align-items: center;
 
   border: none;
-  border-radius: 15px 0 0 15px;
+  border-radius: 0.9375rem 0 0 0.9375rem;
   cursor: pointer;
   background-color: var(--button-color);
   color: var(--secondary-text-color);
@@ -814,7 +789,7 @@ h6 {
 }
 
 .carousel-next-btn {
-  border-radius: 0 15px 15px 0;
+  border-radius: 0 0.9375rem 0.9375rem 0;
 }
 
 .carousel-prev-btn img,
@@ -840,8 +815,8 @@ h6 {
 .carousel-icons {
   display: flex;
   align-items: flex-end;
-  gap: clamp(10px, 1.5vw, 25px);
-  padding: 20px 10px;
+  gap: 25px;
+  padding: 1.25rem 0.625rem;
   width: max-content;
 }
 
@@ -849,11 +824,11 @@ h6 {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: clamp(75px, 6.5vw, 120px);
-  height: clamp(75px, 6.5vw, 120px);
+  width: 120px;
+  height: 120px;
 
   border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: clamp(15px, 2vw, 30px);
+  border-radius: 1.875rem;
   background-color: var(--white-color);
   cursor: pointer;
   transform-origin: center bottom;
@@ -903,7 +878,6 @@ h6 {
   background-color: var(--accent-color);
 }
 
-/* Kanan: Gambar Gedung Industri */
 .industries-right {
   flex: 1;
   display: flex;
@@ -914,9 +888,9 @@ h6 {
 .industries-image-wrapper {
   position: relative;
   width: 100%;
-  max-width: 650px;
+  max-width: 40.625rem;
   aspect-ratio: 4/4.5;
-  border-radius: 30px;
+  border-radius: 1.875rem;
   overflow: hidden;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.15);
 }
@@ -947,20 +921,19 @@ h6 {
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 0 0 25px 40px;
+  padding: 0 0 1.5625rem 2.5rem;
   z-index: 2;
   transition: opacity 0.3s;
 }
 
 .industries-image-text h3 {
+  font-size: 1.75rem;
   color: var(--white-text-color);
 }
 
 /* =========================================
    C.4. SERVICES SECTION
 ========================================= */
-/* Padding, Background, dan Header (H2/H4) sudah dihapus dari CSS ini 
-   karena sudah sepenuhnya diambil alih oleh Utility Class dari HTML */
 .services-section {
   display: flex;
   flex-direction: column;
@@ -968,11 +941,11 @@ h6 {
 }
 
 .services-section .main-heading {
-  font-size: clamp(28px, 3vw, 40px);
+  font-size: 3rem;
 }
 
 .services-section .sub-heading {
-  font-size: clamp(16px, 2.5vw, 24px);
+  font-size: 1.5rem;
 }
 
 .services-content {
@@ -980,10 +953,9 @@ h6 {
   align-items: stretch;
   justify-content: space-between;
   width: 100%;
-  gap: clamp(30px, 5vw, 60px);
+  gap: 60px;
 }
 
-/* Kiri: Accordion Gambar */
 .services-left {
   flex: 1.5;
   max-width: 55%;
@@ -991,15 +963,15 @@ h6 {
 
 .services-accordion {
   display: flex;
-  gap: clamp(10px, 1vw, 15px);
+  gap: 15px;
   width: 100%;
-  height: clamp(380px, 28vw, 500px);
+  height: 500px;
 }
 
 .acc-item {
   position: relative;
   flex: 1;
-  border-radius: clamp(14px, 1.2vw, 20px);
+  border-radius: 1.25rem;
   overflow: hidden;
   cursor: pointer;
   transition: flex 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
@@ -1028,14 +1000,13 @@ h6 {
   left: 50%;
   transform: translate(-50%, -50%);
   color: rgba(255, 255, 255, 0.7);
-  font-size: 30px;
+  font-size: 1.875rem;
   font-weight: 300;
-  pointer-events: none; /* Agar tidak mengganggu klik */
+  pointer-events: none;
   transition: opacity 0.3s ease;
   z-index: 2;
 }
 
-/* Saat di-hover, ikon + makin terang */
 .acc-item:hover:not(.active)::after {
   color: rgba(255, 255, 255, 1);
 }
@@ -1044,13 +1015,12 @@ h6 {
   filter: brightness(0.85);
 }
 
-/* --- BAR WAKTU --- */
 .acc-progress-track {
   position: absolute;
   bottom: 15px;
   left: 15px;
   width: calc(100% - 30px);
-  height: 5px; /* Ketebalan bar */
+  height: 5px;
   background-color: rgba(255, 255, 255, 0.3);
   border-radius: 10px;
   overflow: hidden;
@@ -1059,24 +1029,22 @@ h6 {
   transition: opacity 0.3s ease;
 }
 
-/* Munculkan bar hanya di gambar yang terbuka (aktif) */
 .acc-item.active .acc-progress-track {
   opacity: 1;
 }
 
 .acc-progress-fill {
   height: 100%;
-  width: 0%; /* Diatur oleh JS otomatis */
+  width: 0%;
   background-color: var(--accent-color);
-  border-radius: 10px; /* Selaraskan dengan lintasan */
+  border-radius: 0.625rem;
 }
 
-/* Kanan: Teks Penjelasan Servis */
 .services-right {
   display: flex;
   flex: 1;
   align-items: flex-start;
-  margin-top: 25px;
+  margin-top: 1.5625rem;
   max-width: 45%;
 }
 
@@ -1089,25 +1057,24 @@ h6 {
 }
 
 .services-text-info h3 {
-  /* Mempertahankan fix 1440p (menghindari broken row) */
-  font-size: clamp(20px, 1.8vw, 32px);
-  margin-bottom: clamp(15px, 1.5vw, 20px);
+  font-size: 2rem;
+  margin-bottom: 1.25rem;
   color: var(--secondary-text-color);
 }
 
 .services-text-info p {
-  font-size: clamp(14px, 1.1vw, 18px);
+  font-size: 1.125rem;
   line-height: 1.6;
   text-align: justify;
-  margin-bottom: clamp(25px, 2.5vw, 40px);
+  margin-bottom: 2.5rem;
   color: var(--accent-text-color);
 }
 
 .btn-dark {
-  padding: 15px 35px;
-  border-radius: 30px;
+  padding: 1rem 2.25rem;
+  border-radius: 1.875rem;
   font-weight: 500;
-  font-size: 15px;
+  font-size: 0.9375rem;
 
   background-color: var(--secondary-text-color);
   color: var(--white-text-color);
@@ -1124,24 +1091,23 @@ h6 {
 /* =========================================
    C.5. PROJECTS SECTION
 ========================================= */
-/* Container & Header dikendalikan Utility Class */
 .projects-section {
   display: flex;
   flex-direction: column;
 }
 
 .projects-section .main-heading {
-  font-size: clamp(28px, 3vw, 40px);
+  font-size: 2.5rem;
 }
 
 .projects-section .sub-heading {
-  font-size: clamp(16px, 2.5vw, 24px);
+  font-size: 1.5rem;
 }
 
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(40px, 4vw, 85px) clamp(40px, 5vw, 100px);
+  gap: 80px 90px;
 }
 
 .project-card {
@@ -1159,8 +1125,8 @@ h6 {
   position: relative;
   width: 100%;
   height: auto;
-  border-radius: 30px;
-  margin-bottom: 20px;
+  border-radius: 1.875rem;
+  margin-bottom: 1.25rem;
   overflow: hidden;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
   transition: 0.3s;
@@ -1202,10 +1168,10 @@ h6 {
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 0 0 20px 30px;
+  padding: 0 0 1.25rem 1.875rem;
   z-index: 2;
   opacity: 0;
-  transform: translateY(8px); /* Efek sedikit naik */
+  transform: translateY(8px);
   transition:
     opacity 0.3s ease,
     transform 0.3s ease;
@@ -1216,32 +1182,16 @@ h6 {
   transform: translateY(0);
 }
 
-/* .project-card img {
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4/3;
-  object-fit: cover;
-  border-radius: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-  transition: 0.3s;
-} */
-
-/* .project-card:hover img {
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-} */
-
 .project-info h3 {
-  /* Override font-size agar judul di dalam kartu tidak seraksasa Global Typography h3 */
-  font-size: clamp(16px, 1.25vw, 20px);
+  font-size: 1.25rem;
   color: var(--secondary-text-color);
-  margin-bottom: 30px;
+  margin-bottom: 1.875rem;
 }
 
 .project-line {
   width: 100%;
   height: 3px;
-  border-radius: 5px;
+  border-radius: 0.625rem;
   background-color: var(--accent-color);
   transform-origin: left;
   transition: 0.3s;
@@ -1265,26 +1215,30 @@ h6 {
     inset 0px 18px 20px -15px rgba(0, 0, 0, 0.2),
     inset 0px -18px 20px -15px rgba(0, 0, 0, 0.2);
 
-  padding: clamp(30px, 4vw, 50px) 0;
+  padding: 3.125rem 0;
+}
+
+.clients-section.is-dragging,
+.clients-section.is-dragging * {
+  cursor: grabbing !important;
+}
+
+.clients-section .section-header {
+  margin-bottom: 3.125rem;
 }
 
 .clients-section .sub-heading {
+  font-size: 1.5rem;
   color: var(--secondary-text-color);
   font-weight: 600;
 }
 
-.clients-section .section-header {
-  margin-bottom: 50px;
-}
-
-/* Jendela Sabuk */
 .clients-marquee-container {
   width: 100vw;
   max-width: 100%;
   overflow-x: auto;
-  padding: 20px 0;
-  cursor: grab; /* Kursor berbentuk tangan terbuka */
-  /* Sembunyikan scrollbar bawaan browser */
+  padding: 1.25rem 0;
+  cursor: grab;
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
@@ -1294,30 +1248,26 @@ h6 {
 }
 
 .clients-marquee-container.active {
-  cursor: grabbing; /* Kursor mengepal saat ditarik */
+  cursor: grabbing;
 }
 
-/* Sabuk panjang */
 .clients-marquee-track {
   display: flex;
   width: max-content;
 }
 
-/* Kelompok logo */
 .marquee-group {
   display: flex;
   align-items: center;
-  gap: clamp(60px, 8vw, 120px);
-  /* WAJIB: Padding kanan = gap, agar sambungan antar grup mulus */
-  padding-right: clamp(60px, 8vw, 120px);
+  gap: 120px;
+  padding-right: 7.5rem;
 }
 
-/* Kotak logo */
 .client-logo-box {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: clamp(100px, 12vw, 160px);
+  width: 160px;
   height: 80px;
   flex-shrink: 0;
 }
@@ -1328,8 +1278,8 @@ h6 {
   object-fit: contain;
   filter: grayscale(100%) opacity(0.6);
   transition: all 0.3s ease;
-  user-select: none; /* Mencegah bayangan biru saat didrag */
-  -webkit-user-drag: none; /* Mencegah gambar terdownload/terseret browser */
+  user-select: none;
+  -webkit-user-drag: none;
 }
 
 .client-logo-box:hover img {
@@ -1347,11 +1297,11 @@ h6 {
 }
 
 .coverage-section .main-heading {
-  font-size: clamp(28px, 3vw, 40px);
+  font-size: 2.5rem;
 }
 
 .coverage-section .sub-heading {
-  font-size: clamp(16px, 2.5vw, 24px);
+  font-size: 1.5rem;
 }
 
 .coverage-map {
@@ -1377,7 +1327,6 @@ h6 {
 /* =========================================
    C.8. CONTACT SECTION
 ========================================= */
-/* Trik CSS: Karena Contact bg-nya gelap (secondary), kita paksa judul H2-nya jadi putih */
 .contact-section .section-header h2 {
   color: var(--white-text-color);
 }
@@ -1386,43 +1335,39 @@ h6 {
   display: flex;
   justify-content: center;
   align-items: stretch;
-  gap: clamp(40px, 5vw, 100px);
+  gap: 100px;
 }
 
 .contact-section .main-heading {
-  font-size: clamp(28px, 3vw, 40px);
+  font-size: 2.5rem;
 }
 
 .contact-section .sub-heading {
-  font-size: clamp(16px, 2.5vw, 24px);
+  font-size: 1.5rem;
 }
 
 .contact-left {
   flex: 1;
   max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
 }
 
 .contact-right {
   flex: 1;
   display: flex;
-  justify-content: flex-end;
-}
-
-.contact-left,
-.contact-right {
-  display: flex;
   flex-direction: column;
-  gap: clamp(25px, 3vw, 40px);
 }
 
 .contact-block h3 {
-  font-size: clamp(18px, 1.8vw, 24px);
-  padding-bottom: 10px;
+  font-size: 1.5rem;
+  padding-bottom: 0.625rem;
   color: var(--white-text-color);
 }
 
 .contact-block p {
-  font-size: clamp(14px, 1.25vw, 18px); /* Diturunkan sedikit agar aman di HP */
+  font-size: 1.125rem;
   padding-bottom: 20px;
   color: var(--white-text-color);
 }
@@ -1438,9 +1383,9 @@ h6 {
 
 .btn-green {
   display: inline-block;
-  padding: 20px 25px;
-  border-radius: 30px;
-  font-size: 16px;
+  padding: 1.25rem 1.625rem;
+  border-radius: 1.875rem;
+  font-size: 1rem;
   font-weight: 500;
 
   background-color: var(--accent-color);
@@ -1456,19 +1401,27 @@ h6 {
 .contact-divider {
   width: 2px;
   background-color: var(--accent-color);
-  border-radius: 2px;
+  border-radius: 0.625rem;
 }
 
 .contact-map {
   width: 100%;
-  height: clamp(250px, 22vw, 330px);
+  height: 330px;
   border: none;
-  margin-bottom: 20px;
+}
+
+.head-office-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin-top: 1.5rem;
+  gap: 10px;
 }
 
 .head-office-info h3 {
-  font-size: clamp(18px, 1.8vw, 24px);
-  margin-bottom: 10px;
+  font-size: 1.5rem;
+  margin-bottom: 0.625rem;
   color: var(--white-text-color);
 }
 
@@ -1477,7 +1430,6 @@ h6 {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  margin-bottom: 25px;
 }
 
 .head-office-location li,
@@ -1497,7 +1449,7 @@ h6 {
 
 .head-office-location li span,
 .head-office-details li span {
-  font-size: clamp(14px, 1.25vw, 18px);
+  font-size: 1.125rem;
   line-height: 1.5;
   text-transform: none;
   color: var(--white-text-color);
@@ -1507,7 +1459,7 @@ h6 {
    C.9. FOOTER SECTION
 ========================================= */
 .footer-section {
-  padding: clamp(50px, 6vw, 80px) 10% clamp(20px, 3vw, 30px);
+  padding: 5rem 10% 1.875rem;
   background-color: var(--accent-color);
   color: var(--white-text-color);
 }
@@ -1516,27 +1468,29 @@ h6 {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  gap: clamp(30px, 5vw, 80px);
+  gap: 80px;
   width: 100%;
-  margin-bottom: clamp(40px, 5vw, 60px);
+  margin-bottom: 3.75rem;
 }
 
 .footer-brand {
   flex: 1;
-  max-width: clamp(250px, 22vw, 350px);
+  max-width: 350px;
   display: flex;
   flex-direction: column;
   gap: 25px;
 }
 
 .footer-logo img {
-  width: clamp(140px, 12vw, 180px);
+  width: 180px;
   object-fit: contain;
 }
 
 .footer-bio {
-  font-size: clamp(14px, 1.1vw, 15px);
+  max-width: 300px;
+  font-size: 0.875rem;
   line-height: 1.6;
+  text-align: justify;
   color: rgba(255, 255, 255, 0.85);
 }
 
@@ -1577,7 +1531,7 @@ h6 {
   flex: 2;
   display: flex;
   justify-content: space-between;
-  gap: clamp(15px, 2.5vw, 40px);
+  gap: 40px;
 }
 
 .footer-col {
@@ -1586,9 +1540,9 @@ h6 {
 }
 
 .footer-col h3 {
-  font-size: clamp(18px, 1.5vw, 22px);
+  font-size: 1.5rem;
   font-weight: 600;
-  margin-bottom: 25px;
+  margin-bottom: 1.5rem;
   color: var(--white-text-color);
   position: relative;
 }
@@ -1598,28 +1552,44 @@ h6 {
   position: absolute;
   left: 0;
   bottom: -10px;
-  width: 30px;
+  width: 40px;
   height: 2px;
   background-color: var(--primary-color);
-  border-radius: 2px;
+  border-radius: 0.5rem;
 }
 
 .footer-col ul {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
 }
 
 .footer-col a {
-  font-size: clamp(14px, 1vw, 15px);
+  position: relative;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.75);
-  transition: 0.3s;
-  border-left: 0px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.footer-col a::before {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 0;
+  background-color: var(--white-text-color);
+  transition: height 0.3s ease;
 }
 
 .footer-col a:hover {
   color: var(--white-text-color);
   transform: translateX(10px);
+}
+
+.footer-col a:hover::before {
+  height: 80%;
 }
 
 .footer-bottom {
@@ -1640,7 +1610,7 @@ h6 {
 
 .copyright-content p,
 .legal-links a {
-  font-size: clamp(12px, 1vw, 14px);
+  font-size: 0.875rem;
   color: rgba(255, 255, 255, 0.6);
 }
 
@@ -1654,15 +1624,82 @@ h6 {
 }
 
 /* =========================================
-   D. SMART TV & 4K DISPLAY OVERRIDE
-   Pelindung khusus agar layout tidak melar di layar raksasa
+   D. MEDIA QUERIES (DESKTOP-FIRST APPROACH)
 ========================================= */
-@media (min-width: 1921px) {
-  html {
-    font-size: 120%; /* Membesarkan skala dasar root */
+/* 1. LAPTOP JADUL / MACBOOK 13 INCH (Maksimal 1366px) */
+@media (max-width: 1366px) {
+  /* A. Kalibrasi Tipografi Utama */
+  h1 {
+    font-size: 3.5rem;
   }
+  h2 {
+    font-size: 2.5rem !important;
+  }
+  h3 {
+    font-size: 1.75rem;
+  }
+  .main-heading {
+    font-size: 2rem;
+  }
+
+  /* B. Kalibrasi Jarak Utama (Section Padding) */
   .section-padding {
-    /* Mengunci padding maksimum agar konten tidak terlalu menyebar ke pinggir */
-    padding: 100px 15% 120px;
+    padding: 4rem 8% 5rem;
   }
+
+  /* C. Penyesuaian Spesifik Per Bagian */
+  .hero-content p {
+    font-size: 1.075rem;
+  }
+
+  .btn {
+    font-size: 0.75rem;
+  }
+
+  /* Navbar: Kurangi jarak antar menu */
+  .main-nav-links ul,
+  .side-nav-links ul {
+    gap: 0.75rem; /* 12px (sebelumnya 20px) */
+  }
+
+  .main-nav-links ul li a,
+  .side-nav-links ul li a {
+    font-size: 0.9375rem; /* 15px (sedikit mengecil agar muat sebaris) */
+    padding: 0.5rem; /* Kurangi ruang kosong klik */
+  }
+
+  /* About Section (Stats Grid): Merapatkan jarak antar kotak */
+  .stats-grid {
+    gap: 1.5rem; /* 24px (sebelumnya bisa sampai 50px) */
+  }
+
+  /* Services Section: Atur ulang proporsi Kiri (Accordion) vs Kanan (Teks) */
+  .services-content {
+    gap: 2rem; /* 32px */
+  }
+  .services-left {
+    flex: 1.2; /* Kurangi dominasi accordion agar teks di kanan tidak terjepit */
+  }
+
+  /* Projects Section: Merapatkan jarak antar kartu proyek */
+  .projects-grid {
+    gap: 2.5rem 2rem; /* Atas-Bawah 40px, Kiri-Kanan 32px */
+  }
+
+  /* Footer: Merapatkan jarak antar kolom agar tidak terlempar ke bawah */
+  .footer-container {
+    gap: 2rem; /* 32px (sebelumnya 80px) */
+  }
+}
+
+/* 2. TABLET LANSKAP & LAYAR KOTAK JADUL (Maksimal 1024px) */
+@media (max-width: 1024px) {
+}
+
+/* 3. TABLET POTRET & SMARTPHONE LAYAR BESAR (Maksimal 768px) */
+@media (max-width: 768px) {
+}
+
+/* 4. SMARTPHONE STANDAR & KECIL (Maksimal 480px) */
+@media (max-width: 480px) {
 }

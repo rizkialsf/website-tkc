@@ -17,33 +17,22 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div class="navbar">
+    <nav class="navbar" aria-label="Main Navigation">
       <div class="logo">
-        <a
-          href="javascript:void(0);"
-          onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+        <a href="#home"
           ><img src="assets/logo/Main-Logo-Block.png" alt="TKC Logo"
         /></a>
-      </div>
-
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
       </div>
 
       <div class="main-nav-links">
         <ul>
           <li>
-            <a
-              href="javascript:void(0);"
-              onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
-              >home</a
-            >
+            <a href="#home">home</a>
           </li>
           <li class="dropdown-link">
-            <a href="javascript:void(0);"
-              >about <img src="assets/icons/down-arrow.png" alt="down arrow"
+            <a href="#0" role="button" aria-haspopup="true"
+              >about
+              <img src="assets/icons/down-arrow.png" alt="" aria-hidden="true"
             /></a>
             <div class="dropdown-menu menu-about">
               <ul>
@@ -54,8 +43,9 @@
             </div>
           </li>
           <li class="dropdown-link">
-            <a href="javascript:void(0);"
-              >services <img src="assets/icons/down-arrow.png" alt="down arrow"
+            <a href="#0" role="button" aria-haspopup="true"
+              >services
+              <img src="assets/icons/down-arrow.png" alt="" aria-hidden="true"
             /></a>
             <div class="dropdown-menu menu-services">
               <ul>
@@ -74,15 +64,7 @@
           <li><a href="#">career</a></li>
           <li><a href="#">products</a></li>
           <li>
-            <a
-              href="javascript:void(0);"
-              onclick="
-                document
-                  .querySelector('.contact-section')
-                  .scrollIntoView({ behavior: 'smooth' })
-              "
-              >contact</a
-            >
+            <a href="#contact">contact</a>
           </li>
         </ul>
       </div>
@@ -90,8 +72,9 @@
       <div class="side-nav-links">
         <ul>
           <li class="dropdown-link">
-            <a href="javascript:void(0);"
-              >help <img src="assets/icons/down-arrow.png" alt="down arrow"
+            <a href="#0" role="button" aria-haspopup="true"
+              >help
+              <img src="assets/icons/down-arrow.png" alt="" aria-hidden="true"
             /></a>
             <div class="dropdown-menu menu-help">
               <ul>
@@ -104,8 +87,10 @@
             </div>
           </li>
           <li class="dropdown-link">
-            <a href="javascript:void(0);"
-              ><img src="assets/icons/united-kingdom-flag.png" alt="English"
+            <a href="#0" role="button" aria-haspopup="true"
+              ><img
+                src="assets/icons/united-kingdom-flag.png"
+                alt="English Language"
             /></a>
             <div class="dropdown-menu menu-lang">
               <ul>
@@ -113,8 +98,9 @@
                   <a href="#"
                     ><img
                       src="assets/icons/united-kingdom-flag.png"
-                      alt="English"
+                      alt=""
                       class="dropdown-flag"
+                      aria-hidden="true"
                     />
                     english</a
                   >
@@ -123,8 +109,9 @@
                   <a href="#"
                     ><img
                       src="assets/icons/indonesia-flag.png"
-                      alt="Indonesia"
+                      alt=""
                       class="dropdown-flag"
+                      aria-hidden="true"
                     />
                     indonesia</a
                   >
@@ -134,35 +121,49 @@
           </li>
         </ul>
       </div>
-    </div>
 
-    <header class="hero-section">
+      <div
+        class="hamburger"
+        aria-label="Toggle Navigation Menu"
+        aria-expanded="false"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+
+    <header class="hero-section" id="home">
       <div class="hero-content">
-        <h1>
+        <h1 class="hero-title">
           your one stop <br />
           facility services
         </h1>
-        <p>
+        <p class="hero-subtitle">
           reliable partner in providing professional <br />
           and experienced outsourcing workforce
         </p>
-        <a href="#" class="btn">interesting with us ?</a>
+        <a href="#mainContent" class="btn-hero">interesting with us ?</a>
       </div>
 
-      <div class="scroll-down-container">
+      <button
+        id="scrollDownBtn"
+        class="scroll-down-container"
+        aria-label="Scroll To Main Content"
+      >
         <span class="scroll-arrow"></span>
         <span class="scroll-arrow"></span>
         <span class="scroll-arrow"></span>
-      </div>
+      </button>
     </header>
 
-    <main class="main-content">
+    <main class="main-content" id="mainContent">
       <div class="first-section">
         <div class="introduce-section fade-up" style="transition-delay: 1.3s">
           <h2>introduce us, <span>tri karya cemerlang</span></h2>
         </div>
 
-        <div class="about-section section-padding bg-primary">
+        <div class="about-section bg-primary">
           <div class="about-content">
             <div class="stats-grid">
               <div class="stat-card fade-up" style="transition-delay: 1.5s">
@@ -292,7 +293,7 @@
                 <div class="industries-overlay"></div>
 
                 <div class="industries-image-text">
-                  <h3 id="industry-title">Corporate</h3>
+                  <h3 id="industries-title">Corporate</h3>
                 </div>
               </div>
             </div>
@@ -602,7 +603,10 @@
           </div>
         </div>
 
-        <section class="contact-section section-padding bg-secondary">
+        <section
+          class="contact-section section-padding bg-secondary"
+          id="contact"
+        >
           <div class="section-header fade-up">
             <h2 class="main-heading">Contact Us</h2>
             <h4 class="sub-heading">Get In Touch Now</h4>

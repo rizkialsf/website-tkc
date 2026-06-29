@@ -103,7 +103,21 @@ function initScrollEffects() {
       }
     });
   }
+
+  // E. Button Hero Section
+  const btnHero = document.querySelector(".btn-hero");
+  if (btnHero) {
+    btnHero.addEventListener("click", (e) => {
+      e.preventDefault();
+
+      if (!isAnimating) {
+        isAnimating = true;
+        smoothScrollTo(getTargetY(), scrollDuration);
+      }
+    });
+  }
 }
+
 // ==========================================
 // MODUL 2: GLOBAL OBSERVER (FADE UP)
 // ==========================================
@@ -178,7 +192,7 @@ function initIndustriesCarousel() {
   const iconImages = document.querySelectorAll(".carousel-icon-box img");
   const dots = document.querySelectorAll(".carousel-dots .dot");
   const mainImage = document.querySelector(".industries-right img");
-  const titleElement = document.getElementById("industry-title");
+  const titleElement = document.getElementById("industries-title");
   const textWrapper = document.querySelector(".industries-image-text");
   const prevBtn = document.querySelector(".carousel-prev-btn");
   const nextBtn = document.querySelector(".carousel-next-btn");
@@ -713,9 +727,36 @@ function initDropdowns() {
 }
 
 // ==========================================
+// MODUL 8 : SMOOTH SCROLL KHUSUS NAVBAR
+// Mencegah konflik dengan animasi Hero Section
+// ==========================================
+function initSmoothScroll() {
+  document.querySelectorAll('.navbar a[href^="#"]').forEach((anchor) => {
+    anchor.addEventListener("click", function (e) {
+      const targetId = this.getAttribute("href");
+
+      // Abaikan jika href-nya "#" atau "#0" (seperti pada tombol dropdown)
+      if (targetId === "#" || targetId === "#0") return;
+
+      const targetElement = document.querySelector(targetId);
+
+      if (targetElement) {
+        e.preventDefault(); // Matikan efek lompat instan bawaan HTML
+
+        // Scroll mulus khusus saat klik menu navbar
+        targetElement.scrollIntoView({
+          behavior: "smooth",
+        });
+      }
+    });
+  });
+}
+
+// ==========================================
 // 🚀 SINGLE ENTRY POINT (MASTER INITIALIZER)
 // ==========================================
 document.addEventListener("DOMContentLoaded", () => {
+  initSmoothScroll();
   initScrollEffects();
   initFadeUp();
   initIndustriesCarousel();
