@@ -450,7 +450,7 @@ function initClientsCarousel() {
 
   let groupHTML = '<div class="marquee-group">';
   clientLogos.forEach((logo) => {
-    groupHTML += `<div class="client-logo-box"><img src="${logo.src}" alt="${logo.alt}" loading="lazy" /></div>`;
+    groupHTML += `<div class="client-logo-box"><img src="${logo.src}" alt="${logo.alt}" loading="lazy" decoding="async"/></div>`;
   });
   groupHTML += "</div>";
 

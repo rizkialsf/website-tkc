@@ -122,7 +122,7 @@
         </ul>
       </div>
 
-      <div
+      <button
         class="hamburger"
         aria-label="Toggle Navigation Menu"
         aria-expanded="false"
@@ -130,10 +130,14 @@
         <span></span>
         <span></span>
         <span></span>
-      </div>
+      </button>
     </nav>
 
-    <header class="hero-section" id="home">
+    <header
+      class="hero-section"
+      id="home"
+      aria-label="Your One Stop Facility Services"
+    >
       <div class="hero-content">
         <h1 class="hero-title">
           your one stop <br />
@@ -162,6 +166,7 @@
         <section
           class="introduce-section fade-up"
           id="introduce"
+          aria-label="Introduce Us"
           style="transition-delay: 1.3s"
         >
           <h2>introduce us, <span>tri karya cemerlang</span></h2>
@@ -169,7 +174,8 @@
 
         <section
           class="about-section bg-primary"
-          aria-label="Company Statictics"
+          id="about"
+          aria-label="Company Statistics"
         >
           <div class="about-content">
             <div class="stats-grid">
@@ -182,8 +188,8 @@
                     decoding="async"
                   />
                 </div>
-                <h3>18 Years Of Experience</h3>
-                <p>
+                <h3 class="article-title">18 Years Of Experience</h3>
+                <p class="article-description">
                   Our company has consistently delivered exceptional quality
                   services and innovative solutions for almost two decades.
                 </p>
@@ -198,8 +204,8 @@
                     decoding="async"
                   />
                 </div>
-                <h3>7700+ Manpower Supply</h3>
-                <p>
+                <h3 class="article-title">7700+ Manpower Supply</h3>
+                <p class="article-description">
                   We are committed to delivering the highest quality manpower
                   for your business needs across various sectors.
                 </p>
@@ -214,8 +220,8 @@
                     decoding="async"
                   />
                 </div>
-                <h3>200+ Satisfied Clients</h3>
-                <p>
+                <h3 class="article-title">200+ Satisfied Clients</h3>
+                <p class="article-description">
                   More than 200 clients have entrusted their needs to us and are
                   satisfied with the services and solutions we offer.
                 </p>
@@ -230,8 +236,8 @@
                     decoding="async"
                   />
                 </div>
-                <h3>7 Branch Offices</h3>
-                <p>
+                <h3 class="article-title">7 Branch Offices</h3>
+                <p class="article-description">
                   We are always ready and responsive to serve you with a wider
                   reach and faster response in every region.
                 </p>
@@ -243,7 +249,7 @@
         <section
           class="industries-section section-padding bg-primary"
           id="industries"
-          aria-label="Industries We Support"
+          aria-labelledby="industryTitle"
         >
           <div
             class="industries-content fade-up"
@@ -251,11 +257,13 @@
           >
             <div class="industries-left">
               <div class="industries-text">
-                <h4 class="sub-heading">Industries We Support</h4>
-                <h2 class="main-heading">
+                <h4 class="industries-title" id="industryTitle">
+                  Industries We Support
+                </h4>
+                <h2 class="industries-subtitle">
                   We Work With All Types Of Workplaces
                 </h2>
-                <p class="description">
+                <p class="industries-description">
                   Intelligent, integrated facility services are designed to
                   drive profitability, improve efficiency, and provide a
                   competitive advantage—while allowing you to concentrate on
@@ -278,16 +286,23 @@
                   />
                 </button>
 
-                <div class="carousel-icons">
+                <div
+                  class="carousel-icons"
+                  role="tablist"
+                  aria-label="Industry Categories"
+                >
                   <button
                     type="button"
                     class="carousel-icon-box"
                     data-index="0"
+                    role="tab"
+                    aria-selected="false"
                     aria-label="Corporate Industry"
                   >
                     <img
                       src="assets/industries/Icon/corporate.png"
-                      alt="Corporate"
+                      alt=""
+                      aria-hidden="true"
                       loading="lazy"
                       decoding="async"
                     />
@@ -297,11 +312,14 @@
                     type="button"
                     class="carousel-icon-box"
                     data-index="1"
+                    role="tab"
+                    aria-selected="false"
                     aria-label="Healthcare Industry"
                   >
                     <img
                       src="assets/industries/Icon/healthcare.png"
-                      alt="Healthcare"
+                      alt=""
+                      aria-hidden="true"
                       loading="lazy"
                       decoding="async"
                     />
@@ -311,11 +329,14 @@
                     type="button"
                     class="carousel-icon-box active"
                     data-index="2"
+                    role="tab"
+                    aria-selected="true"
                     aria-label="Education Industry"
                   >
                     <img
                       src="assets/industries/Icon/education.png"
-                      alt="Education"
+                      alt=""
+                      aria-hidden="true"
                       loading="lazy"
                       decoding="async"
                     />
@@ -325,11 +346,14 @@
                     type="button"
                     class="carousel-icon-box"
                     data-index="3"
+                    role="tab"
+                    aria-selected="false"
                     aria-label="Manufacture Industry"
                   >
                     <img
                       src="assets/industries/Icon/manufacture.png"
-                      alt="Manufacture"
+                      alt=""
+                      aria-hidden="true"
                       loading="lazy"
                       decoding="async"
                     />
@@ -339,11 +363,14 @@
                     type="button"
                     class="carousel-icon-box"
                     data-index="4"
+                    role="tab"
+                    aria-selected="false"
                     aria-label="Retail Industry"
                   >
                     <img
                       src="assets/industries/Icon/retail.png"
-                      alt="Retail"
+                      alt=""
+                      aria-hidden="true"
                       loading="lazy"
                       decoding="async"
                     />
@@ -363,35 +390,53 @@
                 </button>
               </div>
 
-              <div class="carousel-dots">
+              <div
+                class="carousel-dots"
+                role="tablist"
+                aria-label="Carousel Pagination"
+              >
                 <button
                   type="button"
                   class="dot"
                   data-index="0"
+                  role="tab"
+                  aria-selected="false"
                   aria-label="Slide 1"
                 ></button>
+
                 <button
                   type="button"
                   class="dot"
                   data-index="1"
+                  role="tab"
+                  aria-selected="false"
                   aria-label="Slide 2"
                 ></button>
+
                 <button
                   type="button"
                   class="dot active"
                   data-index="2"
+                  role="tab"
+                  aria-selected="true"
                   aria-label="Slide 3"
                 ></button>
+
                 <button
                   type="button"
                   class="dot"
                   data-index="3"
+                  role="tab"
+                  aria-selected="false"
                   aria-label="Slide 4"
                 ></button>
+
                 <button
                   type="button"
                   class="dot"
                   data-index="4"
+                  role="tab"
+                  aria-selected="false"
                   aria-label="Slide 5"
                 ></button>
               </div>
@@ -409,7 +454,7 @@
                 <div class="industries-overlay"></div>
 
                 <div class="industries-image-text">
-                  <h3 id="industries-title">Corporate</h3>
+                  <h3 id="industries-text-title">Corporate</h3>
                 </div>
               </div>
             </div>
@@ -423,11 +468,13 @@
         <section
           class="services-section section-padding bg-primary"
           id="services"
-          aria-label="Our Excellent Services"
+          aria-labelledby="servicesTitle"
         >
           <div class="section-header fade-up">
-            <h2 class="main-heading">Our Excellent Services</h2>
-            <h4 class="sub-heading">
+            <h2 class="services-title" id="servicesTitle">
+              Our Excellent Services
+            </h2>
+            <h4 class="services-subtitle">
               Support Your Business With Our Range of Services
             </h4>
           </div>
@@ -562,8 +609,8 @@
                 role="tabpanel"
                 tabindex="0"
               >
-                <h3 id="service-title">Cleaning Service</h3>
-                <p id="service-description">
+                <h3 id="service-text-title">Cleaning Service</h3>
+                <p id="service-text-description">
                   Maintaining clean, hygienic spaces requires the highest
                   standards. We are committed to supporting the health, safety,
                   and well-being of your employees, guests, and clients. Through
@@ -579,18 +626,19 @@
         </section>
       </div>
 
-      <section class="intermezzo-section fade-up">
+      <section class="intermezzo-section fade-up" aria-label="Call to Action">
         <div class="intermezzo-content">
           <h2 class="intermezzo-description">
             Looking To Expand Your Business Without Increasing Overhead
             Costs?<br />
             Our Outsourcing Services Provide The Perfect Solution.
           </h2>
-          <a href="#" class="btn-intermezzo">
+          <a href="#contact" class="btn-intermezzo">
             Chat Us Now
             <img
               src="assets/icons/right-arrow.png"
-              alt="Arrow Right"
+              alt=""
+              aria-hidden="true"
               class="btn-arrow"
             />
           </a>
@@ -598,17 +646,23 @@
       </section>
 
       <div class="second-section">
-        <div class="projects-section section-padding bg-primary">
+        <section
+          class="projects-section section-padding bg-primary"
+          id="projects"
+          aria-labelledby="projectsTitle"
+        >
           <div class="section-header fade-up">
-            <h2 class="main-heading">Your Satisfaction Is Our Commitment</h2>
-            <h4 class="sub-heading">
-              Always Paying Attention To Every Detail Of Our Clients Needs
+            <h2 class="projects-title" id="projectsTitle">
+              Your Satisfaction Is Our Commitment
+            </h2>
+            <h4 class="projects-subtitle">
+              Always Paying Attention To Every Detail Of Our Clients' Needs
             </h4>
           </div>
 
           <div class="projects-content">
             <div class="projects-grid fade-up">
-              <div class="project-card">
+              <article class="project-card">
                 <div class="project-image-wrapper">
                   <img
                     src="assets/projects/Holland Bakery.jpg"
@@ -620,7 +674,7 @@
                   <div class="project-overlay"></div>
 
                   <div class="project-image-text">
-                    <h6 id="project-description">test</h6>
+                    <h6 class="project-text-description">test</h6>
                   </div>
                 </div>
 
@@ -628,9 +682,9 @@
                   <h3>Holland Bakery</h3>
                   <div class="project-line"></div>
                 </div>
-              </div>
+              </article>
 
-              <div class="project-card">
+              <article class="project-card">
                 <div class="project-image-wrapper">
                   <img
                     src="assets/projects/Menara Kuningan 2.jpg"
@@ -642,7 +696,7 @@
                   <div class="project-overlay"></div>
 
                   <div class="project-image-text">
-                    <h6 id="project-description">test</h6>
+                    <h6 class="project-text-description">test</h6>
                   </div>
                 </div>
 
@@ -650,9 +704,9 @@
                   <h3>Menara Kuningan</h3>
                   <div class="project-line"></div>
                 </div>
-              </div>
+              </article>
 
-              <div class="project-card">
+              <article class="project-card">
                 <div class="project-image-wrapper">
                   <img
                     src="assets/projects/Sari Roti.jpg"
@@ -664,7 +718,7 @@
                   <div class="project-overlay"></div>
 
                   <div class="project-image-text">
-                    <h6 id="project-description">test</h6>
+                    <h6 class="project-text-description">test</h6>
                   </div>
                 </div>
 
@@ -672,9 +726,9 @@
                   <h3>Sari Roti</h3>
                   <div class="project-line"></div>
                 </div>
-              </div>
+              </article>
 
-              <div class="project-card">
+              <article class="project-card">
                 <div class="project-image-wrapper">
                   <img
                     src="assets/projects/Mitra 10.jpg"
@@ -686,7 +740,7 @@
                   <div class="project-overlay"></div>
 
                   <div class="project-image-text">
-                    <h6 id="project-description">test</h6>
+                    <h6 class="project-text-description">test</h6>
                   </div>
                 </div>
 
@@ -694,9 +748,9 @@
                   <h3>Mitra 10</h3>
                   <div class="project-line"></div>
                 </div>
-              </div>
+              </article>
 
-              <div class="project-card">
+              <article class="project-card">
                 <div class="project-image-wrapper">
                   <img
                     src="assets/projects/Transmart 2.jpg"
@@ -708,7 +762,7 @@
                   <div class="project-overlay"></div>
 
                   <div class="project-image-text">
-                    <h6 id="project-description">test</h6>
+                    <h6 class="project-text-description">test</h6>
                   </div>
                 </div>
 
@@ -716,9 +770,9 @@
                   <h3>Transmart</h3>
                   <div class="project-line"></div>
                 </div>
-              </div>
+              </article>
 
-              <div class="project-card">
+              <article class="project-card">
                 <div class="project-image-wrapper">
                   <img
                     src="assets/projects/RDTX 1.jpg"
@@ -730,7 +784,7 @@
                   <div class="project-overlay"></div>
 
                   <div class="project-image-text">
-                    <h6 id="project-description">test</h6>
+                    <h6 class="project-text-description">test</h6>
                   </div>
                 </div>
 
@@ -738,20 +792,26 @@
                   <h3>RDTX Group</h3>
                   <div class="project-line"></div>
                 </div>
-              </div>
+              </article>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div class="clients-section">
+        <section class="clients-section" aria-labelledby="clientsTitle">
           <div class="section-header fade-up">
-            <h4 class="sub-heading">Over 200+ Clients Already Choose Us</h4>
+            <h2 class="clients-title" id="clientsTitle">
+              Trusted by Over 200+ Clients
+            </h2>
           </div>
 
           <div class="clients-content fade-up">
-            <div class="clients-marquee-container" id="clientsMarquee"></div>
+            <div
+              class="clients-marquee-container"
+              id="clientsMarquee"
+              aria-label="Our Clients Logo Carousel"
+            ></div>
           </div>
-        </div>
+        </section>
 
         <div class="coverage-section section-padding bg-primary">
           <div class="section-header fade-up">
