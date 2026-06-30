@@ -837,6 +837,8 @@ button {
   width: 120px;
   height: 120px;
 
+  padding: 0;
+
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 1.875rem;
   background-color: var(--white-color);
@@ -879,6 +881,8 @@ button {
   width: 10px;
   height: 10px;
   border-radius: 50%;
+  border: none;
+  padding: 0;
   cursor: pointer;
   background-color: #e0e0e0;
   transition: background-color 0.3s ease;

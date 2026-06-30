@@ -159,61 +159,92 @@
 
     <main class="main-content" id="mainContent">
       <div class="first-section">
-        <div class="introduce-section fade-up" style="transition-delay: 1.3s">
+        <section
+          class="introduce-section fade-up"
+          id="introduce"
+          style="transition-delay: 1.3s"
+        >
           <h2>introduce us, <span>tri karya cemerlang</span></h2>
-        </div>
+        </section>
 
-        <div class="about-section bg-primary">
+        <section
+          class="about-section bg-primary"
+          aria-label="Company Statictics"
+        >
           <div class="about-content">
             <div class="stats-grid">
-              <div class="stat-card fade-up" style="transition-delay: 1.5s">
+              <article class="stat-card fade-up" style="transition-delay: 1.5s">
                 <div class="icon-box">
-                  <img src="assets/about/Experiences.gif" alt="18 Years" />
+                  <img
+                    src="assets/about/Experiences.gif"
+                    alt="18 Years"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
-                <h3>18 Years Of Experiences</h3>
+                <h3>18 Years Of Experience</h3>
                 <p>
-                  Our company has consistently delivering exceptional quality
+                  Our company has consistently delivered exceptional quality
                   services and innovative solutions for almost two decades.
                 </p>
-              </div>
+              </article>
 
-              <div class="stat-card fade-up" style="transition-delay: 1.7s">
+              <article class="stat-card fade-up" style="transition-delay: 1.7s">
                 <div class="icon-box">
-                  <img src="assets/about/Manpower.gif" alt="Manpower Supply" />
+                  <img
+                    src="assets/about/Manpower.gif"
+                    alt="Manpower Supply"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
                 <h3>7700+ Manpower Supply</h3>
                 <p>
                   We are committed to delivering the highest quality manpower
                   for your business needs across various sectors.
                 </p>
-              </div>
+              </article>
 
-              <div class="stat-card fade-up" style="transition-delay: 1.9s">
+              <article class="stat-card fade-up" style="transition-delay: 1.9s">
                 <div class="icon-box">
-                  <img src="assets/about/Clients.gif" alt="Satisfied Clients" />
+                  <img
+                    src="assets/about/Clients.gif"
+                    alt="Satisfied Clients"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
                 <h3>200+ Satisfied Clients</h3>
                 <p>
-                  More than 200 clients have entrusted their needs to us and
-                  satisfied with services and solutions we offered.
+                  More than 200 clients have entrusted their needs to us and are
+                  satisfied with the services and solutions we offer.
                 </p>
-              </div>
+              </article>
 
-              <div class="stat-card fade-up" style="transition-delay: 2.1s">
+              <article class="stat-card fade-up" style="transition-delay: 2.1s">
                 <div class="icon-box">
-                  <img src="assets/about/Office.gif" alt="Branch Offices" />
+                  <img
+                    src="assets/about/Office.gif"
+                    alt="Branch Offices"
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
                 <h3>7 Branch Offices</h3>
                 <p>
                   We are always ready and responsive to serve you with a wider
                   reach and faster response in every region.
                 </p>
-              </div>
+              </article>
             </div>
           </div>
-        </div>
+        </section>
 
-        <div class="industries-section section-padding bg-primary">
+        <section
+          class="industries-section section-padding bg-primary"
+          id="industries"
+          aria-label="Industries We Support"
+        >
           <div
             class="industries-content fade-up"
             style="transition-delay: 2.3s"
@@ -235,51 +266,134 @@
               </div>
 
               <div class="carousel-container">
-                <button class="carousel-prev-btn prev-btn">
-                  <img src="assets/icons/right-arrow.png" alt="prev-btn" />
+                <button
+                  class="carousel-prev-btn prev-btn"
+                  aria-label="Previous Industry"
+                >
+                  <img
+                    src="assets/icons/right-arrow.png"
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                  />
                 </button>
 
                 <div class="carousel-icons">
-                  <div class="carousel-icon-box" data-index="0">
+                  <button
+                    type="button"
+                    class="carousel-icon-box"
+                    data-index="0"
+                    aria-label="Corporate Industry"
+                  >
                     <img
                       src="assets/industries/Icon/corporate.png"
                       alt="Corporate"
+                      loading="lazy"
+                      decoding="async"
                     />
-                  </div>
-                  <div class="carousel-icon-box" data-index="1">
+                  </button>
+
+                  <button
+                    type="button"
+                    class="carousel-icon-box"
+                    data-index="1"
+                    aria-label="Healthcare Industry"
+                  >
                     <img
                       src="assets/industries/Icon/healthcare.png"
                       alt="Healthcare"
+                      loading="lazy"
+                      decoding="async"
                     />
-                  </div>
-                  <div class="carousel-icon-box active" data-index="2">
+                  </button>
+
+                  <button
+                    type="button"
+                    class="carousel-icon-box active"
+                    data-index="2"
+                    aria-label="Education Industry"
+                  >
                     <img
                       src="assets/industries/Icon/education.png"
                       alt="Education"
+                      loading="lazy"
+                      decoding="async"
                     />
-                  </div>
-                  <div class="carousel-icon-box" data-index="3">
+                  </button>
+
+                  <button
+                    type="button"
+                    class="carousel-icon-box"
+                    data-index="3"
+                    aria-label="Manufacture Industry"
+                  >
                     <img
                       src="assets/industries/Icon/manufacture.png"
-                      alt="Manufacturing"
+                      alt="Manufacture"
+                      loading="lazy"
+                      decoding="async"
                     />
-                  </div>
-                  <div class="carousel-icon-box" data-index="4">
-                    <img src="assets/industries/Icon/retail.png" alt="Retail" />
-                  </div>
+                  </button>
+
+                  <button
+                    type="button"
+                    class="carousel-icon-box"
+                    data-index="4"
+                    aria-label="Retail Industry"
+                  >
+                    <img
+                      src="assets/industries/Icon/retail.png"
+                      alt="Retail"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
                 </div>
 
-                <button class="carousel-next-btn next-btn">
-                  <img src="assets/icons/right-arrow.png" alt="next-btn" />
+                <button
+                  class="carousel-next-btn next-btn"
+                  aria-label="Next Industry"
+                >
+                  <img
+                    src="assets/icons/right-arrow.png"
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                  />
                 </button>
               </div>
 
               <div class="carousel-dots">
-                <span class="dot" data-index="0"></span>
-                <span class="dot" data-index="1"></span>
-                <span class="dot active" data-index="2"></span>
-                <span class="dot" data-index="3"></span>
-                <span class="dot" data-index="4"></span>
+                <button
+                  type="button"
+                  class="dot"
+                  data-index="0"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  class="dot"
+                  data-index="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  class="dot active"
+                  data-index="2"
+                  aria-label="Slide 3"
+                ></button>
+                <button
+                  type="button"
+                  class="dot"
+                  data-index="3"
+                  aria-label="Slide 4"
+                ></button>
+                <button
+                  type="button"
+                  class="dot"
+                  data-index="4"
+                  aria-label="Slide 5"
+                ></button>
               </div>
             </div>
 
@@ -288,6 +402,8 @@
                 <img
                   src="assets/industries/office.webp"
                   alt="Corporate Office"
+                  loading="lazy"
+                  decoding="async"
                 />
 
                 <div class="industries-overlay"></div>
@@ -298,36 +414,57 @@
               </div>
             </div>
           </div>
-        </div>
+        </section>
 
         <div class="divider-wrapper">
           <div class="custom-line fade-up"></div>
         </div>
 
-        <div class="services-section section-padding bg-primary">
+        <section
+          class="services-section section-padding bg-primary"
+          id="services"
+          aria-label="Our Excellent Services"
+        >
           <div class="section-header fade-up">
-            <h2 class="main-heading">Our Excellence Services</h2>
+            <h2 class="main-heading">Our Excellent Services</h2>
             <h4 class="sub-heading">
-              Support Your Business With Our Range Services
+              Support Your Business With Our Range of Services
             </h4>
           </div>
 
           <div class="services-content fade-up">
             <div class="services-left">
-              <div class="services-accordion">
-                <div class="acc-item active" data-index="0">
+              <div
+                class="services-accordion"
+                role="tablist"
+                aria-label="Services Options"
+              >
+                <button
+                  class="acc-item active"
+                  data-index="0"
+                  role="tab"
+                  aria-selected="true"
+                  aria-controls="service-panel"
+                >
                   <img
                     src="assets/services/cleaning-services.webp"
                     alt="Cleaning Service"
                     loading="lazy"
                     decoding="async"
                   />
+
                   <div class="acc-progress-track">
                     <div class="acc-progress-fill"></div>
                   </div>
-                </div>
+                </button>
 
-                <div class="acc-item" data-index="1">
+                <button
+                  class="acc-item"
+                  data-index="1"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="service-panel"
+                >
                   <img
                     src="assets/services/security.webp"
                     alt="Security Service"
@@ -338,9 +475,15 @@
                   <div class="acc-progress-track">
                     <div class="acc-progress-fill"></div>
                   </div>
-                </div>
+                </button>
 
-                <div class="acc-item" data-index="2">
+                <button
+                  class="acc-item"
+                  data-index="2"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="service-panel"
+                >
                   <img
                     src="assets/services/pest.webp"
                     alt="Pest Control"
@@ -351,9 +494,15 @@
                   <div class="acc-progress-track">
                     <div class="acc-progress-fill"></div>
                   </div>
-                </div>
+                </button>
 
-                <div class="acc-item" data-index="3">
+                <button
+                  class="acc-item"
+                  data-index="3"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="service-panel"
+                >
                   <img
                     src="assets/services/rope.webp"
                     alt="Rope Access"
@@ -364,9 +513,15 @@
                   <div class="acc-progress-track">
                     <div class="acc-progress-fill"></div>
                   </div>
-                </div>
+                </button>
 
-                <div class="acc-item" data-index="4">
+                <button
+                  class="acc-item"
+                  data-index="4"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="service-panel"
+                >
                   <img
                     src="assets/services/mep.webp"
                     alt="Facility Management"
@@ -377,9 +532,15 @@
                   <div class="acc-progress-track">
                     <div class="acc-progress-fill"></div>
                   </div>
-                </div>
+                </button>
 
-                <div class="acc-item" data-index="5">
+                <button
+                  class="acc-item"
+                  data-index="5"
+                  role="tab"
+                  aria-selected="false"
+                  aria-controls="service-panel"
+                >
                   <img
                     src="assets/services/receptionist.webp"
                     alt="Receptionist"
@@ -390,14 +551,19 @@
                   <div class="acc-progress-track">
                     <div class="acc-progress-fill"></div>
                   </div>
-                </div>
+                </button>
               </div>
             </div>
 
             <div class="services-right">
-              <div class="services-text-info">
+              <div
+                class="services-text-info"
+                id="service-panel"
+                role="tabpanel"
+                tabindex="0"
+              >
                 <h3 id="service-title">Cleaning Service</h3>
-                <p id="service-desc">
+                <p id="service-description">
                   Maintaining clean, hygienic spaces requires the highest
                   standards. We are committed to supporting the health, safety,
                   and well-being of your employees, guests, and clients. Through
@@ -406,11 +572,11 @@
                   precise testing and monitoring—always aligned with your
                   business objectives.
                 </p>
-                <a href="#" class="btn-dark">Read More</a>
+                <a href="#0" class="btn-services">Read More</a>
               </div>
             </div>
           </div>
-        </div>
+        </section>
       </div>
 
       <section class="intermezzo-section fade-up">
