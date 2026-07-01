@@ -36,9 +36,9 @@
             /></a>
             <div class="dropdown-menu menu-about">
               <ul>
-                <li><a href="#">company profile</a></li>
-                <li><a href="#">vision & mission</a></li>
-                <li><a href="#">management & teams</a></li>
+                <li><a href="#0">company profile</a></li>
+                <li><a href="#0">vision & mission</a></li>
+                <li><a href="#0">management & teams</a></li>
               </ul>
             </div>
           </li>
@@ -49,20 +49,16 @@
             /></a>
             <div class="dropdown-menu menu-services">
               <ul>
-                <li><a href="#">cleaning services</a></li>
-                <li><a href="#">security services</a></li>
-                <li>
-                  <a href="#">pest control services</a>
-                </li>
-                <li>
-                  <a href="#">landscaping services</a>
-                </li>
-                <li><a href="#">facility management</a></li>
+                <li><a href="#cleaning-services">Cleaning Services</a></li>
+                <li><a href="#security-services">Security Services</a></li>
+                <li><a href="#rope-access">Rope Access</a></li>
+                <li><a href="#pest-control-services">Pest Control</a></li>
+                <li><a href="#MEP-services">MEP</a></li>
               </ul>
             </div>
           </li>
-          <li><a href="#">career</a></li>
-          <li><a href="#">products</a></li>
+          <li><a href="#0">career</a></li>
+          <li><a href="#0">products</a></li>
           <li>
             <a href="#contact">contact</a>
           </li>
@@ -78,11 +74,11 @@
             /></a>
             <div class="dropdown-menu menu-help">
               <ul>
-                <li><a href="#">FAQ's</a></li>
-                <li><a href="#">support ticket</a></li>
-                <li><a href="#">report an issue</a></li>
-                <li><a href="#">whatsApp chat</a></li>
-                <li><a href="#">terms of service</a></li>
+                <li><a href="#0">FAQ's</a></li>
+                <li><a href="#0">support ticket</a></li>
+                <li><a href="#0">report an issue</a></li>
+                <li><a href="#0">whatsApp chat</a></li>
+                <li><a href="#0">terms of service</a></li>
               </ul>
             </div>
           </li>
@@ -95,7 +91,7 @@
             <div class="dropdown-menu menu-lang">
               <ul>
                 <li>
-                  <a href="#"
+                  <a href="#0"
                     ><img
                       src="assets/icons/united-kingdom-flag.png"
                       alt=""
@@ -106,7 +102,7 @@
                   >
                 </li>
                 <li>
-                  <a href="#"
+                  <a href="#0"
                     ><img
                       src="assets/icons/indonesia-flag.png"
                       alt=""
@@ -257,12 +253,12 @@
           >
             <div class="industries-left">
               <div class="industries-text">
-                <h4 class="industries-title" id="industryTitle">
+                <h2 class="industries-title" id="industryTitle">
                   Industries We Support
-                </h4>
-                <h2 class="industries-subtitle">
-                  We Work With All Types Of Workplaces
                 </h2>
+                <h4 class="industries-subtitle">
+                  We Work With All Types Of Workplaces
+                </h4>
                 <p class="industries-description">
                   Intelligent, integrated facility services are designed to
                   drive profitability, improve efficiency, and provide a
@@ -813,55 +809,58 @@
           </div>
         </section>
 
-        <div class="coverage-section section-padding bg-primary">
+        <section
+          class="coverage-section section-padding bg-primary"
+          id="coverage"
+          aria-labelledby="coverageTitle"
+        >
           <div class="section-header fade-up">
-            <h2 class="main-heading">Our Coverage Area</h2>
-            <h4 class="sub-heading">Bringing Our Services To You</h4>
+            <h2 class="coverage-title" id="coverageTitle">Our Coverage Area</h2>
+            <h4 class="coverage-subtitle">Bringing Our Services To You</h4>
           </div>
 
           <div class="coverage-map fade-up">
             <img
               src="assets/coverage/Map.png"
-              alt="Map of Indonesia Coverage Area"
+              alt="Map of Indonesia showing Tri Karya Cemerlang's service coverage areas"
               loading="lazy"
               decoding="async"
             />
           </div>
-        </div>
+        </section>
 
         <section
           class="contact-section section-padding bg-secondary"
           id="contact"
+          aria-labelledby="contactTitle"
         >
           <div class="section-header fade-up">
-            <h2 class="main-heading">Contact Us</h2>
-            <h4 class="sub-heading">Get In Touch Now</h4>
+            <h2 class="contact-title" id="contactTitle">Contact Us</h2>
+            <h4 class="contact-subtitle">Get In Touch Now</h4>
           </div>
 
           <div class="contact-content fade-up">
             <div class="contact-left">
               <div class="contact-block">
-                <h3>Inquiries</h3>
-                <p>
+                <h3 class="contact-block-title">Inquiries</h3>
+                <p class="contact-block-description">
                   For Any Inquiries, Questions Or Commendations, Please Send
                   Email :
                   <span>
-                    <a href="mailto:trikaryacemerlangofficial@gmail.com"
+                    <a href="mailto:marketing@tkc.co.id"
                       >marketing@tkc.co.id</a
                     ></span
                   >
                   Or Click The Following Button
                 </p>
-                <a
-                  href="mailto:trikaryacemerlangofficial@gmail.com"
-                  class="btn-green"
+                <a href="mailto:marketing@tkc.co.id" class="btn-contact"
                   >Ask Us Anything</a
                 >
               </div>
 
               <div class="contact-block">
-                <h3>Employment</h3>
-                <p>
+                <h3 class="contact-block-title">Employment</h3>
+                <p class="contact-block-description">
                   To Apply For A Job With Tri Karya Cemerlang, Please Send A
                   Cover Letter Together With Your C.V. To :
                   <span>
@@ -871,7 +870,7 @@
                   >
                   Or Click The Following Button
                 </p>
-                <a href="mailto:recruitment@tkc.co.id" class="btn-green"
+                <a href="mailto:recruitment@tkc.co.id" class="btn-contact"
                   >Send Email</a
                 >
               </div>
@@ -883,6 +882,7 @@
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3965.7533587170574!2d106.84149417499103!3d-6.296108293692979!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f246ffffff89%3A0xb8551ba99bfacea7!2sPT.%20Tri%20Karya%20Cemerlang!5e0!3m2!1sen!2sid!4v1773392679283!5m2!1sen!2sid"
                 class="contact-map"
+                title="Google Maps Location of Tri Karya Cemerlang Head Office"
                 allowfullscreen=""
                 loading="lazy"
                 referrerpolicy="no-referrer-when-downgrade"
@@ -894,23 +894,55 @@
 
                 <ul class="head-office-details">
                   <li>
-                    <img src="assets/icons/pin.png" alt="Location" />
+                    <img src="assets/icons/pin.png" alt="" aria-hidden="true" />
                     <span
                       >Jl. Poltangan Raya No.32, RT.3/RW.10, East Pejaten,<br />Pasar
                       Minggu, South Jakarta City, Jakarta 12510</span
                     >
                   </li>
                   <li>
-                    <img src="assets/icons/email.png" alt="Email" />
-                    <span>marketing@tkc.co.id</span>
+                    <img
+                      src="assets/icons/email.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                    <span>
+                      <a
+                        href="mailto:marketing@tkc.co.id"
+                        style="color: inherit; text-decoration: none"
+                        >marketing@tkc.co.id</a
+                      ></span
+                    >
                   </li>
                   <li>
-                    <img src="assets/icons/web.png" alt="Website" />
-                    <span>www.tkc.co.id</span>
+                    <img src="assets/icons/web.png" alt="" aria-hidden="true" />
+                    <span>
+                      <a
+                        href="https://www.tkc.co.id"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style="color: inherit; text-decoration: none"
+                        >www.tkc.co.id</a
+                      ></span
+                    >
                   </li>
                   <li>
-                    <img src="assets/icons/phone.png" alt="Phone" />
-                    <span>+62 21 7800512<br />+62 21 7801057</span>
+                    <img
+                      src="assets/icons/phone.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
+                    <span
+                      ><a
+                        href="tel:+62217800512"
+                        style="color: inherit; text-decoration: none"
+                        >+62217800512</a
+                      ><br /><a
+                        href="tel:+62217801057"
+                        style="color: inherit; text-decoration: none"
+                        >+62217801057</a
+                      ></span
+                    >
                   </li>
                 </ul>
               </div>
@@ -923,9 +955,14 @@
     <footer class="footer-section">
       <div class="footer-container">
         <div class="footer-brand">
-          <a href="#" class="footer-logo">
-            <img src="assets/logo/Alt-Block.png" alt="Tri Karya Cemerlang" />
-          </a>
+          <div class="footer-logo">
+            <img
+              src="assets/logo/Alt-Block.png"
+              alt="Tri Karya Cemerlang Logo"
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
           <p class="footer-bio">
             Intelligent, integrated facility services designed to drive
             profitability, improve efficiency, and provide a competitive
@@ -936,54 +973,69 @@
             <a
               href="https://www.facebook.com/pttrikaryacemerlang"
               target="_blank"
-              ><img src="assets/icons/facebook.png" alt="Facebook"
+              rel="noopener noreferrer"
+              aria-label="Visit Our Facebook Page"
+              ><img
+                src="assets/icons/facebook.png"
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
             /></a>
+
             <a
               href="https://www.instagram.com/pttrikaryacemerlang"
               target="_blank"
-              ><img src="assets/icons/instagram.png" alt="Instagram"
+              rel="noopener noreferrer"
+              aria-label="Visit Our Instagram Page"
+              ><img
+                src="assets/icons/instagram.png"
+                alt=""
+                aria-hidden="true"
+                loading="lazy"
+                decoding="async"
             /></a>
           </div>
         </div>
 
         <div class="footer-links-wrapper">
           <div class="footer-col">
-            <h3>About Us</h3>
-            <ul>
-              <li><a href="#">Company Profile</a></li>
-              <li><a href="#">Vision & Mission</a></li>
-              <li><a href="#">Management & Teams</a></li>
+            <h3 id="footer-about">About Us</h3>
+            <ul aria-labelledby="footer-about">
+              <li><a href="#0">Company Profile</a></li>
+              <li><a href="#0">Vision & Mission</a></li>
+              <li><a href="#0">Management & Teams</a></li>
             </ul>
           </div>
 
           <div class="footer-col">
-            <h3>Our Services</h3>
-            <ul>
-              <li><a href="#">Cleaning Services</a></li>
-              <li><a href="#">Security Services</a></li>
-              <li><a href="#">Rope Access</a></li>
-              <li><a href="#">Pest Control</a></li>
-              <li><a href="#">MEP</a></li>
+            <h3 id="footer-services">Our Services</h3>
+            <ul aria-labelledby="footer-services">
+              <li><a href="#cleaning-services">Cleaning Services</a></li>
+              <li><a href="#security-services">Security Services</a></li>
+              <li><a href="#rope-access">Rope Access</a></li>
+              <li><a href="#pest-control-services">Pest Control</a></li>
+              <li><a href="#MEP-services">MEP</a></li>
             </ul>
           </div>
 
           <div class="footer-col">
-            <h3>Our Products</h3>
-            <ul>
-              <li><a href="#">General Cleaning</a></li>
-              <li><a href="#">MEP AC</a></li>
-              <li><a href="#">MyTKC</a></li>
-              <li><a href="#">MyClient</a></li>
+            <h3 id="footer-products">Our Products</h3>
+            <ul aria-labelledby="footer-products">
+              <li><a href="#0">General Cleaning</a></li>
+              <li><a href="#0">MEP AC</a></li>
+              <li><a href="#0">MyTKC</a></li>
+              <li><a href="#0">MyClient</a></li>
             </ul>
           </div>
 
           <div class="footer-col">
-            <h3>Support</h3>
-            <ul>
-              <li><a href="#">Our Location</a></li>
-              <li><a href="#">Apply For Job</a></li>
-              <li><a href="#">General Cleaning</a></li>
-              <li><a href="#">MyClient</a></li>
+            <h3 id="footer-support">Support</h3>
+            <ul aria-labelledby="footer-support">
+              <li><a href="#0">Our Location</a></li>
+              <li><a href="#0">Apply For Job</a></li>
+              <li><a href="#0">General Cleaning</a></li>
+              <li><a href="#0">MyClient</a></li>
             </ul>
           </div>
         </div>
@@ -992,20 +1044,34 @@
       <div class="footer-bottom">
         <div class="custom-line"></div>
         <div class="copyright-content">
-          <p>&copy; 2026 PT. Tri Karya Cemerlang. All Rights Reserved.</p>
+          <p>
+            <small
+              >&copy; 2026 PT. Tri Karya Cemerlang. All Rights Reserved.</small
+            >
+          </p>
           <div class="legal-links">
-            <a href="#">Privacy Policy</a>
-            <a href="#">Terms & Conditions</a>
+            <a href="#0">Privacy Policy</a>
+            <a href="#0">Terms & Conditions</a>
           </div>
         </div>
       </div>
     </footer>
 
-    <a href="mailto:trikaryacemerlangofficial@gmail.com" class="floating-email">
-      <img src="assets/icons/gmail.png" alt="Email Support" />
+    <a
+      href="mailto:marketing@tkc.co.id"
+      class="floating-email"
+      aria-label="Send Us an Email"
+    >
+      <img
+        src="assets/icons/gmail.png"
+        alt=""
+        aria-hidden="true"
+        loading="lazy"
+        decoding="async"
+      />
     </a>
 
-    <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to top">
+    <button id="scrollTopBtn" class="scroll-top-btn" aria-label="Scroll to Top">
       <span class="arrow-up"></span>
     </button>
 
