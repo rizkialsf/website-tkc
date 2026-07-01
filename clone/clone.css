@@ -169,6 +169,14 @@ h6 {
   transform: translateY(0);
 }
 
+button {
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: none;
+  padding: 0;
+}
+
 /* =========================================
    B. NAVBAR & FLOATING BUTTONS (REFACTORED)
 ========================================= */
@@ -516,7 +524,7 @@ h6 {
 }
 
 /* Base Button (Hero) */
-.btn {
+.btn-hero {
   align-self: flex-start;
   padding: 0.9375rem 2.1875rem;
   margin-top: 2.1875rem;
@@ -532,7 +540,7 @@ h6 {
   transition: all 0.3s ease;
 }
 
-.btn:hover {
+.btn-hero:hover {
   background-color: var(--accent-color);
   border-color: var(--accent-color);
   transform: translateY(-3px);
@@ -554,6 +562,8 @@ h6 {
   cursor: pointer;
   opacity: 0.8;
   z-index: 10;
+
+  -webkit-tap-highlight-color: transparent;
 }
 
 .scroll-arrow {
@@ -827,6 +837,8 @@ h6 {
   width: 120px;
   height: 120px;
 
+  padding: 0;
+
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 1.875rem;
   background-color: var(--white-color);
@@ -869,6 +881,8 @@ h6 {
   width: 10px;
   height: 10px;
   border-radius: 50%;
+  border: none;
+  padding: 0;
   cursor: pointer;
   background-color: #e0e0e0;
   transition: background-color 0.3s ease;
@@ -1628,67 +1642,99 @@ h6 {
 ========================================= */
 /* 1. LAPTOP JADUL / MACBOOK 13 INCH (Maksimal 1366px) */
 @media (max-width: 1366px) {
-  /* A. Kalibrasi Tipografi Utama */
+  /* A. Global Typography */
   h1 {
     font-size: 3.5rem;
   }
+
   h2 {
     font-size: 2.5rem !important;
   }
+
   h3 {
-    font-size: 1.75rem;
-  }
-  .main-heading {
-    font-size: 2rem;
   }
 
-  /* B. Kalibrasi Jarak Utama (Section Padding) */
-  .section-padding {
-    padding: 4rem 8% 5rem;
+  h4 {
   }
 
-  /* C. Penyesuaian Spesifik Per Bagian */
-  .hero-content p {
-    font-size: 1.075rem;
+  h5 {
+  }
+
+  h6 {
   }
 
   .btn {
-    font-size: 0.75rem;
+    font-size: 0.8rem;
   }
 
-  /* Navbar: Kurangi jarak antar menu */
+  /* B. Global Padding */
+  .section-padding {
+    padding: 3.5rem 10%;
+  }
+
+  /* C. Specific per Section */
+  /* C.1. Navigation Bar */
+  .logo img {
+    height: 32px;
+    width: auto;
+  }
+
   .main-nav-links ul,
   .side-nav-links ul {
-    gap: 0.75rem; /* 12px (sebelumnya 20px) */
+    gap: 8px;
   }
 
   .main-nav-links ul li a,
   .side-nav-links ul li a {
-    font-size: 0.9375rem; /* 15px (sedikit mengecil agar muat sebaris) */
-    padding: 0.5rem; /* Kurangi ruang kosong klik */
+    font-size: 0.85rem;
+    padding: 0.5rem;
   }
 
-  /* About Section (Stats Grid): Merapatkan jarak antar kotak */
-  .stats-grid {
-    gap: 1.5rem; /* 24px (sebelumnya bisa sampai 50px) */
+  /* C.2. Hero Section */
+  .hero-content p {
+    font-size: 1.1rem;
   }
 
-  /* Services Section: Atur ulang proporsi Kiri (Accordion) vs Kanan (Teks) */
-  .services-content {
-    gap: 2rem; /* 32px */
-  }
-  .services-left {
-    flex: 1.2; /* Kurangi dominasi accordion agar teks di kanan tidak terjepit */
+  .hero-content .btn {
+    padding: 12px 20px;
   }
 
-  /* Projects Section: Merapatkan jarak antar kartu proyek */
-  .projects-grid {
-    gap: 2.5rem 2rem; /* Atas-Bawah 40px, Kiri-Kanan 32px */
+  .scroll-down-container {
+    bottom: 40px;
   }
 
-  /* Footer: Merapatkan jarak antar kolom agar tidak terlempar ke bawah */
-  .footer-container {
-    gap: 2rem; /* 32px (sebelumnya 80px) */
+  .scroll-arrow {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* C.3. Introduce Section */
+  .introduce-section h2 {
+    padding-bottom: 8.75rem;
+  }
+
+  /* C.4. About Section */
+  .icon-box {
+    width: 145px;
+    height: 145px;
+  }
+
+  .icon-box img {
+    width: 50%;
+    height: auto;
+  }
+
+  .stat-card h3 {
+    font-size: 0.9rem;
+  }
+
+  .stat-card p {
+    font-size: 0.75rem;
+  }
+
+  /* C.5. Industries Section */
+  .introduce-text h2 {
+    font-size: 1rem;
   }
 }
 

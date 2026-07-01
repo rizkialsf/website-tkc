@@ -86,9 +86,6 @@ function initScrollEffects() {
         isAnimating = true;
         smoothScrollTo(targetDown, scrollDuration);
       }
-
-      // Catatan: Logika "else if" untuk mencegat scroll ke atas telah DIHAPUS.
-      // Dengan begini, browser akan mengambil alih scroll ke atas secara natural.
     },
     { passive: false },
   );
@@ -104,7 +101,7 @@ function initScrollEffects() {
     });
   }
 
-  // E. Button Hero Section
+  // E. Button Hero Section (Ditangani khusus oleh mesin custom)
   const btnHero = document.querySelector(".btn-hero");
   if (btnHero) {
     btnHero.addEventListener("click", (e) => {
@@ -124,31 +121,21 @@ function initScrollEffects() {
 function initFadeUp() {
   const fadeElements = document.querySelectorAll(".fade-up");
 
-  // Konfigurasi area pantau
   const observerOptions = {
     root: null,
-    // rootMargin "-100px" menciptakan garis imajiner 100px dari bawah layar.
-    // Elemen harus melewati garis ini baru animasi "fade-up" akan terpicu.
     rootMargin: "0px 0px -60px 0px",
     threshold: 0,
   };
 
   const observer = new IntersectionObserver((entries, observerInstance) => {
     entries.forEach((entry) => {
-      // Jika elemen sudah melewati garis imajiner 100px dari bawah layar
       if (entry.isIntersecting) {
-        // Nyalakan animasi
         entry.target.classList.add("visible");
-
-        // KUNCI OPTIMASI: Lepaskan elemen ini dari radar pantauan browser.
-        // Karena elemen hanya perlu muncul satu kali, kita matikan observer-nya
-        // untuk menghemat resource CPU/GPU dan mempercepat kinerja halaman.
         observerInstance.unobserve(entry.target);
       }
     });
   }, observerOptions);
 
-  // Daftarkan semua elemen yang punya class .fade-up ke dalam radar
   fadeElements.forEach((el) => observer.observe(el));
 }
 
@@ -192,13 +179,14 @@ function initIndustriesCarousel() {
   const iconImages = document.querySelectorAll(".carousel-icon-box img");
   const dots = document.querySelectorAll(".carousel-dots .dot");
   const mainImage = document.querySelector(".industries-right img");
-  const titleElement = document.getElementById("industries-title");
+  const titleElement = document.getElementById("industries-text-title"); // KOREKSI ID
   const textWrapper = document.querySelector(".industries-image-text");
   const prevBtn = document.querySelector(".carousel-prev-btn");
   const nextBtn = document.querySelector(".carousel-next-btn");
   const iconBoxes = document.querySelectorAll(".carousel-icon-box");
 
-  if (!mainImage || !titleElement) return; // Mencegah error jika elemen tidak ada di halaman
+  // Jika struktur HTML tidak ditemukan (mungkin di halaman lain), hentikan fungsi
+  if (!mainImage || !titleElement) return;
 
   let currentIndex = 2; // Mulai dari 'Corporate'
 
@@ -290,8 +278,8 @@ function initServicesAccordion() {
 
   const servicesSection = document.querySelector(".services-section");
   const accItems = document.querySelectorAll(".acc-item");
-  const serviceTitle = document.getElementById("service-title");
-  const serviceDesc = document.getElementById("service-desc");
+  const serviceTitle = document.getElementById("service-text-title"); // KOREKSI ID
+  const serviceDesc = document.getElementById("service-text-description"); // KOREKSI ID
   const serviceInfoContainer = document.querySelector(".services-text-info");
 
   if (accItems.length === 0) return;
@@ -299,7 +287,7 @@ function initServicesAccordion() {
   let currentIndex = 0;
   let autoPlayTimer = null;
   let progress = 0;
-  const duration = 10000; // 10 Detik
+  const duration = 10000;
   const tick = 10;
 
   function activateItem(index) {
@@ -313,7 +301,7 @@ function initServicesAccordion() {
 
     accItems[index].classList.add("active");
     currentIndex = index;
-    progress = 0; // Reset waktu ke 0 setiap ganti item
+    progress = 0;
 
     if (serviceInfoContainer) {
       serviceInfoContainer.style.opacity = 0;
@@ -325,9 +313,8 @@ function initServicesAccordion() {
     }
   }
 
-  // Fungsi menyalakan loading
   function startAutoPlay() {
-    if (autoPlayTimer) clearInterval(autoPlayTimer); // Proteksi timer ganda
+    if (autoPlayTimer) clearInterval(autoPlayTimer);
 
     autoPlayTimer = setInterval(() => {
       progress += tick;
@@ -346,7 +333,6 @@ function initServicesAccordion() {
     }, tick);
   }
 
-  // Fungsi membekukan loading (Pause)
   function pauseAutoPlay() {
     if (autoPlayTimer) {
       clearInterval(autoPlayTimer);
@@ -354,40 +340,33 @@ function initServicesAccordion() {
     }
   }
 
-  // KUNCI SOLUSI: Pasang mata-mata khusus untuk area Service
   if (servicesSection) {
     const sectionObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          // loading HANYA jalan ketika section masuk layar monitor
           if (entry.isIntersecting) {
             startAutoPlay();
           } else {
-            // Otomatis PAUSE (membeku) jika user scroll menjauh
             pauseAutoPlay();
           }
         });
       },
       {
         root: null,
-        // Pemicu aktif saat minimal 15% dari total tinggi seksi Service sudah nampil di monitor
-        threshold: 0.85,
+        threshold: 0.15, // Cukup 15% masuk layar sudah nyala (lebih responsif)
       },
     );
 
     sectionObserver.observe(servicesSection);
   }
 
-  // Klik Manual
   accItems.forEach((item, index) => {
     item.addEventListener("click", () => {
       activateItem(index);
-      // Jika diklik manual, langsung paksa start ulang (asalkan sedang tertampil)
       startAutoPlay();
     });
   });
 
-  // Setelan Awal: Siapkan item pertama, tapi biarkan membeku sampai tertangkap radar monitor
   activateItem(0);
   pauseAutoPlay();
 }
@@ -399,7 +378,6 @@ function initClientsCarousel() {
   const container = document.getElementById("clientsMarquee");
   if (!container) return;
 
-  // 1. DATA MASTER LOGO
   const clientLogos = [
     {
       src: "assets/clients/Daya Adicipta Motora.png",
@@ -444,7 +422,6 @@ function initClientsCarousel() {
     { src: "assets/clients/Sicepat.png", alt: "Sicepat" },
   ];
 
-  // 2. BANGUN HTML SECARA OTOMATIS
   const track = document.createElement("div");
   track.className = "clients-marquee-track";
 
@@ -458,7 +435,6 @@ function initClientsCarousel() {
   container.innerHTML = "";
   container.appendChild(track);
 
-  // 3. MESIN ANIMASI & DRAG KURSOR (EXTENDED BOUNDARY)
   let isDown = false;
   let startX;
   let scrollLeft;
@@ -485,7 +461,6 @@ function initClientsCarousel() {
 
   reqId = requestAnimationFrame(autoScroll);
 
-  // Mousedown pada Logo
   container.addEventListener("mousedown", (e) => {
     isDown = true;
     if (clientsSection) clientsSection.classList.add("is-dragging");
@@ -495,7 +470,6 @@ function initClientsCarousel() {
     cancelAnimationFrame(reqId);
   });
 
-  // Sensor lepas & keluar dipasang pada area abu-abu (Section Utama)
   if (clientsSection) {
     clientsSection.addEventListener("mouseup", () => {
       if (!isDown) return;
@@ -531,7 +505,6 @@ function initClientsCarousel() {
     });
   }
 }
-
 // ==========================================
 // MODUL 6: NAVBAR, SCROLL TOP & HAMBURGER (OPTIMIZED)
 // ==========================================
@@ -553,7 +526,6 @@ function initNavigation() {
 
     if (!ticking) {
       window.requestAnimationFrame(() => {
-        // A. Warna Navbar
         if (currentScroll > colorChangeThreshold) {
           if (navbar) navbar.classList.add("scrolled");
           if (navLogoImg) navLogoImg.src = logoDark;
@@ -562,7 +534,6 @@ function initNavigation() {
           if (navLogoImg) navLogoImg.src = logoLight;
         }
 
-        // B. Smart Hide Navbar
         if (currentScroll > lastScrollTop && currentScroll > windowHeight) {
           if (navbar && !navbar.classList.contains("active")) {
             navbar.classList.add("hidden");
@@ -574,7 +545,6 @@ function initNavigation() {
           if (navbar) navbar.classList.remove("hidden");
         }
 
-        // C. Scroll Top Button
         if (scrollTopBtn) {
           if (currentScroll > windowHeight / 2)
             scrollTopBtn.classList.add("visible");
@@ -615,20 +585,17 @@ function initDropdowns() {
   dropdownLinks.forEach((link) => {
     const anchor = link.querySelector("a");
 
-    // 1. Event saat menu diklik
     anchor.addEventListener("click", (e) => {
       e.preventDefault();
 
       const isAlreadyActive = link.classList.contains("is-clicked");
 
-      // Reset semua menu lain terlebih dahulu
       dropdownLinks.forEach((otherLink) => {
         otherLink.classList.remove("is-clicked");
         const otherAnchor = otherLink.querySelector("a");
         if (otherAnchor) otherAnchor.blur();
       });
 
-      // Buka/Tutup menu yang sedang diklik
       if (!isAlreadyActive) {
         link.classList.add("is-clicked");
       } else {
@@ -637,7 +604,6 @@ function initDropdowns() {
       }
     });
 
-    // 2. Event saat kursor hover ke menu baru
     link.addEventListener("mouseenter", () => {
       dropdownLinks.forEach((otherLink) => {
         if (otherLink !== link) {
@@ -649,7 +615,6 @@ function initDropdowns() {
     });
   });
 
-  // 3. Klik di sembarang tempat (luar navbar) akan menutup semua dropdown
   document.addEventListener("click", (e) => {
     const isClickInsideNavbar =
       e.target.closest(".main-nav-links") ||
@@ -664,36 +629,29 @@ function initDropdowns() {
     }
   });
 
-  // 4. KUNCI SOLUSI: Tutup dropdown otomatis saat layar di-scroll
   window.addEventListener(
     "scroll",
     () => {
       dropdownLinks.forEach((link) => {
-        // Cek apakah ada dropdown yang sedang terbuka karena diklik
         if (
           link.classList.contains("is-clicked") ||
           link.matches(":focus-within")
         ) {
           link.classList.remove("is-clicked");
           const anchor = link.querySelector("a");
-          if (anchor) anchor.blur(); // Bersihkan sisa fokus agar animasi panah & garis mereset
+          if (anchor) anchor.blur();
         }
       });
     },
     { passive: true },
-  ); // passive: true memastikan scroll tetap mulus tanpa terbebani JS
+  );
 
-  // ========================================================
-  // 5. TAMBAHAN BARU: Tutup pakai tombol ESC (Anti CSS Hover)
-  // ========================================================
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
-      // 5a. KUNCI SOLUSI: Buang fokus dari elemen APA PUN yang sedang disorot (Home, Contact, dll)
       if (document.activeElement) {
         document.activeElement.blur();
       }
 
-      // 5b. Tutup semua dropdown dan paksa CSS :hover takluk
       dropdownLinks.forEach((link) => {
         link.classList.remove("is-clicked");
 
@@ -701,7 +659,6 @@ function initDropdowns() {
         if (menu) {
           menu.style.display = "none";
 
-          // Kembalikan style normal saat mouse bergerak menjauh
           link.addEventListener(
             "mouseleave",
             () => {
@@ -710,7 +667,6 @@ function initDropdowns() {
             { once: true },
           );
 
-          // Kembalikan style normal saat user lanjut menekan Tab ke menu lain
           link.addEventListener(
             "focusout",
             () => {
@@ -727,23 +683,31 @@ function initDropdowns() {
 }
 
 // ==========================================
-// MODUL 8 : SMOOTH SCROLL KHUSUS NAVBAR
-// Mencegah konflik dengan animasi Hero Section
+// MODUL 8 : GLOBAL ANCHOR SCROLL MANAGER
+// Mengatasi efek lompat & membersihkan URL dari "#"
 // ==========================================
 function initSmoothScroll() {
-  document.querySelectorAll('.navbar a[href^="#"]').forEach((anchor) => {
+  // Tangkap SEMUA link yang berawalan "#" di seluruh halaman
+  document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener("click", function (e) {
       const targetId = this.getAttribute("href");
 
-      // Abaikan jika href-nya "#" atau "#0" (seperti pada tombol dropdown)
-      if (targetId === "#" || targetId === "#0") return;
+      // 1. KUNCI SOLUSI: Jika href-nya "#0", batalkan klik sepenuhnya agar URL bersih, lalu stop proses.
+      if (targetId === "#0") {
+        e.preventDefault();
+        return;
+      }
 
+      // 2. Abaikan tombol khusus Hero karena sudah ditangani oleh Modul 1
+      if (this.classList.contains("btn-hero")) return;
+
+      // 3. Untuk link anchor biasa (misal: href="#contact")
       const targetElement = document.querySelector(targetId);
 
       if (targetElement) {
-        e.preventDefault(); // Matikan efek lompat instan bawaan HTML
+        e.preventDefault(); // Mencegah browser melompat & mencegah "#" masuk ke URL
 
-        // Scroll mulus khusus saat klik menu navbar
+        // Lakukan scroll mulus ke target
         targetElement.scrollIntoView({
           behavior: "smooth",
         });
