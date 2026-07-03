@@ -123,7 +123,7 @@ function initFadeUp() {
 
   const observerOptions = {
     root: null,
-    rootMargin: "0px 0px -60px 0px",
+    rootMargin: "0px 0px -5% 0px",
     threshold: 0,
   };
 
@@ -512,7 +512,10 @@ function initNavigation() {
   const navbar = document.querySelector(".navbar");
   const navLogoImg = document.querySelector(".logo img");
   const scrollTopBtn = document.getElementById("scrollTopBtn");
+
+  // Variabel untuk Hamburger Menu
   const hamburger = document.querySelector(".hamburger");
+  const navLinks = document.querySelector(".main-nav-links");
 
   const logoLight = "assets/logo/Main-Logo-Block.png";
   const logoDark = "assets/logo/Main.png";
@@ -520,12 +523,14 @@ function initNavigation() {
   const colorChangeThreshold = 100;
   let ticking = false;
 
+  // --- A. LOGIKA SCROLL NAVBAR & SCROLL-TOP ---
   window.addEventListener("scroll", () => {
     let currentScroll = window.scrollY || document.documentElement.scrollTop;
     let windowHeight = window.innerHeight;
 
     if (!ticking) {
       window.requestAnimationFrame(() => {
+        // Ganti warna Navbar dan Logo
         if (currentScroll > colorChangeThreshold) {
           if (navbar) navbar.classList.add("scrolled");
           if (navLogoImg) navLogoImg.src = logoDark;
@@ -534,8 +539,9 @@ function initNavigation() {
           if (navLogoImg) navLogoImg.src = logoLight;
         }
 
+        // Sembunyikan Navbar saat scroll ke bawah, munculkan saat scroll ke atas
         if (currentScroll > lastScrollTop && currentScroll > windowHeight) {
-          if (navbar && !navbar.classList.contains("active")) {
+          if (navbar && !navLinks.classList.contains("active")) {
             navbar.classList.add("hidden");
           }
         } else if (
@@ -545,6 +551,7 @@ function initNavigation() {
           if (navbar) navbar.classList.remove("hidden");
         }
 
+        // Tombol Scroll to Top
         if (scrollTopBtn) {
           if (currentScroll > windowHeight / 2)
             scrollTopBtn.classList.add("visible");
@@ -564,10 +571,44 @@ function initNavigation() {
     );
   }
 
-  if (hamburger && navbar) {
+  // --- B. LOGIKA HAMBURGER MENU (UPDATE TERBARU) ---
+  if (hamburger && navLinks) {
     hamburger.addEventListener("click", () => {
-      navbar.classList.toggle("active");
-      hamburger.classList.toggle("is-active");
+      // Toggle class 'active' pada hamburger dan menu links
+      hamburger.classList.toggle("active");
+      navLinks.classList.toggle("active");
+
+      // Mencegah background scroll saat menu terbuka di HP
+      if (navLinks.classList.contains("active")) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "auto";
+      }
+    });
+
+    // Auto-close: Menutup menu jika user mengklik salah satu link
+    const links = navLinks.querySelectorAll("a");
+    links.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        // 1. Cek apakah link ini adalah "Induk" dari dropdown
+        const isDropdownParent =
+          link.parentElement.classList.contains("dropdown-link");
+
+        // 2. Cek apakah link ini berada di DALAM submenu dropdown
+        const isInsideDropdown = link.closest(".dropdown-menu");
+
+        // JIKA yang diklik adalah Induk Dropdown, HENTIKAN fungsi (jangan tutup hamburger)
+        // Biarkan Modul 7 yang mengambil alih untuk membuka submenu
+        if (isDropdownParent && !isInsideDropdown) {
+          return;
+        }
+
+        // SELAIN ITU (jika yang diklik link biasa, atau link anak di dalam submenu),
+        // Tutup menu hamburger dengan rapi
+        hamburger.classList.remove("active");
+        navLinks.classList.remove("active");
+        document.body.style.overflow = "auto";
+      });
     });
   }
 

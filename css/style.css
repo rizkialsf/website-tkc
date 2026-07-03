@@ -772,7 +772,7 @@ h6 {
 }
 
 .industries-description {
-  font-size: 1.25rem; /* 20px */
+  font-size: 1.125rem; /* 20px */
   text-align: justify;
   margin-top: 1.25rem; /* 20px */
   margin-bottom: 9.375rem; /* 150px */
@@ -976,10 +976,6 @@ h6 {
   font-size: 3rem; /* 48px */
 }
 
-.services-subtitle {
-  font-size: 1.5rem; /* 24px */
-}
-
 .services-accordion {
   display: flex;
   gap: 0.9375rem; /* 15px */
@@ -1115,14 +1111,6 @@ h6 {
   flex-direction: column;
 }
 
-.projects-title {
-  font-size: 2.5rem; /* 40px */
-}
-
-.projects-subtitle {
-  font-size: 1.5rem; /* 24px */
-}
-
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1187,13 +1175,18 @@ h6 {
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 0 0 1.25rem 1.875rem; /* 0 0 20px 30px */
+  padding: 0 1.25rem 1.25rem 1.25rem; /* 0 20px 30px 20px */
   z-index: 2;
   opacity: 0;
   transform: translateY(8px);
   transition:
     opacity 0.3s ease,
     transform 0.3s ease;
+}
+
+.project-text-description {
+  font-size: 0.875rem; /* 14px */
+  font-weight: 400;
 }
 
 .project-card:hover .project-image-text {
@@ -1236,6 +1229,10 @@ h6 {
     inset 0px -18px 20px -15px rgba(0, 0, 0, 0.2);
 
   padding: 3.125rem 0; /* 50px 0 */
+}
+
+.clients-title {
+  font-size: 2rem; /* 32px */
 }
 
 .clients-section.is-dragging,
@@ -1310,14 +1307,6 @@ h6 {
   align-items: center;
 }
 
-.coverage-title {
-  font-size: 2.5rem; /* 40px */
-}
-
-.coverage-subtitle {
-  font-size: 1.5rem; /* 24px */
-}
-
 .coverage-map {
   display: flex;
   justify-content: center;
@@ -1350,14 +1339,6 @@ h6 {
   justify-content: center;
   align-items: stretch;
   gap: 6.25rem; /* 100px */
-}
-
-.contact-title {
-  font-size: 2.5rem; /* 40px */
-}
-
-.contact-subtitle {
-  font-size: 1.5rem; /* 24px */
 }
 
 .contact-left {
@@ -1636,4 +1617,225 @@ h6 {
 
 .legal-links a:hover {
   color: var(--white-text-color);
+}
+/* =========================================
+   D. MEDIA QUERIES (RESPONSIVE DESIGN)
+========================================= */
+
+/* --- 1. LAYAR LAPTOP STANDAR (Max 1440px) --- 
+   Menangani resolusi 1366x768 dan 1280x720 */
+@media (max-width: 1440px) {
+  html {
+    font-size: 70%;
+  }
+
+  .section-padding {
+    padding: 3rem 10%;
+  }
+
+  /* .divider-wrapper {
+    padding: 0 6%;
+  }
+
+  .hero-content {
+    padding-top: 4rem;
+  }
+
+  .introduce-section h2 {
+    padding: 3rem 0 8rem 0;
+  }
+
+  .industries-content,
+  .services-content,
+  .contact-content {
+    gap: 3rem;
+  } */
+}
+
+/* --- 2. LAYAR TABLET & LAYAR KOTAK (Max 992px) --- */
+@media (max-width: 992px) {
+  /* 1. Memicu Hamburger Menu */
+  .hamburger {
+    display: flex;
+  }
+
+  .navbar {
+    padding: 0.9375rem 5%;
+  }
+
+  /* 2. Mengubah Menu menjadi Dropdown Full-Width */
+  .main-nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+
+    background-color: var(--primary-color);
+    padding: 1.5rem 5% 2rem;
+    border-radius: 0 0 1.5rem 1.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+
+    /* PASTIKAN TIDAK ADA display: none; DI SINI */
+    display: block;
+
+    /* State Sembunyi dengan Animasi */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-1rem);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  /* State Aktif saat Hamburger diklik */
+  .main-nav-links.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  /* Susunan list menu menjadi vertikal */
+  .main-nav-links ul {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  /* Memastikan teks terbaca di background terang */
+  .main-nav-links ul li a {
+    color: var(--secondary-text-color);
+    font-weight: 600;
+    font-size: 1.125rem;
+  }
+
+  /* Sembunyikan side nav (tombol bahasa dll) agar menu rapi */
+  .side-nav-links {
+    display: none;
+  }
+
+  /* 3. Animasi Ikon Hamburger menjadi "X" */
+  .hamburger.active span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+    background-color: var(--secondary-text-color);
+  }
+
+  .hamburger.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+    background-color: var(--secondary-text-color);
+  }
+
+  .industries-content,
+  .services-content,
+  .contact-content {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .industries-left,
+  .industries-right,
+  .services-left,
+  .services-right,
+  .contact-left,
+  .contact-right {
+    max-width: 100%;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .footer-brand {
+    max-width: 100%;
+  }
+
+  .footer-links-wrapper {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+}
+
+/* --- 3. TABLET PORTRAIT & MOBILE BESAR (Max 768px) --- */
+@media (max-width: 768px) {
+  html {
+    font-size: 81.25%;
+  }
+
+  .section-padding {
+    padding: 3rem 5%;
+  }
+
+  .divider-wrapper {
+    padding: 0 5%;
+  }
+
+  h1 {
+    font-size: 4rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .services-accordion {
+    height: 25rem;
+  }
+}
+
+/* --- 4. SMARTPHONE KECIL (Max 480px) --- */
+@media (max-width: 480px) {
+  html {
+    font-size: 75%;
+  }
+
+  .introduce-section h2 {
+    font-size: 2.5rem;
+    padding: 2rem 0 6rem 0;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(1, 1fr);
+    transform: translateY(-2rem);
+  }
+
+  .btn-hero,
+  .btn-intermezzo,
+  .btn-services,
+  .btn-contact {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .footer-links-wrapper {
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .footer-col {
+    width: 100%;
+  }
+
+  .copyright-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
 }
