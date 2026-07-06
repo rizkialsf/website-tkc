@@ -505,6 +505,7 @@ function initClientsCarousel() {
     });
   }
 }
+
 // ==========================================
 // MODUL 6: NAVBAR, SCROLL TOP & HAMBURGER (OPTIMIZED)
 // ==========================================
@@ -574,8 +575,9 @@ function initNavigation() {
   // --- B. LOGIKA HAMBURGER MENU (UPDATE TERBARU) ---
   if (hamburger && navLinks) {
     hamburger.addEventListener("click", () => {
-      // Toggle class 'active' pada hamburger dan menu links
+      // Toggle class 'active'
       hamburger.classList.toggle("active");
+      if (navbar) navbar.classList.toggle("active");
       navLinks.classList.toggle("active");
 
       // Mencegah background scroll saat menu terbuka di HP
@@ -591,21 +593,21 @@ function initNavigation() {
     links.forEach((link) => {
       link.addEventListener("click", (e) => {
         // 1. Cek apakah link ini adalah "Induk" dari dropdown
+        const parentLi = link.parentElement;
         const isDropdownParent =
-          link.parentElement.classList.contains("dropdown-link");
+          parentLi && parentLi.classList.contains("dropdown-link");
 
         // 2. Cek apakah link ini berada di DALAM submenu dropdown
         const isInsideDropdown = link.closest(".dropdown-menu");
 
         // JIKA yang diklik adalah Induk Dropdown, HENTIKAN fungsi (jangan tutup hamburger)
-        // Biarkan Modul 7 yang mengambil alih untuk membuka submenu
         if (isDropdownParent && !isInsideDropdown) {
           return;
         }
 
-        // SELAIN ITU (jika yang diklik link biasa, atau link anak di dalam submenu),
-        // Tutup menu hamburger dengan rapi
+        // SELAIN ITU, tutup menu hamburger dengan rapi
         hamburger.classList.remove("active");
+        if (navbar) navbar.classList.remove("active");
         navLinks.classList.remove("active");
         document.body.style.overflow = "auto";
       });

@@ -1654,79 +1654,156 @@ h6 {
 
 /* --- 2. LAYAR TABLET & LAYAR KOTAK (Max 992px) --- */
 @media (max-width: 992px) {
-  /* 1. Memicu Hamburger Menu */
+  /* =======================================
+     A. MEROMBAK NAVBAR (MOBILE VIEW)
+  ======================================= */
   .hamburger {
     display: flex;
+    order: 1;
+  }
+  .logo {
+    order: 2;
   }
 
   .navbar {
     padding: 0.9375rem 5%;
   }
 
-  /* 2. Mengubah Menu menjadi Dropdown Full-Width */
+  /* Agar lengkungan bawah "Pil" hilang saat menu terbuka */
+  .navbar.active {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .navbar.scrolled.active {
+    border-radius: 0;
+  }
+
+  /* Menu Utama (Beradaptasi dengan Induknya) */
   .main-nav-links {
     position: absolute;
     top: 100%;
     left: 0;
     width: 100%;
 
-    background-color: var(--primary-color);
-    padding: 1.5rem 5% 2rem;
+    background-color: var(--secondary-color);
     border-radius: 0 0 1.5rem 1.5rem;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+    padding: 1.5rem 5% 2rem;
 
-    /* PASTIKAN TIDAK ADA display: none; DI SINI */
     display: block;
-
-    /* State Sembunyi dengan Animasi */
     opacity: 0;
     visibility: hidden;
     transform: translateY(-1rem);
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
 
-  /* State Aktif saat Hamburger diklik */
+  .navbar.scrolled .main-nav-links {
+    background-color: var(--primary-color);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+
   .main-nav-links.active {
     opacity: 1;
     visibility: visible;
     transform: translateY(0);
   }
 
-  /* Susunan list menu menjadi vertikal */
   .main-nav-links ul {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
 
-  /* Memastikan teks terbaca di background terang */
+  .main-nav-links ul li {
+    width: 100%;
+  }
+
   .main-nav-links ul li a {
-    color: var(--secondary-text-color);
+    color: var(--white-text-color);
     font-weight: 600;
     font-size: 1.125rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
   }
 
-  /* Sembunyikan side nav (tombol bahasa dll) agar menu rapi */
+  .navbar.scrolled .main-nav-links ul li a {
+    color: var(--secondary-text-color);
+  }
+
+  /* Dropdown Accordion (Indentasi) */
+  .dropdown-link:hover .dropdown-menu {
+    opacity: 0;
+    visibility: hidden;
+  }
+  .dropdown-link.is-clicked .dropdown-menu {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .dropdown-menu {
+    position: static;
+    display: none;
+    min-width: 100%;
+    padding: 0;
+    margin-top: 1rem;
+    background-color: transparent;
+    border: none;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+    transform: none;
+  }
+
+  .dropdown-menu ul {
+    gap: 0.5rem;
+  }
+
+  .dropdown-menu a {
+    padding: 0.5rem 0 0.5rem 1.5rem !important;
+    font-size: 1rem !important;
+    font-weight: 400 !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+    background-color: transparent !important;
+  }
+  .dropdown-menu a:hover {
+    color: var(--accent-color) !important;
+  }
+
+  .navbar.scrolled .dropdown-menu a {
+    color: var(--accent-text-color) !important;
+  }
+
   .side-nav-links {
     display: none;
   }
 
-  /* 3. Animasi Ikon Hamburger menjadi "X" */
+  /* Animasi Ikon Hamburger */
   .hamburger.active span:nth-child(1) {
     transform: translateY(9px) rotate(45deg);
-    background-color: var(--secondary-text-color);
+    background-color: var(--white-text-color);
   }
-
   .hamburger.active span:nth-child(2) {
     opacity: 0;
   }
-
   .hamburger.active span:nth-child(3) {
     transform: translateY(-9px) rotate(-45deg);
+    background-color: var(--white-text-color);
+  }
+
+  .navbar.scrolled .hamburger span {
+    background-color: var(--secondary-text-color);
+  }
+  .navbar.scrolled .hamburger.active span:nth-child(1),
+  .navbar.scrolled .hamburger.active span:nth-child(3) {
     background-color: var(--secondary-text-color);
   }
 
+  /* =======================================
+     B. SISA KODE LAYOUT BAWAAN (JANGAN DIHAPUS)
+  ======================================= */
   .industries-content,
   .services-content,
   .contact-content {
