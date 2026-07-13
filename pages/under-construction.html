@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Under Construction - Coming Soon</title>
+
+    <!-- Mengambil font Poppins yang sama dengan website utama -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      /* --- VARIABEL WARNA (Sesuai identitas website Anda) --- */
+      :root {
+        --secondary-color: #323232;
+        --accent-color: #3eb161;
+        --text-main: #ffffff;
+        --text-muted: #a0a0a0;
+      }
+
+      /* --- RESET & LAYOUT DASAR --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      body {
+        background-color: var(--secondary-color);
+        color: var(--text-main);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        text-align: center;
+        padding: 2rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* --- TOMBOL KEMBALI (Kiri Atas & Tengah) --- */
+      .back-arrow-top {
+        position: absolute;
+        top: 2rem;
+        left: 3rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-muted);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+      }
+
+      .back-arrow-top:hover {
+        color: var(--accent-color);
+        transform: translateX(-5px);
+      }
+
+      /* --- KONTEN UTAMA --- */
+      .content-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 600px;
+        z-index: 2;
+        animation: fadeUp 0.8s ease-out forwards;
+      }
+
+      .title-tag {
+        font-size: 0.875rem;
+        font-weight: 600;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: var(--accent-color);
+        margin-bottom: 1rem;
+      }
+
+      .main-title {
+        font-size: clamp(2.5rem, 5vw, 4rem);
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 1.25rem;
+        text-transform: uppercase;
+      }
+
+      .description {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: var(--text-muted);
+        margin-bottom: 2.5rem;
+      }
+
+      /* --- GAMBAR & ANIMASI FLOAT --- */
+      .construction-img {
+        max-width: 250px;
+        width: 100%;
+        height: auto;
+        margin-bottom: 2.5rem;
+        animation: float 4s ease-in-out infinite;
+        filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.3));
+      }
+
+      /* --- TOMBOL AKSI UTAMA --- */
+      .btn-back {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        background-color: var(--accent-color);
+        color: var(--text-main);
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 8px 20px rgba(62, 177, 97, 0.2);
+      }
+
+      .btn-back:hover {
+        background-color: #359d54;
+        transform: translateY(-3px);
+        box-shadow: 0 12px 25px rgba(62, 177, 97, 0.3);
+      }
+
+      /* --- KEYFRAMES (Animasi) --- */
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      @keyframes fadeUp {
+        0% {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* --- RESPONSIVE MOBILE --- */
+      @media (max-width: 768px) {
+        .back-arrow-top {
+          top: 1.5rem;
+          left: 1.5rem;
+        }
+        .construction-img {
+          max-width: 200px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Tombol Kembali (Sudut Kiri Atas) -->
+    <!-- Menggunakan / agar kembali ke root domain (halaman index.html) -->
+    <a href="/" class="back-arrow-top"> <span>&#8592;</span> Back to Home </a>
+
+    <div class="content-wrapper">
+      <!-- Tagline kecil di atas -->
+      <span class="title-tag">Coming Soon</span>
+
+      <!-- Judul Besar -->
+      <h1 class="main-title">Under<br />Construction</h1>
+
+      <!-- Deskripsi -->
+      <p class="description">
+        We are currently preparing something amazing and exciting for you. This
+        page will be ready very soon. Thank you for your patience!
+      </p>
+
+      <!-- Gambar (Pastikan path ini sesuai dengan lokasi gambar Anda) -->
+      <img
+        src="website/assets/under-construction.png"
+        alt="Page Under Construction"
+        class="construction-img"
+      />
+
+      <!-- Tombol Kembali (Tengah Bawah) -->
+      <a href="/" class="btn-back">Return to Homepage</a>
+    </div>
+  </body>
+</html>

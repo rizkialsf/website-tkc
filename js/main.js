@@ -18,7 +18,7 @@ function initScrollEffects() {
   let isAnimating = false;
   const scrollDuration = 1200;
 
-  // A. Hero Fade Effect
+  // A. Hero Fade Effect (Tetap jalan di mobile karena efek ini ringan dan keren)
   window.addEventListener("scroll", () => {
     if (!heroSection) return;
     const scrollPos = window.scrollY;
@@ -27,7 +27,7 @@ function initScrollEffects() {
     heroSection.style.opacity = Math.max(0, opacityValue);
   });
 
-  // B. Mesin Animasi Kustom
+  // B. Mesin Animasi Kustom (KHUSUS DESKTOP)
   function smoothScrollTo(targetPosition, duration) {
     const startPosition = window.scrollY;
     const distance = targetPosition - startPosition;
@@ -68,10 +68,13 @@ function initScrollEffects() {
       : window.innerHeight;
   }
 
-  // C. Wheel Event Manager (DIBUAT SEARAH / ONE-WAY)
+  // C. Wheel Event Manager (MATIKAN MAGNETIC SCROLL DI MOBILE)
   window.addEventListener(
     "wheel",
     (e) => {
+      // Jika layar adalah Tablet/HP, hentikan fungsi ini (kembali ke scroll normal)
+      if (window.innerWidth <= 992) return;
+
       const currentScroll = window.scrollY;
       const targetDown = getTargetY();
 
@@ -94,6 +97,13 @@ function initScrollEffects() {
   const scrollDownBtn = document.querySelector(".scroll-down-container");
   if (scrollDownBtn) {
     scrollDownBtn.addEventListener("click", () => {
+      // Jika di Mobile, gunakan smooth scroll bawaan browser
+      if (window.innerWidth <= 992) {
+        if (mainContent) mainContent.scrollIntoView({ behavior: "smooth" });
+        return;
+      }
+
+      // Jika di Desktop, pakai mesin JS
       if (!isAnimating) {
         isAnimating = true;
         smoothScrollTo(getTargetY(), scrollDuration);
@@ -101,12 +111,19 @@ function initScrollEffects() {
     });
   }
 
-  // E. Button Hero Section (Ditangani khusus oleh mesin custom)
+  // E. Button Hero Section
   const btnHero = document.querySelector(".btn-hero");
   if (btnHero) {
     btnHero.addEventListener("click", (e) => {
       e.preventDefault();
 
+      // Jika di Mobile, gunakan smooth scroll bawaan browser
+      if (window.innerWidth <= 992) {
+        if (mainContent) mainContent.scrollIntoView({ behavior: "smooth" });
+        return;
+      }
+
+      // Jika di Desktop, pakai mesin JS
       if (!isAnimating) {
         isAnimating = true;
         smoothScrollTo(getTargetY(), scrollDuration);
@@ -123,7 +140,7 @@ function initFadeUp() {
 
   const observerOptions = {
     root: null,
-    rootMargin: "0px 0px -5% 0px",
+    rootMargin: "0px 0px 0px 0px",
     threshold: 0,
   };
 
@@ -145,33 +162,33 @@ function initFadeUp() {
 function initIndustriesCarousel() {
   const industriesData = [
     {
-      icon: "assets/industries/Icon/education.png",
+      icon: "website/assets/industries/Icon/education.png",
       alt: "Education",
-      image: "assets/industries/university.webp",
+      image: "website/assets/industries/university.webp",
       title: "Education",
     },
     {
-      icon: "assets/industries/Icon/healthcare.png",
+      icon: "website/assets/industries/Icon/healthcare.png",
       alt: "Healthcare",
-      image: "assets/industries/hospital.webp",
+      image: "website/assets/industries/hospital.webp",
       title: "Healthcare",
     },
     {
-      icon: "assets/industries/Icon/corporate.png",
+      icon: "website/assets/industries/Icon/corporate.png",
       alt: "Corporate",
-      image: "assets/industries/office.webp",
+      image: "website/assets/industries/office.webp",
       title: "Corporate",
     },
     {
-      icon: "assets/industries/Icon/manufacture.png",
+      icon: "website/assets/industries/Icon/manufacture.png",
       alt: "Manufacturing",
-      image: "assets/industries/manufacture.webp",
+      image: "website/assets/industries/manufacture.webp",
       title: "Manufacture",
     },
     {
-      icon: "assets/industries/Icon/retail.png",
+      icon: "website/assets/industries/Icon/retail.png",
       alt: "Retail",
-      image: "assets/industries/retail.webp",
+      image: "website/assets/industries/retail.webp",
       title: "Retail",
     },
   ];
@@ -380,46 +397,49 @@ function initClientsCarousel() {
 
   const clientLogos = [
     {
-      src: "assets/clients/Daya Adicipta Motora.png",
+      src: "website/assets/clients/Daya Adicipta Motora.png",
       alt: "Daya Adicipta Motora",
     },
-    { src: "assets/clients/Honda.png", alt: "Honda" },
-    { src: "assets/clients/Hyundai.png", alt: "Hyundai" },
-    { src: "assets/clients/Lexus.png", alt: "Lexus" },
-    { src: "assets/clients/Mercedes-Benz.png", alt: "Mercedes-Benz" },
-    { src: "assets/clients/APL.png", alt: "Agung Podomoro Land" },
-    { src: "assets/clients/Grab.png", alt: "Grab" },
-    { src: "assets/clients/Jiva.png", alt: "Jiva" },
-    { src: "assets/clients/Kalla.png", alt: "Kalla" },
-    { src: "assets/clients/Mandiri.png", alt: "Mandiri" },
-    { src: "assets/clients/Pertamina.png", alt: "Pertamina" },
-    { src: "assets/clients/Sinarmas.png", alt: "Sinarmas" },
-    { src: "assets/clients/Arnott.png", alt: "Arnott" },
-    { src: "assets/clients/Cimory.png", alt: "Cimory" },
-    { src: "assets/clients/Mayora.png", alt: "Mayora" },
-    { src: "assets/clients/Mowilex.png", alt: "Mowilex" },
-    { src: "assets/clients/Nabati.png", alt: "Nabati" },
-    { src: "assets/clients/Sari Roti.png", alt: "Sari Roti" },
-    { src: "assets/clients/Eiger.png", alt: "Eiger" },
-    { src: "assets/clients/Grand Lucky.png", alt: "Grand Lucky" },
-    { src: "assets/clients/Hero.png", alt: "Hero" },
-    { src: "assets/clients/Holland Bakery.png", alt: "Holland Bakery" },
-    { src: "assets/clients/Indogrosir.png", alt: "Indogrosir" },
-    { src: "assets/clients/Kopi Kenangan.png", alt: "Kopi Kenangan" },
-    { src: "assets/clients/Lotte Mart.png", alt: "Lotte Mart" },
-    { src: "assets/clients/Mitra 10.png", alt: "Mitra 10" },
-    { src: "assets/clients/Superindo.png", alt: "Superindo" },
-    { src: "assets/clients/Eka Hospital.png", alt: "Eka Hospital" },
-    { src: "assets/clients/RS Griya Husada.png", alt: "RS Griya Husada" },
-    { src: "assets/clients/Sequislife.png", alt: "Sequislife" },
-    { src: "assets/clients/Watsons.png", alt: "Watsons" },
-    { src: "assets/clients/Ipeka Sekolah.png", alt: "Ipeka Sekolah" },
-    { src: "assets/clients/JW Mariott.png", alt: "JW Mariott" },
-    { src: "assets/clients/Lippo Plaza.png", alt: "Lippo Plaza" },
-    { src: "assets/clients/Swiss Belhotel.png", alt: "Swiss Belhotel" },
-    { src: "assets/clients/The Park.png", alt: "The Park" },
-    { src: "assets/clients/Trans Studio.png", alt: "Trans Studio" },
-    { src: "assets/clients/Sicepat.png", alt: "Sicepat" },
+    { src: "website/assets/clients/Honda.png", alt: "Honda" },
+    { src: "website/assets/clients/Hyundai.png", alt: "Hyundai" },
+    { src: "website/assets/clients/Lexus.png", alt: "Lexus" },
+    { src: "website/assets/clients/Mercedes-Benz.png", alt: "Mercedes-Benz" },
+    { src: "website/assets/clients/APL.png", alt: "Agung Podomoro Land" },
+    { src: "website/assets/clients/Grab.png", alt: "Grab" },
+    { src: "website/assets/clients/Jiva.png", alt: "Jiva" },
+    { src: "website/assets/clients/Kalla.png", alt: "Kalla" },
+    { src: "website/assets/clients/Mandiri.png", alt: "Mandiri" },
+    { src: "website/assets/clients/Pertamina.png", alt: "Pertamina" },
+    { src: "website/assets/clients/Sinarmas.png", alt: "Sinarmas" },
+    { src: "website/assets/clients/Arnott.png", alt: "Arnott" },
+    { src: "website/assets/clients/Cimory.png", alt: "Cimory" },
+    { src: "website/assets/clients/Mayora.png", alt: "Mayora" },
+    { src: "website/assets/clients/Mowilex.png", alt: "Mowilex" },
+    { src: "website/assets/clients/Nabati.png", alt: "Nabati" },
+    { src: "website/assets/clients/Sari Roti.png", alt: "Sari Roti" },
+    { src: "website/assets/clients/Eiger.png", alt: "Eiger" },
+    { src: "website/assets/clients/Grand Lucky.png", alt: "Grand Lucky" },
+    { src: "website/assets/clients/Hero.png", alt: "Hero" },
+    { src: "website/assets/clients/Holland Bakery.png", alt: "Holland Bakery" },
+    { src: "website/assets/clients/Indogrosir.png", alt: "Indogrosir" },
+    { src: "website/assets/clients/Kopi Kenangan.png", alt: "Kopi Kenangan" },
+    { src: "website/assets/clients/Lotte Mart.png", alt: "Lotte Mart" },
+    { src: "website/assets/clients/Mitra 10.png", alt: "Mitra 10" },
+    { src: "website/assets/clients/Superindo.png", alt: "Superindo" },
+    { src: "website/assets/clients/Eka Hospital.png", alt: "Eka Hospital" },
+    {
+      src: "website/assets/clients/RS Griya Husada.png",
+      alt: "RS Griya Husada",
+    },
+    { src: "website/assets/clients/Sequislife.png", alt: "Sequislife" },
+    { src: "website/assets/clients/Watsons.png", alt: "Watsons" },
+    { src: "website/assets/clients/Ipeka Sekolah.png", alt: "Ipeka Sekolah" },
+    { src: "website/assets/clients/JW Mariott.png", alt: "JW Mariott" },
+    { src: "website/assets/clients/Lippo Plaza.png", alt: "Lippo Plaza" },
+    { src: "website/assets/clients/Swiss Belhotel.png", alt: "Swiss Belhotel" },
+    { src: "website/assets/clients/The Park.png", alt: "The Park" },
+    { src: "website/assets/clients/Trans Studio.png", alt: "Trans Studio" },
+    { src: "website/assets/clients/Sicepat.png", alt: "Sicepat" },
   ];
 
   const track = document.createElement("div");
@@ -444,17 +464,24 @@ function initClientsCarousel() {
   let lastTime = 0;
   const pixelsPerSecond = 45;
 
+  // RAHASIA FIX: Penyimpan angka desimal (Accumulator)
+  let exactScrollLeft = 0;
+
   const autoScroll = (timestamp) => {
     if (!lastTime) lastTime = timestamp;
     const deltaTime = timestamp - lastTime;
     lastTime = timestamp;
 
     if (!isDown) {
-      container.scrollLeft += (pixelsPerSecond * deltaTime) / 1000;
+      // Tabung angkanya di variabel agar desimal tidak dibuang browser
+      exactScrollLeft += (pixelsPerSecond * deltaTime) / 1000;
 
-      if (container.scrollLeft >= track.scrollWidth / 2) {
-        container.scrollLeft -= track.scrollWidth / 2;
+      if (exactScrollLeft >= track.scrollWidth / 2) {
+        exactScrollLeft -= track.scrollWidth / 2;
       }
+
+      // Terapkan paksa ke DOM
+      container.scrollLeft = exactScrollLeft;
     }
     reqId = requestAnimationFrame(autoScroll);
   };
@@ -467,6 +494,8 @@ function initClientsCarousel() {
 
     startX = e.pageX - container.offsetLeft;
     scrollLeft = container.scrollLeft;
+
+    exactScrollLeft = container.scrollLeft; // Sinkronisasi variabel
     cancelAnimationFrame(reqId);
   });
 
@@ -475,6 +504,10 @@ function initClientsCarousel() {
       if (!isDown) return;
       isDown = false;
       clientsSection.classList.remove("is-dragging");
+
+      // Reset waktu dan variabel setelah di-drag agar tidak melompat kaget
+      exactScrollLeft = container.scrollLeft;
+      lastTime = performance.now();
       reqId = requestAnimationFrame(autoScroll);
     });
 
@@ -482,6 +515,10 @@ function initClientsCarousel() {
       if (!isDown) return;
       isDown = false;
       clientsSection.classList.remove("is-dragging");
+
+      // Reset waktu dan variabel setelah mouse keluar
+      exactScrollLeft = container.scrollLeft;
+      lastTime = performance.now();
       reqId = requestAnimationFrame(autoScroll);
     });
 
@@ -502,6 +539,8 @@ function initClientsCarousel() {
         startX = x;
         scrollLeft = track.scrollWidth / 2;
       }
+
+      exactScrollLeft = container.scrollLeft; // Pastikan selalu sinkron saat digeser tangan
     });
   }
 }
@@ -518,8 +557,8 @@ function initNavigation() {
   const hamburger = document.querySelector(".hamburger");
   const navLinks = document.querySelector(".main-nav-links");
 
-  const logoLight = "assets/logo/Main-Logo-Block.png";
-  const logoDark = "assets/logo/Main.png";
+  const logoLight = "website/assets/logo/Main-Logo-Block.png";
+  const logoDark = "website/assets/logo/Main.png";
   let lastScrollTop = 0;
   const colorChangeThreshold = 100;
   let ticking = false;
@@ -614,6 +653,20 @@ function initNavigation() {
     });
   }
 
+  document.addEventListener("click", (e) => {
+    // Jika menu sedang terbuka...
+    if (navLinks && navLinks.classList.contains("active")) {
+      // ...dan yang di-klik BUKAN bagian dari navbar atau isinya
+      if (!e.target.closest(".navbar")) {
+        // Maka tutup menu
+        hamburger.classList.remove("active");
+        if (navbar) navbar.classList.remove("active");
+        navLinks.classList.remove("active");
+        document.body.style.overflow = "auto"; // Lepaskan kunci scroll background
+      }
+    }
+  });
+
   window.dispatchEvent(new Event("scroll"));
 }
 
@@ -633,93 +686,37 @@ function initDropdowns() {
 
       const isAlreadyActive = link.classList.contains("is-clicked");
 
+      // 1. Tutup semua dropdown lain terlebih dahulu
       dropdownLinks.forEach((otherLink) => {
         otherLink.classList.remove("is-clicked");
-        const otherAnchor = otherLink.querySelector("a");
-        if (otherAnchor) otherAnchor.blur();
       });
 
+      // 2. Jika menu ini belum aktif, maka buka
       if (!isAlreadyActive) {
         link.classList.add("is-clicked");
-      } else {
-        link.classList.remove("is-clicked");
-        anchor.blur();
       }
-    });
-
-    link.addEventListener("mouseenter", () => {
-      dropdownLinks.forEach((otherLink) => {
-        if (otherLink !== link) {
-          otherLink.classList.remove("is-clicked");
-          const otherAnchor = otherLink.querySelector("a");
-          if (otherAnchor) otherAnchor.blur();
-        }
-      });
     });
   });
 
+  // Menutup dropdown jika user mengklik area kosong di luar navigasi
   document.addEventListener("click", (e) => {
     const isClickInsideNavbar =
       e.target.closest(".main-nav-links") ||
-      e.target.closest(".side-nav-links");
+      e.target.closest(".side-nav-links") ||
+      e.target.closest(".hamburger"); // Tambahan proteksi pengaman
 
     if (!isClickInsideNavbar) {
       dropdownLinks.forEach((link) => {
         link.classList.remove("is-clicked");
-        const anchor = link.querySelector("a");
-        if (anchor) anchor.blur();
       });
     }
   });
 
-  window.addEventListener(
-    "scroll",
-    () => {
-      dropdownLinks.forEach((link) => {
-        if (
-          link.classList.contains("is-clicked") ||
-          link.matches(":focus-within")
-        ) {
-          link.classList.remove("is-clicked");
-          const anchor = link.querySelector("a");
-          if (anchor) anchor.blur();
-        }
-      });
-    },
-    { passive: true },
-  );
-
+  // Tombol Escape untuk aksesibilitas keyboard
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") {
-      if (document.activeElement) {
-        document.activeElement.blur();
-      }
-
       dropdownLinks.forEach((link) => {
         link.classList.remove("is-clicked");
-
-        const menu = link.querySelector(".dropdown-menu");
-        if (menu) {
-          menu.style.display = "none";
-
-          link.addEventListener(
-            "mouseleave",
-            () => {
-              menu.style.display = "";
-            },
-            { once: true },
-          );
-
-          link.addEventListener(
-            "focusout",
-            () => {
-              setTimeout(() => {
-                menu.style.display = "";
-              }, 100);
-            },
-            { once: true },
-          );
-        }
       });
     }
   });

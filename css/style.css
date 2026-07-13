@@ -1252,6 +1252,9 @@ h6 {
   cursor: grab;
   -ms-overflow-style: none;
   scrollbar-width: none;
+
+  transform: translateZ(0);
+  will-change: scroll-position;
 }
 
 .clients-marquee-container::-webkit-scrollbar {
@@ -1270,7 +1273,7 @@ h6 {
 .marquee-group {
   display: flex;
   align-items: center;
-  gap: 7.5rem; /* 120px */
+  gap: 10rem; /* 120px */
   padding-right: 7.5rem; /* 120px */
 }
 
@@ -1618,42 +1621,92 @@ h6 {
 .legal-links a:hover {
   color: var(--white-text-color);
 }
+
 /* =========================================
    D. MEDIA QUERIES (RESPONSIVE DESIGN)
 ========================================= */
 
-/* --- 1. LAYAR LAPTOP STANDAR (Max 1440px) --- 
-   Menangani resolusi 1366x768 dan 1280x720 */
+/* 1. 🖥️ Monitor Besar / iMac (Max 1440px) --- */
 @media (max-width: 1440px) {
   html {
-    font-size: 70%;
+    font-size: 80%;
   }
 
   .section-padding {
-    padding: 3rem 10%;
+    padding: 4rem 5%;
   }
 
-  /* .divider-wrapper {
-    padding: 0 6%;
+  .divider-wrapper {
+    padding: 0 5%;
   }
 
   .hero-content {
-    padding-top: 4rem;
+    padding-top: 2rem;
   }
 
   .introduce-section h2 {
-    padding: 3rem 0 8rem 0;
+    padding: 3rem 0 6rem 0;
+  }
+
+  .industries-content {
+    transition-delay: none;
   }
 
   .industries-content,
   .services-content,
   .contact-content {
     gap: 3rem;
-  } */
+  }
+
+  .carousel-prev-btn,
+  .carousel-next-btn {
+    flex-shrink: 0;
+  }
+
+  .footer-container {
+    gap: 3rem;
+  }
 }
 
-/* --- 2. LAYAR TABLET & LAYAR KOTAK (Max 992px) --- */
+/* --- 2. 💻 Laptop Standar / Desktop Sedang (Max 1200px) --- */
+@media (max-width: 1200px) {
+  html {
+    font-size: 65%;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 4rem;
+    column-gap: 2rem;
+    transform: translateY(-2.5rem);
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+
+  .carousel-icons {
+    gap: 1rem;
+    padding: 1rem 0;
+  }
+
+  .carousel-icon-box {
+    width: 6.5rem;
+    height: 6.5rem;
+  }
+
+  .footer-links-wrapper {
+    gap: 1.5rem;
+  }
+}
+
+/* --- 3. 📟 Tablet Landscape / Laptop Mini (Max 992px) --- */
 @media (max-width: 992px) {
+  html {
+    scroll-behavior: smooth;
+  }
+
   /* =======================================
      A. MEROMBAK NAVBAR (MOBILE VIEW)
   ======================================= */
@@ -1685,6 +1738,12 @@ h6 {
     left: 0;
     width: 100%;
 
+    max-height: calc(100vh - 5rem);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+
     background-color: var(--secondary-color);
     border-radius: 0 0 1.5rem 1.5rem;
     box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
@@ -1695,6 +1754,10 @@ h6 {
     visibility: hidden;
     transform: translateY(-1rem);
     transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .main-nav-links::-webkit-scrollbar {
+    display: none;
   }
 
   .navbar.scrolled .main-nav-links {
@@ -1728,6 +1791,11 @@ h6 {
     justify-content: space-between;
   }
 
+  .main-nav-links ul li a::after,
+  .dropdown-link.is-clicked > a::after {
+    display: none !important;
+  }
+
   .navbar.scrolled .main-nav-links ul li a {
     color: var(--secondary-text-color);
   }
@@ -1737,24 +1805,36 @@ h6 {
     opacity: 0;
     visibility: hidden;
   }
+
   .dropdown-link.is-clicked .dropdown-menu {
-    display: block;
-    opacity: 1;
-    visibility: visible;
+    max-height: 25rem; /* Cukup tinggi untuk memuat isi submenu secara penuh */
+    margin-top: 1rem;
+    opacity: 1 !important;
+    visibility: visible !important;
   }
 
   .dropdown-menu {
     position: static;
-    display: none;
+    /* display: none; -- DIHAPUS, diganti max-height agar bisa dianimasikan meluncur */
+    max-height: 0;
+    overflow: hidden;
+
     min-width: 100%;
     padding: 0;
-    margin-top: 1rem;
+    margin-top: 0; /* Reset margin awal saat tertutup */
+
     background-color: transparent;
     border: none;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
     box-shadow: none;
     transform: none;
+
+    /* Ini rahasianya: Membuat efek akordion meluncur mulus */
+    transition:
+      max-height 0.4s ease,
+      margin-top 0.4s ease,
+      opacity 0.4s ease;
   }
 
   .dropdown-menu ul {
@@ -1768,6 +1848,7 @@ h6 {
     color: rgba(255, 255, 255, 0.7) !important;
     background-color: transparent !important;
   }
+
   .dropdown-menu a:hover {
     color: var(--accent-color) !important;
   }
@@ -1785,9 +1866,11 @@ h6 {
     transform: translateY(9px) rotate(45deg);
     background-color: var(--white-text-color);
   }
+
   .hamburger.active span:nth-child(2) {
     opacity: 0;
   }
+
   .hamburger.active span:nth-child(3) {
     transform: translateY(-9px) rotate(-45deg);
     background-color: var(--white-text-color);
@@ -1796,56 +1879,104 @@ h6 {
   .navbar.scrolled .hamburger span {
     background-color: var(--secondary-text-color);
   }
+
   .navbar.scrolled .hamburger.active span:nth-child(1),
   .navbar.scrolled .hamburger.active span:nth-child(3) {
     background-color: var(--secondary-text-color);
   }
 
   /* =======================================
-     B. SISA KODE LAYOUT BAWAAN (JANGAN DIHAPUS)
+     B. SISA KODE LAYOUT BAWAAN (DISEMPURNAKAN)
   ======================================= */
-  .industries-content,
-  .services-content,
-  .contact-content {
-    flex-direction: column;
-    gap: 3rem;
+
+  /* 1. Skala Typography: Turunkan ukuran judul raksasa agar pas di Tablet */
+  h1 {
+    font-size: 3.5rem;
+  }
+  h2 {
+    font-size: 2.75rem;
+  }
+  .industries-title,
+  .services-title,
+  .projects-title,
+  .clients-title,
+  .coverage-title,
+  .contact-title {
+    font-size: 2.25rem;
   }
 
+  /* 2. Susun Ulang Kolom: Dari Kiri-Kanan (Row) menjadi Atas-Bawah (Column) */
+  .industries-content,
+  .services-content,
+  .contact-content,
+  .footer-container {
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  /* 3. Bebaskan Lebar: Paksa elemen mengambil 100% layar */
   .industries-left,
   .industries-right,
   .services-left,
   .services-right,
   .contact-left,
-  .contact-right {
-    max-width: 100%;
-  }
-
-  .stats-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
-  }
-
-  .projects-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 3rem;
-  }
-
-  .footer-container {
-    flex-direction: column;
-    gap: 3rem;
-  }
-
+  .contact-right,
   .footer-brand {
     max-width: 100%;
+    width: 100%;
   }
 
+  /* 4. Optimasi Industries (Area teks terlalu renggang di Desktop) */
+  .industries-left {
+    margin-top: 0;
+  }
+  .industries-description {
+    margin-bottom: 3.5rem; /* Kurangi jarak kosong bawah yang sebelumnya 150px */
+  }
+
+  /* 5. Optimasi Footer */
   .footer-links-wrapper {
     width: 100%;
     flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  /* =======================================
+     C. OPTIMASI PERFORMA & UX MOBILE (NO DELAY)
+  ======================================= */
+
+  /* 1. Matikan total delay pada semua elemen di mobile */
+  * {
+    transition-delay: 0s !important;
+    animation-delay: 0s !important;
+  }
+
+  /* 2. Percepat / Matikan efek Fade-Up saat di-scroll */
+  /* Di sini saya matikan transform-nya agar konten langsung siap dibaca, 
+     tapi kita sisakan opacity fade yang sangat cepat (0.3s) agar tidak terlalu kaku */
+  .fade-up {
+    transform: translateY(0) !important;
+    transition: opacity 0.3s ease-out !important;
+  }
+
+  /* Jika Anda ingin mematikan efek fade-up 100% secara total, 
+     aktifkan 3 baris di bawah ini dan hapus kode .fade-up di atas: */
+  /* .fade-up {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  } */
+
+  /* 3. Percepat transisi fungsional (misal: tombol hover) */
+  .btn-hero,
+  .btn-intermezzo,
+  .btn-services,
+  .btn-contact {
+    transition-duration: 0.2s !important; /* Dari 0.3s ke 0.2s (Lebih responsif saat di-tap) */
   }
 }
 
-/* --- 3. TABLET PORTRAIT & MOBILE BESAR (Max 768px) --- */
+/* --- 4. 📱 Tablet Portrait / iPad Tegak (Max 768px) --- */
 @media (max-width: 768px) {
   html {
     font-size: 81.25%;
@@ -1876,7 +2007,7 @@ h6 {
   }
 }
 
-/* --- 4. SMARTPHONE KECIL (Max 480px) --- */
+/* --- 5. 📲 Ponsel Pintar / Mobile (Max 480px) --- */
 @media (max-width: 480px) {
   html {
     font-size: 75%;
